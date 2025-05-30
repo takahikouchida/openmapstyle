@@ -2265,12 +2265,6 @@
     {
       "id": "s-gsi-都道府県所在地",
       "type": "symbol",
-      "metadata": {
-        "layer-id": "layer-859",
-        "title": "人口100万人以上",
-        "path": "記号-人口100万人以上",
-        "added": 1
-      },
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "symbol",
       "minzoom": 0,
@@ -2322,12 +2316,6 @@
     {
       "id": "s-gsi-高速道路番号-7-11",
       "type": "symbol",
-      "metadata": {
-        "layer-id": "layer-859",
-        "title": "人口100万人以上",
-        "path": "記号-人口100万人以上",
-        "added": 1
-      },
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "transp",
       "minzoom": 0,
@@ -2360,12 +2348,6 @@
     {
       "id": "s-gsi-主要な空港",
       "type": "symbol",
-      "metadata": {
-        "layer-id": "layer-859",
-        "title": "人口100万人以上",
-        "path": "記号-人口100万人以上",
-        "added": 1
-      },
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "symbol",
       "minzoom": 9,
@@ -2484,12 +2466,6 @@
     {
       "id": "s-gsi-市区町村",
       "type": "symbol",
-      "metadata": {
-        "layer-id": "layer-859",
-        "title": "人口100万人以上",
-        "path": "記号-人口100万人以上",
-        "added": 1
-      },
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "label",
       "minzoom": 10,
@@ -2525,12 +2501,6 @@
     {
       "id": "s-gsi-人口100万人以上-copy",
       "type": "symbol",
-      "metadata": {
-        "layer-id": "layer-859",
-        "title": "人口100万人以上",
-        "path": "記号-人口100万人以上",
-        "added": 1
-      },
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "symbol",
       "minzoom": 7,
@@ -2564,12 +2534,6 @@
     {
       "id": "s-gsi-人口100万人以上",
       "type": "symbol",
-      "metadata": {
-        "layer-id": "layer-859",
-        "title": "人口100万人以上",
-        "path": "記号-人口100万人以上",
-        "added": 1
-      },
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "symbol",
       "minzoom": 8,
