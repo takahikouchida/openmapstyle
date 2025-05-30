@@ -1207,12 +1207,16 @@
       "filter": ["all", ["!=", "class", "bus"]],
       "layout": {
         "text-field": "{name:nonlatin}",
-        "text-font": ["Noto Sans Bold"],
+        "text-font": ["Noto Sans CJK JP Regular"],
         "text-size": 11,
         "visibility": "visible",
         "text-justify": "auto"
       },
-      "paint": {"text-color": "rgba(86, 86, 86, 1)", "text-halo-width": 2}
+      "paint": {
+        "text-color": "rgba(86, 86, 86, 1)",
+        "text-halo-width": 1,
+        "text-halo-color": "rgba(255, 255, 255, 1)"
+      }
     },
     {
       "id": "s-oms-water_name",
