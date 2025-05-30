@@ -21,7 +21,7 @@
 - https://github.com/MIERUNE/fonts
 
 ## アイコンデータ
-- 偉大なる[Maki](https://labs.mapbox.com/maki-icons/)アイコンに背景を追加して利用
+- 偉大なる[Maki](https://labs.mapbox.com/maki-icons/)アイコンに背景を追加
 
 ## ライセンス
 
