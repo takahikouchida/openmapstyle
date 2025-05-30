@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- モバイル対応用 -->
+    <title>Open Map</title>
+    <!-- MapLibre GL JS の CSS -->
+    <link
+        href="https://unpkg.com/maplibre-gl/dist/maplibre-gl.css"
+        rel="stylesheet"
+    />
+    <style>
+        /* ページ全体に地図をフィットさせる */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* モバイルでスクロールを防止 */
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+    <script>
+        function gtag() {
+            dataLayer.push(arguments)
+        }
+        window.dataLayer = window.dataLayer || [],
+            gtag("js", new Date),
+            gtag("config", "G-8VWB8QL0YG")
+    </script>
+</head>
+<body>
+<div id="map"></div>
+
+<script src="https://unpkg.com/pmtiles/dist/pmtiles.js"></script>
+<!-- MapLibre GL JS のスクリプト -->
+<script src="https://unpkg.com/maplibre-gl/dist/maplibre-gl.js"></script>
+
+<script>
+    let protocol = new pmtiles.Protocol();
+    maplibregl.addProtocol("pmtiles", protocol.tile);
+
+    // MapLibre インスタンスを生成
+    const map = new maplibregl.Map({
+        container: 'map',                     // 地図を描画する要素の ID
+        style: 'openstayle.json',             // スタイル JSON のパス
+        center: [140.084556, 36.104611],      // 初期表示の中心緯度経度
+        zoom: 5,                              // 初期ズームレベル
+        touchZoomRotate: true                 // タッチ操作対応
+    });
+
+    // 標準のナビゲーションコントロールを地図に追加（ズームイン・ズームアウトおよび回転コントロール）
+    const navControl = new maplibregl.NavigationControl({
+        visualizePitch: true // ピッチ（傾き）のコントロールを有効化
+    });
+    map.addControl(navControl, 'top-right'); // 右上に表示
+
+    // 現在地表示コントロールを追加
+    const geolocateControl = new maplibregl.GeolocateControl({
+        positionOptions: {
+            enableHighAccuracy: true // 高精度な現在地取得
+        },
+        trackUserLocation: true, // ユーザーの現在地を追跡
+        showUserHeading: true    // ユーザーの向きを表示
+    });
+    map.addControl(geolocateControl, 'top-right'); // 右上に表示（ナビゲーションコントロールの近く）
+
+    map.on('load', () => {
+        console.log('Map has loaded');
+    });
+</script>
+</body>
+</html>
