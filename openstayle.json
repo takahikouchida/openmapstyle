@@ -1,12 +1,5 @@
 {
   "version": 8,
-  "metadata": {
-    "gsimaps-vector-url": "https://maps.gsi.go.jp/vector/#7/36.104611/140.084556/&ls=&disp=&d=l",
-    "center": {"lng": 140.084556, "lat": 36.104611},
-    "zl": 7,
-    "maputnik:renderer": "mlgljs"
-  },
-  "light": {},
   "sources": {
     "gsibv-vectortile-source-1-4-16": {
       "type": "vector",
@@ -1253,12 +1246,6 @@
     {
       "id": "s-gsi-label",
       "type": "symbol",
-      "metadata": {
-        "layer-id": "layer-859",
-        "title": "人口100万人以上",
-        "path": "記号-人口100万人以上",
-        "added": 1
-      },
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "label",
       "minzoom": 10,
@@ -1318,12 +1305,6 @@
     {
       "id": "s-gsi-主要な港",
       "type": "symbol",
-      "metadata": {
-        "layer-id": "layer-859",
-        "title": "人口100万人以上",
-        "path": "記号-人口100万人以上",
-        "added": 1
-      },
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "symbol",
       "minzoom": 7,
@@ -1405,12 +1386,6 @@
     {
       "id": "s-gsi-山-7",
       "type": "symbol",
-      "metadata": {
-        "layer-id": "layer-859",
-        "title": "人口100万人以上",
-        "path": "記号-人口100万人以上",
-        "added": 1
-      },
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "label",
       "minzoom": 7,
@@ -1447,12 +1422,6 @@
     {
       "id": "s-gsi-山-9",
       "type": "symbol",
-      "metadata": {
-        "layer-id": "layer-859",
-        "title": "人口100万人以上",
-        "path": "記号-人口100万人以上",
-        "added": 1
-      },
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "label",
       "minzoom": 8,
@@ -1493,12 +1462,6 @@
     {
       "id": "s-gsi-島-4",
       "type": "symbol",
-      "metadata": {
-        "layer-id": "layer-859",
-        "title": "人口100万人以上",
-        "path": "記号-人口100万人以上",
-        "added": 1
-      },
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "label",
       "minzoom": 8,
@@ -1534,12 +1497,6 @@
     {
       "id": "s-gsi-島",
       "type": "symbol",
-      "metadata": {
-        "layer-id": "layer-859",
-        "title": "人口100万人以上",
-        "path": "記号-人口100万人以上",
-        "added": 1
-      },
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "label",
       "minzoom": 8,
@@ -1684,12 +1641,6 @@
     {
       "id": "s-gsi-山-8",
       "type": "symbol",
-      "metadata": {
-        "layer-id": "layer-859",
-        "title": "人口100万人以上",
-        "path": "記号-人口100万人以上",
-        "added": 1
-      },
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "label",
       "minzoom": 8,
@@ -1726,12 +1677,6 @@
     {
       "id": "s-gsi-山",
       "type": "symbol",
-      "metadata": {
-        "layer-id": "layer-859",
-        "title": "人口100万人以上",
-        "path": "記号-人口100万人以上",
-        "added": 1
-      },
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "label",
       "minzoom": 10,
@@ -1769,12 +1714,6 @@
     {
       "id": "s-gsi-公園",
       "type": "symbol",
-      "metadata": {
-        "layer-id": "layer-859",
-        "title": "人口100万人以上",
-        "path": "記号-人口100万人以上",
-        "added": 1
-      },
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "label",
       "minzoom": 10,
@@ -1812,12 +1751,6 @@
     {
       "id": "s-gsi-消防署",
       "type": "symbol",
-      "metadata": {
-        "layer-id": "layer-859",
-        "title": "人口100万人以上",
-        "path": "記号-人口100万人以上",
-        "added": 1
-      },
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "label",
       "minzoom": 10,
@@ -1855,12 +1788,6 @@
     {
       "id": "s-gsi-病院",
       "type": "symbol",
-      "metadata": {
-        "layer-id": "layer-859",
-        "title": "人口100万人以上",
-        "path": "記号-人口100万人以上",
-        "added": 1
-      },
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "label",
       "minzoom": 10,
@@ -1898,12 +1825,6 @@
     {
       "id": "s-gsi-郵便",
       "type": "symbol",
-      "metadata": {
-        "layer-id": "layer-859",
-        "title": "人口100万人以上",
-        "path": "記号-人口100万人以上",
-        "added": 1
-      },
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "label",
       "minzoom": 10,
@@ -1979,12 +1900,6 @@
     {
       "id": "s-gsi-交番",
       "type": "symbol",
-      "metadata": {
-        "layer-id": "layer-859",
-        "title": "人口100万人以上",
-        "path": "記号-人口100万人以上",
-        "added": 1
-      },
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "label",
       "minzoom": 10,
@@ -2022,12 +1937,6 @@
     {
       "id": "s-gsi-小中学校",
       "type": "symbol",
-      "metadata": {
-        "layer-id": "layer-859",
-        "title": "人口100万人以上",
-        "path": "記号-人口100万人以上",
-        "added": 1
-      },
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "symbol",
       "minzoom": 0,
@@ -2064,12 +1973,6 @@
     {
       "id": "s-gsi-大学",
       "type": "symbol",
-      "metadata": {
-        "layer-id": "layer-859",
-        "title": "人口100万人以上",
-        "path": "記号-人口100万人以上",
-        "added": 1
-      },
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "label",
       "minzoom": 8,
@@ -2110,12 +2013,6 @@
     {
       "id": "s-gsi-国道",
       "type": "symbol",
-      "metadata": {
-        "layer-id": "layer-859",
-        "title": "人口100万人以上",
-        "path": "記号-人口100万人以上",
-        "added": 1
-      },
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "transp",
       "minzoom": 10,
@@ -2148,12 +2045,6 @@
     {
       "id": "s-gsi-国際空港など",
       "type": "symbol",
-      "metadata": {
-        "layer-id": "layer-859",
-        "title": "人口100万人以上",
-        "path": "記号-人口100万人以上",
-        "added": 1
-      },
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "symbol",
       "minzoom": 8,
@@ -2235,12 +2126,6 @@
     {
       "id": "s-gsi-市役所・東京都の区役所",
       "type": "symbol",
-      "metadata": {
-        "layer-id": "layer-859",
-        "title": "人口100万人以上",
-        "path": "記号-人口100万人以上",
-        "added": 1
-      },
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "symbol",
       "minzoom": 0,
@@ -2348,12 +2233,6 @@
     {
       "id": "s-gsi-高速道路番号-12",
       "type": "symbol",
-      "metadata": {
-        "layer-id": "layer-859",
-        "title": "人口100万人以上",
-        "path": "記号-人口100万人以上",
-        "added": 1
-      },
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "transp",
       "minzoom": 11,
