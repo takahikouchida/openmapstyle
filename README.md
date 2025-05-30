@@ -20,6 +20,9 @@
 - https://blog.geolonia.com/2024/10/01/simple-additional-map-sprites.html
 - https://github.com/MIERUNE/fonts
 
+## アイコンデータ
+- 偉大なる[Maki](https://labs.mapbox.com/maki-icons/)アイコンに背景を追加して利用
+
 ## ライセンス
 
 MITライセンスとして公開します
