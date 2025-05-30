@@ -1,5 +1,6 @@
 {
   "version": 8,
+  "metadata": {"maputnik:renderer": "mlgljs"},
   "sources": {
     "gsibv-vectortile-source-1-4-16": {
       "type": "vector",
@@ -1182,20 +1183,6 @@
       "layout": {"visibility": "none"}
     },
     {
-      "id": "ESRI",
-      "type": "raster",
-      "source": "ESRI",
-      "layout": {"visibility": "none"}
-    },
-    {
-      "id": "symbol",
-      "type": "symbol",
-      "source": "gsibv-vectortile-source-1-4-16",
-      "source-layer": "symbol",
-      "filter": ["all"],
-      "layout": {"text-field": "", "visibility": "none"}
-    },
-    {
       "id": "s-oms-bus",
       "type": "symbol",
       "source": "osm",
@@ -1225,11 +1212,7 @@
         "visibility": "visible",
         "text-justify": "auto"
       },
-      "paint": {
-        "text-color": "rgba(86, 86, 86, 1)",
-        "text-halo-color": "rgba(255, 255, 255, 1)",
-        "text-halo-width": 2
-      }
+      "paint": {"text-color": "rgba(86, 86, 86, 1)", "text-halo-width": 2}
     },
     {
       "id": "s-oms-water_name",
@@ -1597,45 +1580,6 @@
         "text-halo-color": "rgba(255, 255, 255, 1)",
         "text-halo-width": 1,
         "text-opacity": ["step", ["zoom"], 0, 13, 1]
-      }
-    },
-    {
-      "id": "s-osm-駅名",
-      "type": "symbol",
-      "source": "osm",
-      "source-layer": "poi",
-      "minzoom": 12,
-      "maxzoom": 24,
-      "filter": [
-        "all",
-        ["==", "$type", "Point"],
-        ["has", "name"],
-        ["==", "class", "railway"],
-        ["==", "subclass", "station"]
-      ],
-      "layout": {
-        "icon-allow-overlap": false,
-        "icon-ignore-placement": false,
-        "icon-optional": false,
-        "text-allow-overlap": false,
-        "text-anchor": "top",
-        "text-field": "{name:nonlatin}",
-        "text-font": ["Noto Sans Regular"],
-        "text-ignore-placement": false,
-        "text-max-width": 9,
-        "text-optional": true,
-        "text-padding": 2,
-        "text-size": 14,
-        "visibility": "visible",
-        "icon-size": ["step", ["zoom"], 0.3, 13, 0.35, 15, 0.4],
-        "icon-image": "駅",
-        "text-offset": [0, 1.3]
-      },
-      "paint": {
-        "text-color": "rgba(0,0,0,1)",
-        "text-halo-color": "rgba(255,255,255,1)",
-        "text-halo-width": 2,
-        "text-opacity": ["step", ["zoom"], 0, 14, 1]
       }
     },
     {
@@ -2231,6 +2175,82 @@
       }
     },
     {
+      "id": "s-osm-地下鉄駅名",
+      "type": "symbol",
+      "source": "osm",
+      "source-layer": "poi",
+      "minzoom": 14,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        ["has", "name"],
+        ["==", "subclass", "subway"]
+      ],
+      "layout": {
+        "icon-allow-overlap": false,
+        "icon-ignore-placement": false,
+        "icon-optional": false,
+        "text-allow-overlap": false,
+        "text-anchor": "top",
+        "text-field": "{name:nonlatin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-ignore-placement": false,
+        "text-max-width": 9,
+        "text-optional": true,
+        "text-padding": 2,
+        "text-size": 10,
+        "visibility": "visible",
+        "icon-image": "地下鉄駅",
+        "icon-size": 0.3,
+        "text-offset": [0, 1.2]
+      },
+      "paint": {
+        "text-color": "rgba(0, 0, 0, 1)",
+        "text-halo-width": 2,
+        "text-halo-color": "rgba(255, 255, 255, 1)"
+      }
+    },
+    {
+      "id": "s-osm-駅名",
+      "type": "symbol",
+      "source": "osm",
+      "source-layer": "poi",
+      "minzoom": 12,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        ["has", "name"],
+        ["==", "class", "railway"],
+        ["==", "subclass", "station"]
+      ],
+      "layout": {
+        "icon-allow-overlap": false,
+        "icon-ignore-placement": false,
+        "icon-optional": false,
+        "text-allow-overlap": false,
+        "text-anchor": "center",
+        "text-field": "{name:nonlatin}",
+        "text-font": ["Noto Sans Bold"],
+        "text-ignore-placement": false,
+        "text-optional": true,
+        "text-padding": 2,
+        "text-size": 14,
+        "visibility": "visible",
+        "icon-size": ["step", ["zoom"], 0.3, 13, 0.35, 15, 0.4],
+        "icon-image": "駅",
+        "text-offset": [0, 1.3],
+        "icon-anchor": "center"
+      },
+      "paint": {
+        "text-color": "rgba(0, 0, 0, 1)",
+        "text-halo-color": "rgba(255,255,255,1)",
+        "text-halo-width": 2,
+        "text-opacity": ["step", ["zoom"], 0, 14, 1]
+      }
+    },
+    {
       "id": "s-gsi-高速道路番号-12",
       "type": "symbol",
       "source": "gsibv-vectortile-source-1-4-16",
@@ -2427,43 +2447,6 @@
       }
     },
     {
-      "id": "s-osm-地下鉄駅名",
-      "type": "symbol",
-      "source": "osm",
-      "source-layer": "poi",
-      "minzoom": 14,
-      "maxzoom": 24,
-      "filter": [
-        "all",
-        ["==", "$type", "Point"],
-        ["has", "name"],
-        ["==", "subclass", "subway"]
-      ],
-      "layout": {
-        "icon-allow-overlap": false,
-        "icon-ignore-placement": false,
-        "icon-optional": false,
-        "text-allow-overlap": false,
-        "text-anchor": "top",
-        "text-field": "{name:nonlatin}",
-        "text-font": ["Noto Sans Regular"],
-        "text-ignore-placement": false,
-        "text-max-width": 9,
-        "text-optional": true,
-        "text-padding": 2,
-        "text-size": 10,
-        "visibility": "visible",
-        "icon-image": "地下鉄駅",
-        "icon-size": 0.3,
-        "text-offset": [0, 1.2]
-      },
-      "paint": {
-        "text-color": "rgba(0, 0, 0, 1)",
-        "text-halo-width": 2,
-        "text-halo-color": "rgba(255, 255, 255, 1)"
-      }
-    },
-    {
       "id": "s-gsi-市区町村",
       "type": "symbol",
       "source": "gsibv-vectortile-source-1-4-16",
@@ -2486,11 +2469,11 @@
         "text-keep-upright": true,
         "symbol-z-order": "auto",
         "visibility": "visible",
-        "text-size": 24,
         "icon-anchor": "center",
         "text-justify": "auto",
         "icon-text-fit": "none",
-        "icon-size": 1
+        "icon-size": 1,
+        "text-size": ["interpolate", ["linear"], ["zoom"], 10, 16, 16, 36]
       },
       "paint": {
         "text-color": "rgba(168, 168, 168, 1)",
