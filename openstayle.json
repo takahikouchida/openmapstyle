@@ -22,7 +22,7 @@
     },
     "osm": {
       "type": "vector",
-      "url": "pmtiles://https://tile.openstreetmap.jp/static/planet.pmtiles",
+      "tiles": ["https://tile.openstreetmap.jp/data/planet/{z}/{x}/{y}.pbf"],
       "attribution": "<a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\">OpenStreetMap</a>"
     },
     "gsi-photo": {
@@ -40,16 +40,6 @@
       "tiles": ["https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png"],
       "minzoom": 0,
       "maxzoom": 18,
-      "scheme": "xyz",
-      "tileSize": 256
-    },
-    "ESRI": {
-      "type": "raster",
-      "tiles": [
-        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}"
-      ],
-      "minzoom": 0,
-      "maxzoom": 19,
       "scheme": "xyz",
       "tileSize": 256
     }
@@ -605,7 +595,7 @@
       "paint": {
         "line-color": "rgba(166, 166, 166, 1)",
         "line-width": 2,
-        "line-dasharray": [2]
+        "line-dasharray": [2, 2]
       }
     },
     {
@@ -625,7 +615,7 @@
       "paint": {
         "line-color": "rgba(133, 133, 133, 1)",
         "line-width": 2,
-        "line-dasharray": [2]
+        "line-dasharray": [2, 2]
       }
     },
     {
@@ -654,11 +644,7 @@
         ]
       ],
       "layout": {"visibility": "visible"},
-      "paint": {
-        "line-color": "rgba(133, 133, 133, 1)",
-        "line-width": 5,
-        "line-dasharray": [2]
-      }
+      "paint": {"line-color": "rgba(133, 133, 133, 1)", "line-width": 6}
     },
     {
       "id": "gsi-railway-JR-14-17-w",
@@ -689,7 +675,7 @@
       "paint": {
         "line-color": "rgba(255, 255, 255, 1)",
         "line-width": 4,
-        "line-dasharray": [2, 2, 2, 2]
+        "line-dasharray": [2, 3, 2, 3, 2, 3]
       }
     },
     {
@@ -825,11 +811,7 @@
         ]
       ],
       "layout": {"visibility": "visible"},
-      "paint": {
-        "line-color": "rgba(133, 133, 133, 1)",
-        "line-width": 3,
-        "line-dasharray": [2]
-      }
+      "paint": {"line-color": "rgba(133, 133, 133, 1)", "line-width": 4}
     },
     {
       "id": "gsi-railway-鉄道JR-10-w",
@@ -889,7 +871,7 @@
       "paint": {
         "line-color": "rgba(133, 133, 133, 1)",
         "line-width": 1.5,
-        "line-dasharray": [2]
+        "line-dasharray": [2, 2]
       }
     },
     {
@@ -920,14 +902,10 @@
         ]
       ],
       "layout": {"visibility": "visible"},
-      "paint": {
-        "line-color": "rgba(103, 130, 221, 1)",
-        "line-width": 3,
-        "line-dasharray": [2]
-      }
+      "paint": {"line-color": "rgba(103, 130, 221, 1)", "line-width": 4}
     },
     {
-      "id": "gsi-railway-新幹線-8-10-w-copy",
+      "id": "gsi-railway-新幹線-8-10-w",
       "type": "line",
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "railway",
@@ -970,7 +948,7 @@
       "paint": {
         "line-color": "rgba(100, 133, 255, 1)",
         "line-width": ["step", ["zoom"], 1, 6, 3],
-        "line-dasharray": [2]
+        "line-dasharray": [2, 2]
       }
     },
     {
@@ -998,8 +976,7 @@
       "layout": {"visibility": "visible"},
       "paint": {
         "line-color": "rgba(100, 133, 255, 1)",
-        "line-width": ["step", ["zoom"], 1, 5, 2],
-        "line-dasharray": [2]
+        "line-width": ["step", ["zoom"], 1, 5, 2]
       }
     },
     {
@@ -1243,6 +1220,7 @@
         [
           "!in",
           "annoCtg",
+          321,
           411,
           423,
           322,
