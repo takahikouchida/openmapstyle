@@ -23,7 +23,9 @@
     "osm": {
       "type": "vector",
       "tiles": ["https://tile.openstreetmap.jp/data/planet/{z}/{x}/{y}.pbf"],
-      "attribution": "<a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\">OpenStreetMap</a>"
+      "attribution": "<a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\">OpenStreetMap</a>",
+      "minzoom": 0,
+      "maxzoom": 14
     },
     "gsi-photo": {
       "type": "raster",
@@ -57,7 +59,7 @@
       "id": "hillshade",
       "type": "hillshade",
       "source": "dem",
-      "maxzoom": 15,
+      "maxzoom": 14,
       "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-shadow-color": "rgba(60, 70, 60, 0.6)",
