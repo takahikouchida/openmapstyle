@@ -947,11 +947,7 @@
       "minzoom": 7,
       "filter": ["any", ["==", "ftCode", 58203], ["==", "ftCode", 58204]],
       "layout": {"visibility": "visible"},
-      "paint": {
-        "line-color": "rgba(100, 133, 255, 1)",
-        "line-width": ["step", ["zoom"], 1, 6, 3],
-        "line-dasharray": [2, 2]
-      }
+      "paint": {"line-color": "rgba(100, 133, 255, 1)", "line-width": 4}
     },
     {
       "id": "gsi-railway-新幹線-6-7-w-copy",
@@ -963,8 +959,8 @@
       "layout": {"visibility": "visible"},
       "paint": {
         "line-color": "#FFFFFF",
-        "line-width": ["step", ["zoom"], 1, 6, 3],
-        "line-dasharray": [2, 3, 2, 3]
+        "line-dasharray": [2, 3, 2, 3],
+        "line-width": 2
       }
     },
     {
@@ -1089,10 +1085,10 @@
       "filter": ["all", ["!=", "ftCode", 6101]],
       "layout": {"visibility": "visible"},
       "paint": {
-        "line-color": "rgba(2, 1, 113, 1)",
-        "line-dasharray": [2, 2],
-        "line-width": ["step", ["zoom"], 1, 13, 1.2, 14, 1.5],
-        "line-opacity": 0.7
+        "line-color": "rgba(102, 102, 102, 1)",
+        "line-width": ["step", ["zoom"], 1.5, 13, 2, 15, 2.5],
+        "line-opacity": 1,
+        "line-dasharray": [2, 1]
       }
     },
     {
@@ -1205,7 +1201,8 @@
       "layout": {
         "text-field": "{name:ja}",
         "text-font": ["Noto Sans Bold"],
-        "text-size": 12
+        "text-size": 12,
+        "visibility": "none"
       },
       "paint": {"text-color": "rgba(32, 106, 210, 1)"}
     },
@@ -2052,42 +2049,6 @@
       }
     },
     {
-      "id": "s-gsi-市役所・東京都の区役所",
-      "type": "symbol",
-      "source": "gsibv-vectortile-source-1-4-16",
-      "source-layer": "symbol",
-      "minzoom": 0,
-      "maxzoom": 24,
-      "filter": ["all", ["in", "ftCode", 1402, 1403]],
-      "layout": {
-        "text-allow-overlap": false,
-        "icon-allow-overlap": false,
-        "icon-size": 0.5,
-        "text-anchor": "left",
-        "icon-pitch-alignment": "viewport",
-        "icon-rotation-alignment": "viewport",
-        "text-pitch-alignment": "viewport",
-        "text-rotation-alignment": "viewport",
-        "text-field": ["get", "name"],
-        "text-font": ["Noto Sans Regular"],
-        "symbol-placement": "point",
-        "text-keep-upright": true,
-        "symbol-z-order": "auto",
-        "visibility": "visible",
-        "text-size": 12,
-        "icon-image": "circle-stroked",
-        "text-justify": "auto",
-        "icon-text-fit": "none",
-        "icon-anchor": "left",
-        "text-offset": [0.8, 0]
-      },
-      "paint": {
-        "text-color": "rgba(51, 51, 51, 1)",
-        "text-halo-color": "rgba(255,255,255,1)",
-        "text-halo-width": 1.5
-      }
-    },
-    {
       "id": "s-gsi-インターチェンジ",
       "type": "symbol",
       "source": "gsibv-vectortile-source-1-4-16",
@@ -2222,16 +2183,16 @@
         "text-padding": 2,
         "text-size": 14,
         "visibility": "visible",
-        "icon-size": ["step", ["zoom"], 0.3, 13, 0.35, 15, 0.4],
+        "icon-size": ["step", ["zoom"], 0.25, 11, 0.3, 13, 0.3, 15, 0.3],
         "icon-image": "駅",
         "text-offset": [0, 1.3],
         "icon-anchor": "center"
       },
       "paint": {
-        "text-color": "rgba(0, 0, 0, 1)",
+        "text-color": "rgba(102, 102, 102, 1)",
         "text-halo-color": "rgba(255,255,255,1)",
         "text-halo-width": 2,
-        "text-opacity": ["step", ["zoom"], 0, 14, 1]
+        "text-opacity": ["step", ["zoom"], 0, 12, 1]
       }
     },
     {
@@ -2267,43 +2228,11 @@
       "paint": {"text-color": "rgba(255, 255, 255, 1)"}
     },
     {
-      "id": "s-gsi-都道府県所在地",
-      "type": "symbol",
-      "source": "gsibv-vectortile-source-1-4-16",
-      "source-layer": "symbol",
-      "minzoom": 0,
-      "maxzoom": 24,
-      "filter": ["all", ["in", "ftCode", 1401]],
-      "layout": {
-        "text-allow-overlap": false,
-        "icon-allow-overlap": false,
-        "text-anchor": "center",
-        "icon-pitch-alignment": "viewport",
-        "icon-rotation-alignment": "viewport",
-        "text-pitch-alignment": "viewport",
-        "text-rotation-alignment": "viewport",
-        "text-field": ["get", "name"],
-        "text-font": ["Noto Sans CJK JP Bold"],
-        "symbol-placement": "point",
-        "text-keep-upright": true,
-        "symbol-z-order": "auto",
-        "visibility": "visible",
-        "text-size": 20,
-        "text-justify": "auto",
-        "icon-text-fit": "none",
-        "icon-anchor": "left"
-      },
-      "paint": {
-        "text-color": "rgba(102, 102, 102, 1)",
-        "text-halo-color": "rgba(255,255,255,1)",
-        "text-halo-width": 1.5
-      }
-    },
-    {
       "id": "s-oms-ICなど",
       "type": "symbol",
       "source": "osm",
       "source-layer": "transportation_name",
+      "minzoom": 0,
       "filter": ["all", ["==", "subclass", "junction"]],
       "layout": {
         "text-field": "{name}",
@@ -2435,7 +2364,7 @@
       "type": "symbol",
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "label",
-      "minzoom": 10,
+      "minzoom": 0,
       "maxzoom": 24,
       "filter": ["all", ["in", "ftCode", 100], ["in", "annoCtg", 110]],
       "layout": {
@@ -2460,9 +2389,78 @@
         "text-size": ["interpolate", ["linear"], ["zoom"], 10, 16, 16, 36]
       },
       "paint": {
-        "text-color": "rgba(168, 168, 168, 1)",
+        "text-color": "rgba(153, 153, 153, 1)",
         "text-halo-color": "rgba(255,255,255,1)",
         "text-halo-width": 2
+      }
+    },
+    {
+      "id": "s-gsi-市役所・東京都の区役所",
+      "type": "symbol",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "symbol",
+      "minzoom": 0,
+      "maxzoom": 24,
+      "filter": ["all", ["in", "ftCode", 1402, 1403]],
+      "layout": {
+        "text-allow-overlap": false,
+        "icon-allow-overlap": false,
+        "icon-size": 0.5,
+        "text-anchor": "left",
+        "icon-pitch-alignment": "viewport",
+        "icon-rotation-alignment": "viewport",
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "viewport",
+        "text-field": ["get", "name"],
+        "text-font": ["Noto Sans CJK JP Bold"],
+        "symbol-placement": "point",
+        "text-keep-upright": true,
+        "symbol-z-order": "auto",
+        "visibility": "visible",
+        "icon-image": "circle-stroked",
+        "text-justify": "auto",
+        "icon-text-fit": "none",
+        "icon-anchor": "left",
+        "text-offset": [0.8, 0],
+        "text-size": 12
+      },
+      "paint": {
+        "text-color": "rgba(102, 102, 102, 1)",
+        "text-halo-color": "rgba(255,255,255,1)",
+        "text-halo-width": 1.5
+      }
+    },
+    {
+      "id": "s-gsi-都道府県所在地",
+      "type": "symbol",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "symbol",
+      "minzoom": 0,
+      "maxzoom": 24,
+      "filter": ["all", ["in", "ftCode", 1401]],
+      "layout": {
+        "text-allow-overlap": false,
+        "icon-allow-overlap": false,
+        "text-anchor": "center",
+        "icon-pitch-alignment": "viewport",
+        "icon-rotation-alignment": "viewport",
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "viewport",
+        "text-field": ["get", "name"],
+        "text-font": ["Noto Sans CJK JP Bold"],
+        "symbol-placement": "point",
+        "text-keep-upright": true,
+        "symbol-z-order": "auto",
+        "visibility": "visible",
+        "text-size": 20,
+        "text-justify": "auto",
+        "icon-text-fit": "none",
+        "icon-anchor": "left"
+      },
+      "paint": {
+        "text-color": "rgba(102, 102, 102, 1)",
+        "text-halo-color": "rgba(255,255,255,1)",
+        "text-halo-width": 1.5
       }
     },
     {
