@@ -88,7 +88,13 @@
     map.addControl(geolocateControl, 'top-right');
 
     // 切り替え用のスタイルリスト
-    const styles = ['openstyle.json', 'openstyle_dark.json', 'openstyle_sepia.json'];
+    const styles = [
+        'openstyle.json',      // デフォルトスタイル
+        'openstyle_dark.json', // ダークモード
+        'openstyle_sepia.json', // セピアトーン
+        'openstyle_blue.json'   // ブルーテーマ
+    ];
+
     let currentStyleIndex = 0; // 現在のスタイルのインデックス
 
     // ボタンのクリックイベントでスタイルを切り替える
