@@ -52,7 +52,7 @@
       "tileSize": 256
     }
   },
-  "sprite": "https://takahikouchida.github.io/openmapstyle/openstyle_sepia",
+  "sprite": "https://takahikouchida.github.io/openmapstyle/sprite_sepia",
   "glyphs": "https://takahikouchida.github.io/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
