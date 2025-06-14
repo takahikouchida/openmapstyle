@@ -1,0 +1,5191 @@
+{
+  "version": 8,
+  "metadata": {
+    "maputnik:renderer": "mlgljs"
+  },
+  "sources": {
+    "gsibv-vectortile-source-1-4-16": {
+      "type": "vector",
+      "tiles": [
+        "https://cyberjapandata.gsi.go.jp/xyz/experimental_bvmap/{z}/{x}/{y}.pbf"
+      ],
+      "minzoom": 4,
+      "maxzoom": 16,
+      "attribution": "<a href=\"https://www.openstreetmap.org/\" target=\"_blank\">地理院地図Vector</a>"
+    },
+    "dem": {
+      "type": "raster-dem",
+      "tiles": [
+        "https://gbank.gsj.jp/seamless/elev/terrainRGB/land/{z}/{y}/{x}.png"
+      ],
+      "minzoom": 0,
+      "maxzoom": 14,
+      "tileSize": 256
+    },
+    "osm": {
+      "type": "vector",
+      "tiles": [
+        "https://tile.openstreetmap.jp/data/planet/{z}/{x}/{y}.pbf"
+      ],
+      "attribution": "<a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\">OpenStreetMap</a>",
+      "minzoom": 0,
+      "maxzoom": 14
+    },
+    "gsi-photo": {
+      "type": "raster",
+      "tiles": [
+        "https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg"
+      ],
+      "minzoom": 0,
+      "maxzoom": 17,
+      "scheme": "xyz",
+      "tileSize": 256
+    },
+    "GSI-taster": {
+      "type": "raster",
+      "tiles": [
+        "https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png"
+      ],
+      "minzoom": 0,
+      "maxzoom": 18,
+      "scheme": "xyz",
+      "tileSize": 256
+    }
+  },
+  "sprite": "https://takahikouchida.github.io/openmapstyle/sprite_dark",
+  "glyphs": "https://takahikouchida.github.io/fonts/{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "back",
+      "type": "background",
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "background-color": "#1a1a1a"
+      }
+    },
+    {
+      "id": "hillshade",
+      "type": "hillshade",
+      "source": "dem",
+      "maxzoom": 14,
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "hillshade-shadow-color": "rgba(60, 70, 60, 0.6)",
+        "hillshade-highlight-color": "rgba(245, 250, 240, 0.7)",
+        "hillshade-accent-color": "rgba(180, 234, 180, 1)",
+        "hillshade-illumination-anchor": "map",
+        "hillshade-exaggeration": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          4,
+          0.5,
+          6,
+          0.1,
+          8,
+          0.5,
+          10,
+          0.3,
+          12,
+          0.4,
+          16,
+          0.2,
+          18,
+          0
+        ]
+      }
+    },
+    {
+      "id": "searoute",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "searoute",
+      "paint": {
+        "line-color": "#333333",
+        "line-width": 1,
+        "line-opacity": 0.5
+      }
+    },
+    {
+      "id": "gsi-photo",
+      "type": "raster",
+      "source": "gsi-photo",
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {
+        "raster-opacity": 0.7
+      }
+    },
+    {
+      "id": "osm-landcover-wetland",
+      "type": "fill",
+      "source": "osm",
+      "source-layer": "landcover",
+      "filter": [
+        "all",
+        [
+          "==",
+          "subclass",
+          "wetland"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "#444",
+        "fill-opacity": 0.5
+      }
+    },
+    {
+      "id": "osm-landcover-park",
+      "type": "fill",
+      "source": "osm",
+      "source-layer": "landcover",
+      "filter": [
+        "all",
+        [
+          "==",
+          "subclass",
+          "park"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "#444",
+        "fill-opacity": 0.5
+      }
+    },
+    {
+      "id": "osm-landcover-forest",
+      "type": "fill",
+      "source": "osm",
+      "source-layer": "landcover",
+      "filter": [
+        "all",
+        [
+          "==",
+          "subclass",
+          "forest"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "#444",
+        "fill-opacity": 0.5
+      }
+    },
+    {
+      "id": "osm-landcover-farmland",
+      "type": "fill",
+      "source": "osm",
+      "source-layer": "landcover",
+      "filter": [
+        "all",
+        [
+          "==",
+          "subclass",
+          "farmland"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "#444",
+        "fill-opacity": 0.5
+      }
+    },
+    {
+      "id": "osm-landcover-wood",
+      "type": "fill",
+      "source": "osm",
+      "source-layer": "landcover",
+      "filter": [
+        "all",
+        [
+          "==",
+          "subclass",
+          "wood"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "#444",
+        "fill-opacity": 0.5
+      }
+    },
+    {
+      "id": "osm-landcover-golf_course",
+      "type": "fill",
+      "source": "osm",
+      "source-layer": "landcover",
+      "filter": [
+        "all",
+        [
+          "==",
+          "subclass",
+          "golf_course"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "#444",
+        "fill-opacity": 0.5
+      }
+    },
+    {
+      "id": "osm-water",
+      "type": "fill",
+      "source": "osm",
+      "source-layer": "water",
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "#444",
+        "fill-opacity": 0.5
+      }
+    },
+    {
+      "id": "osm-landuse-grass",
+      "type": "fill",
+      "source": "osm",
+      "source-layer": "landuse",
+      "filter": [
+        "any",
+        [
+          "==",
+          "class",
+          "grass"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "#444",
+        "fill-opacity": 0.5
+      }
+    },
+    {
+      "id": "osm-landuse-hospital",
+      "type": "fill",
+      "source": "osm",
+      "source-layer": "landuse",
+      "filter": [
+        "any",
+        [
+          "==",
+          "class",
+          "hospital"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "#444",
+        "fill-opacity": 0.5
+      }
+    },
+    {
+      "id": "osm-landuse-retail",
+      "type": "fill",
+      "source": "osm",
+      "source-layer": "landuse",
+      "filter": [
+        "any",
+        [
+          "==",
+          "class",
+          "retail"
+        ],
+        [
+          "==",
+          "class",
+          "commercial"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "#444",
+        "fill-opacity": 0.5
+      }
+    },
+    {
+      "id": "osm-landuse-university",
+      "type": "fill",
+      "source": "osm",
+      "source-layer": "landuse",
+      "filter": [
+        "any",
+        [
+          "==",
+          "class",
+          "university"
+        ],
+        [
+          "==",
+          "class",
+          "school"
+        ],
+        [
+          "==",
+          "class",
+          "kindergarten"
+        ],
+        [
+          "==",
+          "class",
+          "college"
+        ],
+        [
+          "==",
+          "class",
+          "library"
+        ],
+        [
+          "==",
+          "class",
+          "education"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "#444",
+        "fill-opacity": 0.5
+      }
+    },
+    {
+      "id": "osm-landuse-stadium",
+      "type": "fill",
+      "source": "osm",
+      "source-layer": "landuse",
+      "filter": [
+        "all",
+        [
+          "==",
+          "class",
+          "stadium"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "#444",
+        "fill-opacity": 0.5
+      }
+    },
+    {
+      "id": "osm-landuse-garages",
+      "type": "fill",
+      "source": "osm",
+      "source-layer": "landuse",
+      "filter": [
+        "all",
+        [
+          "==",
+          "class",
+          "garages"
+        ],
+        [
+          "==",
+          "class",
+          "railway"
+        ],
+        [
+          "==",
+          "class",
+          "bus_station"
+        ],
+        [
+          "==",
+          "class",
+          "dam"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "#444",
+        "fill-opacity": 0.5
+      }
+    },
+    {
+      "id": "osm-landuse-track",
+      "type": "fill",
+      "source": "osm",
+      "source-layer": "landuse",
+      "filter": [
+        "all",
+        [
+          "==",
+          "class",
+          "track"
+        ],
+        [
+          "==",
+          "class",
+          "pitch"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "#444",
+        "fill-opacity": 0.5
+      }
+    },
+    {
+      "id": "osm-landuse-cemetery",
+      "type": "fill",
+      "source": "osm",
+      "source-layer": "landuse",
+      "filter": [
+        "all",
+        [
+          "==",
+          "class",
+          "cemetery"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "#444",
+        "fill-opacity": 0.4
+      }
+    },
+    {
+      "id": "osm-landuse-military",
+      "type": "fill",
+      "source": "osm",
+      "source-layer": "landuse",
+      "minzoom": 9,
+      "filter": [
+        "all",
+        [
+          "==",
+          "class",
+          "military"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "#444",
+        "fill-opacity": 0.5
+      }
+    },
+    {
+      "id": "osm-landuse-quarry",
+      "type": "fill",
+      "source": "osm",
+      "source-layer": "landuse",
+      "filter": [
+        "all",
+        [
+          "==",
+          "class",
+          "quarry"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "#444",
+        "fill-opacity": 0.5
+      }
+    },
+    {
+      "id": "osm-landuse-official_residence",
+      "type": "fill",
+      "source": "osm",
+      "source-layer": "landuse",
+      "filter": [
+        "all",
+        [
+          "==",
+          "class",
+          "official_residence"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "#444",
+        "fill-opacity": 0.2
+      }
+    },
+    {
+      "id": "osm-landuse-theme_park",
+      "type": "fill",
+      "source": "osm",
+      "source-layer": "landuse",
+      "filter": [
+        "all",
+        [
+          "==",
+          "class",
+          "theme_park"
+        ],
+        [
+          "==",
+          "class",
+          "zoo"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "#444",
+        "fill-opacity": 0.5
+      }
+    },
+    {
+      "id": "osm-landuse-park",
+      "type": "fill",
+      "source": "osm",
+      "source-layer": "landuse",
+      "filter": [
+        "all",
+        [
+          "==",
+          "class",
+          "park"
+        ],
+        [
+          "==",
+          "class",
+          "playground"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "#444",
+        "fill-opacity": 0.5
+      }
+    },
+    {
+      "id": "osm-landuse-industrial",
+      "type": "fill",
+      "source": "osm",
+      "source-layer": "landuse",
+      "filter": [
+        "all",
+        [
+          "==",
+          "class",
+          "industrial"
+        ],
+        [
+          "==",
+          "class",
+          "construction"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "#444",
+        "fill-opacity": 0.5
+      }
+    },
+    {
+      "id": "osm-landuse",
+      "type": "fill",
+      "source": "osm",
+      "source-layer": "landuse",
+      "filter": [
+        "none",
+        [
+          "==",
+          "class",
+          "industrial"
+        ],
+        [
+          "==",
+          "class",
+          "university"
+        ],
+        [
+          "==",
+          "class",
+          "school"
+        ],
+        [
+          "==",
+          "class",
+          "commercial"
+        ],
+        [
+          "==",
+          "class",
+          "track"
+        ],
+        [
+          "==",
+          "class",
+          "stadium"
+        ],
+        [
+          "==",
+          "class",
+          "residential"
+        ],
+        [
+          "==",
+          "class",
+          "pitch"
+        ],
+        [
+          "==",
+          "class",
+          "kindergarten"
+        ],
+        [
+          "==",
+          "class",
+          "garages"
+        ],
+        [
+          "==",
+          "class",
+          "military"
+        ],
+        [
+          "==",
+          "class",
+          "cemetery"
+        ],
+        [
+          "==",
+          "class",
+          "suburb"
+        ],
+        [
+          "==",
+          "class",
+          "quarry"
+        ],
+        [
+          "==",
+          "class",
+          "theme_park"
+        ],
+        [
+          "==",
+          "class",
+          "zoo"
+        ],
+        [
+          "==",
+          "class",
+          "neighbourhood"
+        ],
+        [
+          "==",
+          "class",
+          "quarter"
+        ],
+        [
+          "==",
+          "class",
+          "official_residence"
+        ],
+        [
+          "==",
+          "class",
+          "park"
+        ],
+        [
+          "==",
+          "class",
+          "college"
+        ],
+        [
+          "==",
+          "class",
+          "railway"
+        ],
+        [
+          "==",
+          "class",
+          "retail"
+        ],
+        [
+          "==",
+          "class",
+          "hospital"
+        ],
+        [
+          "==",
+          "class",
+          "playground"
+        ],
+        [
+          "==",
+          "class",
+          "library"
+        ],
+        [
+          "==",
+          "class",
+          "construction"
+        ],
+        [
+          "==",
+          "class",
+          "bus_station"
+        ],
+        [
+          "==",
+          "class",
+          "grass"
+        ],
+        [
+          "==",
+          "class",
+          "dam"
+        ],
+        [
+          "==",
+          "class",
+          "education"
+        ]
+      ],
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {
+        "fill-color": "#444",
+        "fill-opacity": 0.5
+      }
+    },
+    {
+      "id": "osm-river",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "river",
+      "minzoom": 10,
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#888",
+        "line-width": 1.5
+      }
+    },
+    {
+      "id": "contour",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "contour",
+      "minzoom": 14,
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#888",
+        "line-opacity": 0.5
+      }
+    },
+    {
+      "id": "gsi-building-17",
+      "type": "fill",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "building",
+      "minzoom": 16,
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "Polygon"
+        ],
+        [
+          "==",
+          "ftCode",
+          3101
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "#444"
+      }
+    },
+    {
+      "id": "gsi-building-17-line",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "building",
+      "minzoom": 16,
+      "filter": [
+        "all",
+        [
+          "==",
+          "ftCode",
+          3101
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#888",
+        "line-width": 0.5
+      }
+    },
+    {
+      "id": "gsi-building-14",
+      "type": "fill",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "building",
+      "minzoom": 15,
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "Polygon"
+        ],
+        [
+          "!=",
+          "ftCode",
+          3103
+        ],
+        [
+          "!=",
+          "ftCode",
+          3101
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "#444"
+      }
+    },
+    {
+      "id": "gsi-building-14-line",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "building",
+      "minzoom": 15,
+      "filter": [
+        "all",
+        [
+          "!=",
+          "ftCode",
+          3103
+        ],
+        [
+          "!=",
+          "ftCode",
+          3101
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#888",
+        "line-width": 0.5
+      }
+    },
+    {
+      "id": "gsi-building-13",
+      "type": "fill",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "building",
+      "minzoom": 13,
+      "filter": [
+        "all",
+        [
+          "==",
+          "ftCode",
+          3103
+        ],
+        [
+          "==",
+          "$type",
+          "Polygon"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "#444"
+      }
+    },
+    {
+      "id": "gsi-building-13-line",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "building",
+      "minzoom": 13,
+      "filter": [
+        "any",
+        [
+          "==",
+          "ftCode",
+          3103
+        ]
+      ],
+      "paint": {
+        "line-color": "#888"
+      }
+    },
+    {
+      "id": "gsi-road-その他道",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "road",
+      "maxzoom": 16,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          2701,
+          2704,
+          2703,
+          2704
+        ],
+        [
+          "in",
+          "motorway",
+          0,
+          9
+        ],
+        [
+          "in",
+          "rdCtg",
+          5,
+          6
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#333333",
+        "line-width": 1
+      }
+    },
+    {
+      "id": "gsi-road-区市町村道",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "road",
+      "maxzoom": 16,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          2701,
+          2704,
+          2703,
+          2704
+        ],
+        [
+          "in",
+          "motorway",
+          0,
+          9
+        ],
+        [
+          "in",
+          "rdCtg",
+          2
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#333333",
+        "line-width": 1
+      }
+    },
+    {
+      "id": "gsi-road-都道府県道",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "road",
+      "minzoom": 8,
+      "maxzoom": 16,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          2701,
+          2704,
+          2703,
+          2704
+        ],
+        [
+          "in",
+          "motorway",
+          0,
+          9
+        ],
+        [
+          "in",
+          "rdCtg",
+          1
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#888",
+        "line-width": [
+          "step",
+          [
+            "zoom"
+          ],
+          0.5,
+          11,
+          1.5,
+          13,
+          2.5
+        ]
+      }
+    },
+    {
+      "id": "gsi-road-国道-8-16",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "road",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          2701,
+          2702,
+          2704,
+          2703,
+          2704
+        ],
+        [
+          "in",
+          "motorway",
+          0,
+          9
+        ],
+        [
+          "in",
+          "rdCtg",
+          0
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#333333",
+        "line-opacity": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          15,
+          1,
+          16,
+          0.7
+        ],
+        "line-width": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          0,
+          1,
+          8,
+          1,
+          10,
+          2,
+          13,
+          4,
+          15,
+          8,
+          16,
+          10,
+          18,
+          20
+        ]
+      }
+    },
+    {
+      "id": "gsi-road-高速8-16",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "road",
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          2701,
+          2702,
+          2703,
+          2704
+        ],
+        [
+          "in",
+          "motorway",
+          1
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#333333",
+        "line-opacity": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          15,
+          1,
+          16,
+          0.7
+        ],
+        "line-width": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          10,
+          3,
+          11,
+          4,
+          14,
+          6,
+          15,
+          10,
+          18,
+          20
+        ]
+      }
+    },
+    {
+      "id": "gsi-road-主要道路-4-7",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "road",
+      "maxzoom": 8,
+      "filter": [
+        "all",
+        [
+          "==",
+          "ftCode",
+          52701
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#333333",
+        "line-width": 1
+      }
+    },
+    {
+      "id": "gsi-road-高速-4-7",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "road",
+      "minzoom": 0,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          52703,
+          52704
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#333333",
+        "line-width": [
+          "step",
+          [
+            "zoom"
+          ],
+          1,
+          4,
+          1.5,
+          5,
+          3
+        ]
+      }
+    },
+    {
+      "id": "gsi-railway-路面",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "railway",
+      "minzoom": 14,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          8201
+        ],
+        [
+          ">=",
+          "rtCode",
+          "40204000000"
+        ],
+        [
+          "<",
+          "rtCode",
+          "40205000000"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#888",
+        "line-width": 2,
+        "line-dasharray": [
+          2,
+          2
+        ]
+      }
+    },
+    {
+      "id": "gsi-railway-索道",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "railway",
+      "minzoom": 14,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          8201
+        ],
+        [
+          ">=",
+          "rtCode",
+          "40206000000"
+        ],
+        [
+          "<",
+          "rtCode",
+          "40207000000"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#888",
+        "line-width": 2,
+        "line-dasharray": [
+          2,
+          2
+        ]
+      }
+    },
+    {
+      "id": "gsi-railway-JR-14-17",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "railway",
+      "minzoom": 14,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          8201
+        ],
+        [
+          "any",
+          [
+            "==",
+            "staCode",
+            "0"
+          ],
+          [
+            "!has",
+            "staCode"
+          ]
+        ],
+        [
+          "any",
+          [
+            "all",
+            [
+              ">=",
+              "rtCode",
+              "40201000000"
+            ],
+            [
+              "<",
+              "rtCode",
+              "40202000000"
+            ]
+          ],
+          [
+            "all",
+            [
+              ">=",
+              "rtCode",
+              "40216000000"
+            ],
+            [
+              "<",
+              "rtCode",
+              "40217000000"
+            ]
+          ]
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#888",
+        "line-width": 6
+      }
+    },
+    {
+      "id": "gsi-railway-JR-14-17-w",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "railway",
+      "minzoom": 14,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          8201
+        ],
+        [
+          "any",
+          [
+            "==",
+            "staCode",
+            "0"
+          ],
+          [
+            "!has",
+            "staCode"
+          ]
+        ],
+        [
+          "any",
+          [
+            "all",
+            [
+              ">=",
+              "rtCode",
+              "40201000000"
+            ],
+            [
+              "<",
+              "rtCode",
+              "40202000000"
+            ]
+          ],
+          [
+            "all",
+            [
+              ">=",
+              "rtCode",
+              "40216000000"
+            ],
+            [
+              "<",
+              "rtCode",
+              "40217000000"
+            ]
+          ]
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#888",
+        "line-width": 4,
+        "line-dasharray": [
+          2,
+          3,
+          2,
+          3,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "gsi-railway-主要な鉄道",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "railway",
+      "minzoom": 7,
+      "filter": [
+        "any",
+        [
+          "==",
+          "ftCode",
+          58201
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#888",
+        "line-width": 1.5
+      }
+    },
+    {
+      "id": "gsi-railway-鉄道-JR以外-14-19",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "railway",
+      "minzoom": 14,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          8201
+        ],
+        [
+          "any",
+          [
+            "==",
+            "staCode",
+            "0"
+          ],
+          [
+            "!has",
+            "staCode"
+          ]
+        ],
+        [
+          "any",
+          [
+            "all",
+            [
+              ">=",
+              "rtCode",
+              "40202000000"
+            ],
+            [
+              "<",
+              "rtCode",
+              "40203000000"
+            ]
+          ],
+          [
+            "all",
+            [
+              ">=",
+              "rtCode",
+              "40205000000"
+            ],
+            [
+              "<",
+              "rtCode",
+              "40206000000"
+            ]
+          ]
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#888",
+        "line-width": 4,
+        "line-opacity": 0.7
+      }
+    },
+    {
+      "id": "gsi-railway-地下鉄-8-19",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "railway",
+      "minzoom": 8,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          8201
+        ],
+        [
+          "any",
+          [
+            "==",
+            "staCode",
+            "0"
+          ],
+          [
+            "!has",
+            "staCode"
+          ]
+        ],
+        [
+          "any",
+          [
+            "all",
+            [
+              ">=",
+              "rtCode1",
+              "40203000000"
+            ],
+            [
+              "<",
+              "rtCode1",
+              "40204000000"
+            ]
+          ],
+          [
+            "all",
+            [
+              ">=",
+              "rtCode",
+              "40203000000"
+            ],
+            [
+              "<",
+              "rtCode",
+              "40204000000"
+            ]
+          ]
+        ]
+      ],
+      "layout": {
+        "visibility": "visible",
+        "line-cap": "round",
+        "line-join": "round"
+      },
+      "paint": {
+        "line-color": "#888",
+        "line-width": [
+          "step",
+          [
+            "zoom"
+          ],
+          1,
+          14,
+          2
+        ],
+        "line-opacity": 0.7
+      }
+    },
+    {
+      "id": "gsi-railway-鉄道-JR以外-8-14",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "railway",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          8201
+        ],
+        [
+          "==",
+          "opeState",
+          0
+        ],
+        [
+          "any",
+          [
+            "all",
+            [
+              ">=",
+              "rtCode1",
+              "40202000000"
+            ],
+            [
+              "<",
+              "rtCode1",
+              "40203000000"
+            ]
+          ],
+          [
+            "all",
+            [
+              ">=",
+              "rtCode1",
+              "40205000000"
+            ],
+            [
+              "<",
+              "rtCode1",
+              "40206000000"
+            ]
+          ]
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#333333",
+        "line-width": [
+          "step",
+          [
+            "zoom"
+          ],
+          1,
+          13,
+          2.5
+        ]
+      }
+    },
+    {
+      "id": "gsi-railway-鉄道JR-10",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "railway",
+      "minzoom": 10,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          8201
+        ],
+        [
+          "==",
+          "opeState",
+          0
+        ],
+        [
+          "any",
+          [
+            "all",
+            [
+              ">=",
+              "rtCode1",
+              "40201000000"
+            ],
+            [
+              "<",
+              "rtCode1",
+              "40202000000"
+            ]
+          ],
+          [
+            "all",
+            [
+              ">=",
+              "rtCode1",
+              "40216000000"
+            ],
+            [
+              "<",
+              "rtCode1",
+              "40217000000"
+            ]
+          ]
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#888",
+        "line-width": 4
+      }
+    },
+    {
+      "id": "gsi-railway-鉄道JR-10-w",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "railway",
+      "minzoom": 10,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          8201
+        ],
+        [
+          "any",
+          [
+            "all",
+            [
+              ">=",
+              "rtCode1",
+              "40201000000"
+            ],
+            [
+              "<",
+              "rtCode1",
+              "40202000000"
+            ]
+          ],
+          [
+            "all",
+            [
+              ">=",
+              "rtCode1",
+              "40216000000"
+            ],
+            [
+              "<",
+              "rtCode1",
+              "40217000000"
+            ]
+          ]
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#888",
+        "line-width": 2,
+        "line-dasharray": [
+          2,
+          3,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "gsi-railway-鉄道JR-9",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "railway",
+      "minzoom": 8,
+      "maxzoom": 10,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          8201
+        ],
+        [
+          "any",
+          [
+            "all",
+            [
+              ">=",
+              "rtCode1",
+              "40201000000"
+            ],
+            [
+              "<",
+              "rtCode1",
+              "40202000000"
+            ]
+          ],
+          [
+            "all",
+            [
+              ">=",
+              "rtCode1",
+              "40216000000"
+            ],
+            [
+              "<",
+              "rtCode1",
+              "40217000000"
+            ]
+          ]
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#333333",
+        "line-width": 1.5,
+        "line-dasharray": [
+          2,
+          2
+        ]
+      }
+    },
+    {
+      "id": "gsi-railway-新幹線-8-10",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "railway",
+      "minzoom": 0,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          8201
+        ],
+        [
+          "has",
+          "rtCode10"
+        ],
+        [
+          "==",
+          "rtCode10",
+          "1"
+        ],
+        [
+          "==",
+          "snglDbl",
+          2
+        ],
+        [
+          "==",
+          "opeState",
+          0
+        ],
+        [
+          "any",
+          [
+            "all",
+            [
+              ">=",
+              "rtCode1",
+              "40201000000"
+            ],
+            [
+              "<",
+              "rtCode1",
+              "40202000000"
+            ]
+          ],
+          [
+            "all",
+            [
+              ">=",
+              "rtCode1",
+              "40216000000"
+            ],
+            [
+              "<",
+              "rtCode1",
+              "40217000000"
+            ]
+          ]
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#333333",
+        "line-width": 4
+      }
+    },
+    {
+      "id": "gsi-railway-新幹線-8-10-w",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "railway",
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          8201
+        ],
+        [
+          "has",
+          "rtCode10"
+        ],
+        [
+          "==",
+          "rtCode10",
+          "1"
+        ],
+        [
+          "==",
+          "snglDbl",
+          2
+        ],
+        [
+          "==",
+          "opeState",
+          0
+        ],
+        [
+          "any",
+          [
+            "all",
+            [
+              ">=",
+              "rtCode1",
+              "40201000000"
+            ],
+            [
+              "<",
+              "rtCode1",
+              "40202000000"
+            ]
+          ],
+          [
+            "all",
+            [
+              ">=",
+              "rtCode1",
+              "40216000000"
+            ],
+            [
+              "<",
+              "rtCode1",
+              "40217000000"
+            ]
+          ]
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#333333",
+        "line-width": 2,
+        "line-dasharray": [
+          2,
+          3,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "gsi-railway-新幹線-6-7",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "railway",
+      "minzoom": 7,
+      "filter": [
+        "any",
+        [
+          "==",
+          "ftCode",
+          58203
+        ],
+        [
+          "==",
+          "ftCode",
+          58204
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#888",
+        "line-width": 4
+      }
+    },
+    {
+      "id": "gsi-railway-新幹線-6-7-w-copy",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "railway",
+      "minzoom": 7,
+      "filter": [
+        "any",
+        [
+          "==",
+          "ftCode",
+          58203
+        ],
+        [
+          "==",
+          "ftCode",
+          58204
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#888",
+        "line-dasharray": [
+          2,
+          3,
+          2,
+          3
+        ],
+        "line-width": 2
+      }
+    },
+    {
+      "id": "gsi-railway-新幹線-4",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "railway",
+      "minzoom": 0,
+      "maxzoom": 7,
+      "filter": [
+        "any",
+        [
+          "==",
+          "ftCode",
+          58203
+        ],
+        [
+          "==",
+          "ftCode",
+          58204
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#333333",
+        "line-width": [
+          "step",
+          [
+            "zoom"
+          ],
+          1,
+          5,
+          2
+        ]
+      }
+    },
+    {
+      "id": "gsi-road",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "road",
+      "minzoom": 16,
+      "filter": [
+        "all",
+        [
+          "!in",
+          "ftCode",
+          2701,
+          2703,
+          2711,
+          2721,
+          2731
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#888",
+        "line-width": 1
+      }
+    },
+    {
+      "id": "gsi-地下鉄駅-14-",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "railway",
+      "minzoom": 14,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          8201
+        ],
+        [
+          "has",
+          "staCode"
+        ],
+        [
+          "!=",
+          "staCode",
+          "0"
+        ]
+      ],
+      "layout": {
+        "line-cap": "square",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#888",
+        "line-width": [
+          "step",
+          [
+            "zoom"
+          ],
+          8,
+          16,
+          12
+        ],
+        "line-opacity": 0.7
+      }
+    },
+    {
+      "id": "gsi-地下鉄駅-11-13",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "railway",
+      "minzoom": 0,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          8201
+        ],
+        [
+          "has",
+          "staCode"
+        ],
+        [
+          "!=",
+          "staCode",
+          "0"
+        ],
+        [
+          "==",
+          "rtCode10",
+          "2"
+        ]
+      ],
+      "layout": {
+        "line-cap": "square",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#333333",
+        "line-width": [
+          "step",
+          [
+            "zoom"
+          ],
+          2,
+          12,
+          4
+        ]
+      }
+    },
+    {
+      "id": "gsi-JR以外駅",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "railway",
+      "minzoom": 12,
+      "maxzoom": 17,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          8201
+        ],
+        [
+          "has",
+          "staCode"
+        ],
+        [
+          "!=",
+          "staCode",
+          "0"
+        ],
+        [
+          "any",
+          [
+            "all",
+            [
+              ">=",
+              "rtCode1",
+              "40202000000"
+            ],
+            [
+              "<",
+              "rtCode1",
+              "40203000000"
+            ]
+          ],
+          [
+            "all",
+            [
+              ">=",
+              "rtCode1",
+              "40205000000"
+            ],
+            [
+              "<",
+              "rtCode1",
+              "40206000000"
+            ]
+          ],
+          [
+            "all",
+            [
+              ">=",
+              "rtCode1",
+              "40216000000"
+            ],
+            [
+              "<",
+              "rtCode1",
+              "40217000000"
+            ]
+          ]
+        ]
+      ],
+      "layout": {
+        "line-cap": "square",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#888",
+        "line-width": [
+          "step",
+          [
+            "zoom"
+          ],
+          4,
+          13,
+          8
+        ],
+        "line-opacity": 0.8
+      }
+    },
+    {
+      "id": "gsi-gsi-boundary-6101",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "boundary",
+      "filter": [
+        "all",
+        [
+          "==",
+          "ftCode",
+          6101
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#333333",
+        "line-dasharray": [
+          2,
+          2
+        ]
+      }
+    },
+    {
+      "id": "gsi-gsi-boundary",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "boundary",
+      "filter": [
+        "all",
+        [
+          "!=",
+          "ftCode",
+          6101
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#333333",
+        "line-width": [
+          "step",
+          [
+            "zoom"
+          ],
+          1.5,
+          13,
+          2,
+          15,
+          2.5
+        ],
+        "line-opacity": 1,
+        "line-dasharray": [
+          2,
+          1
+        ]
+      }
+    },
+    {
+      "id": "gsi-JR駅-14-19",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "railway",
+      "minzoom": 14,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          8201
+        ],
+        [
+          "has",
+          "staCode"
+        ],
+        [
+          "!=",
+          "staCode",
+          "0"
+        ],
+        [
+          "in",
+          "railState",
+          0,
+          1,
+          5
+        ]
+      ],
+      "layout": {
+        "line-cap": "square",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#888",
+        "line-width": [
+          "step",
+          [
+            "zoom"
+          ],
+          12,
+          16,
+          20
+        ],
+        "line-opacity": 0.8
+      }
+    },
+    {
+      "id": "gsi-JR駅-8-13",
+      "type": "line",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "railway",
+      "minzoom": 11,
+      "maxzoom": 17,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          8201
+        ],
+        [
+          "has",
+          "staCode"
+        ],
+        [
+          "!=",
+          "staCode",
+          "0"
+        ],
+        [
+          "in",
+          "railState",
+          0,
+          1,
+          5
+        ],
+        [
+          "any",
+          [
+            "all",
+            [
+              "!=",
+              "rtCode1",
+              "40201000000"
+            ],
+            [
+              "<",
+              "rtCode1",
+              "40202000000"
+            ]
+          ],
+          [
+            "all",
+            [
+              ">=",
+              "rtCode1",
+              "40205000000"
+            ],
+            [
+              "<",
+              "rtCode1",
+              "40206000000"
+            ]
+          ],
+          [
+            "all",
+            [
+              ">=",
+              "rtCode1",
+              "40216000000"
+            ],
+            [
+              "<",
+              "rtCode1",
+              "40217000000"
+            ]
+          ]
+        ]
+      ],
+      "layout": {
+        "line-cap": "square",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#888",
+        "line-width": [
+          "step",
+          [
+            "zoom"
+          ],
+          5,
+          12,
+          6,
+          13,
+          10,
+          15,
+          14
+        ],
+        "line-opacity": 0.8
+      }
+    },
+    {
+      "id": "gsi-gsi-rastar",
+      "type": "raster",
+      "source": "GSI-taster",
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {}
+    },
+    {
+      "id": "s-oms-bus",
+      "type": "symbol",
+      "source": "osm",
+      "source-layer": "poi",
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "bus"
+        ]
+      ],
+      "layout": {
+        "text-field": "{name:nonlatin}",
+        "text-font": [
+          "Noto Sans CJK JP Light"
+        ],
+        "text-size": 10,
+        "visibility": "visible",
+        "text-justify": "auto",
+        "icon-image": "bus",
+        "text-offset": [
+          0,
+          1.5
+        ]
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "s-oms-poi",
+      "type": "symbol",
+      "source": "osm",
+      "source-layer": "poi",
+      "filter": [
+        "all",
+        [
+          "!=",
+          "class",
+          "bus"
+        ]
+      ],
+      "layout": {
+        "text-field": "{name:nonlatin}",
+        "text-font": [
+          "Noto Sans CJK JP Regular"
+        ],
+        "text-size": 11,
+        "visibility": "visible",
+        "text-justify": "auto"
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-width": 1,
+        "text-halo-color": "#000"
+      }
+    },
+    {
+      "id": "s-oms-water_name",
+      "type": "symbol",
+      "source": "osm",
+      "source-layer": "water_name",
+      "layout": {
+        "text-field": "{name:ja}",
+        "text-font": [
+          "Noto Sans Bold"
+        ],
+        "text-size": 12,
+        "visibility": "none"
+      },
+      "paint": {
+        "text-color": "#ccc"
+      }
+    },
+    {
+      "id": "s-gsi-label",
+      "type": "symbol",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "label",
+      "minzoom": 10,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          100
+        ],
+        [
+          "!in",
+          "annoCtg",
+          321,
+          411,
+          423,
+          322,
+          344,
+          345,
+          421,
+          140,
+          110,
+          210,
+          422,
+          883,
+          887,
+          884,
+          890,
+          886,
+          534,
+          810
+        ]
+      ],
+      "layout": {
+        "text-allow-overlap": false,
+        "icon-allow-overlap": false,
+        "text-offset": [
+          0,
+          0
+        ],
+        "text-anchor": "center",
+        "icon-pitch-alignment": "viewport",
+        "icon-rotation-alignment": "viewport",
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "viewport",
+        "text-field": [
+          "get",
+          "knj"
+        ],
+        "text-font": [
+          "Noto Sans Regular"
+        ],
+        "symbol-placement": "point",
+        "text-keep-upright": true,
+        "symbol-z-order": "auto",
+        "visibility": "visible",
+        "text-size": 12,
+        "icon-anchor": "center",
+        "text-justify": "auto",
+        "icon-text-fit": "none",
+        "icon-size": 1
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-color": "#000",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "s-gsi-主要な港",
+      "type": "symbol",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "symbol",
+      "minzoom": 7,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          56368
+        ]
+      ],
+      "layout": {
+        "text-allow-overlap": false,
+        "icon-allow-overlap": false,
+        "icon-size": 0.75,
+        "text-offset": [
+          "case",
+          [
+            "==",
+            [
+              "get",
+              "1"
+            ],
+            2
+          ],
+          [
+            "case",
+            [
+              "any",
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "CB"
+              ],
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "RB"
+              ],
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "LB"
+              ]
+            ],
+            [
+              "literal",
+              [
+                0.5,
+                0
+              ]
+            ],
+            [
+              "any",
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "CT"
+              ],
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "RT"
+              ],
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "LT"
+              ]
+            ],
+            [
+              "literal",
+              [
+                -0.5,
+                0
+              ]
+            ],
+            [
+              "any",
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "LC"
+              ]
+            ],
+            [
+              "literal",
+              [
+                0,
+                0.5
+              ]
+            ],
+            [
+              "any",
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "RC"
+              ]
+            ],
+            [
+              "literal",
+              [
+                0,
+                -0.5
+              ]
+            ],
+            [
+              "literal",
+              [
+                0,
+                0
+              ]
+            ]
+          ],
+          [
+            "case",
+            [
+              "any",
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "LT"
+              ],
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "LC"
+              ],
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "LB"
+              ]
+            ],
+            [
+              "literal",
+              [
+                0.5,
+                0
+              ]
+            ],
+            [
+              "any",
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "RT"
+              ],
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "RC"
+              ],
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "RB"
+              ]
+            ],
+            [
+              "literal",
+              [
+                -0.5,
+                0
+              ]
+            ],
+            [
+              "any",
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "CT"
+              ]
+            ],
+            [
+              "literal",
+              [
+                0,
+                0.5
+              ]
+            ],
+            [
+              "any",
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "CB"
+              ]
+            ],
+            [
+              "literal",
+              [
+                0,
+                -0.5
+              ]
+            ],
+            [
+              "literal",
+              [
+                0,
+                0
+              ]
+            ]
+          ]
+        ],
+        "text-anchor": "center",
+        "icon-pitch-alignment": "viewport",
+        "icon-rotation-alignment": "viewport",
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "viewport",
+        "text-field": [
+          "get",
+          "knj"
+        ],
+        "text-font": [
+          "Noto Sans Regular"
+        ],
+        "symbol-placement": "point",
+        "text-keep-upright": true,
+        "symbol-z-order": "auto",
+        "text-max-width": 100,
+        "visibility": "none",
+        "text-size": 20,
+        "icon-image": "harbor"
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-color": "#000",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "s-gsi-山-7",
+      "type": "symbol",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "label",
+      "minzoom": 7,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          50100
+        ],
+        [
+          "in",
+          "annoCtg",
+          311
+        ]
+      ],
+      "layout": {
+        "text-allow-overlap": false,
+        "icon-allow-overlap": false,
+        "text-offset": [
+          0,
+          0
+        ],
+        "text-anchor": "center",
+        "icon-pitch-alignment": "viewport",
+        "icon-rotation-alignment": "viewport",
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "viewport",
+        "text-field": "",
+        "text-font": [
+          "Noto Sans Regular"
+        ],
+        "symbol-placement": "point",
+        "text-keep-upright": true,
+        "symbol-z-order": "auto",
+        "visibility": "visible",
+        "text-size": 12,
+        "icon-image": "mountain",
+        "icon-anchor": "right",
+        "text-justify": "auto",
+        "icon-size": 1,
+        "icon-text-fit": "none"
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-color": "#000",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "s-gsi-山-9",
+      "type": "symbol",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "label",
+      "minzoom": 8,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          100
+        ],
+        [
+          "in",
+          "annoCtg",
+          311,
+          314,
+          315,
+          316
+        ]
+      ],
+      "layout": {
+        "text-allow-overlap": false,
+        "icon-allow-overlap": false,
+        "text-offset": [
+          0,
+          0
+        ],
+        "text-anchor": "left",
+        "icon-pitch-alignment": "viewport",
+        "icon-rotation-alignment": "viewport",
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "viewport",
+        "text-field": [
+          "get",
+          "knj"
+        ],
+        "text-font": [
+          "Noto Sans Regular"
+        ],
+        "symbol-placement": "point",
+        "text-keep-upright": true,
+        "symbol-z-order": "auto",
+        "visibility": "visible",
+        "text-size": 11,
+        "icon-image": "mountain",
+        "icon-anchor": "right",
+        "text-justify": "auto",
+        "icon-size": 0.7,
+        "icon-text-fit": "none"
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-color": "#000",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "s-gsi-島-4",
+      "type": "symbol",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "label",
+      "minzoom": 8,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          100
+        ],
+        [
+          "in",
+          "annoCtg",
+          352
+        ]
+      ],
+      "layout": {
+        "text-allow-overlap": false,
+        "icon-allow-overlap": false,
+        "text-offset": [
+          0,
+          0
+        ],
+        "text-anchor": "left",
+        "icon-pitch-alignment": "viewport",
+        "icon-rotation-alignment": "viewport",
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "viewport",
+        "text-field": [
+          "get",
+          "knj"
+        ],
+        "text-font": [
+          "Noto Sans Regular"
+        ],
+        "symbol-placement": "point",
+        "text-keep-upright": true,
+        "symbol-z-order": "auto",
+        "visibility": "none",
+        "text-size": 11,
+        "icon-anchor": "right",
+        "text-justify": "auto",
+        "icon-size": 0.7,
+        "icon-text-fit": "none"
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-color": "#000",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "s-gsi-島",
+      "type": "symbol",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "label",
+      "minzoom": 8,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          100
+        ],
+        [
+          "in",
+          "annoCtg",
+          352
+        ]
+      ],
+      "layout": {
+        "text-allow-overlap": false,
+        "icon-allow-overlap": false,
+        "text-offset": [
+          0,
+          0
+        ],
+        "text-anchor": "left",
+        "icon-pitch-alignment": "viewport",
+        "icon-rotation-alignment": "viewport",
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "viewport",
+        "text-field": [
+          "get",
+          "knj"
+        ],
+        "text-font": [
+          "Noto Sans Regular"
+        ],
+        "symbol-placement": "point",
+        "text-keep-upright": true,
+        "symbol-z-order": "auto",
+        "visibility": "visible",
+        "text-size": 11,
+        "icon-anchor": "right",
+        "text-justify": "auto",
+        "icon-size": 0.7,
+        "icon-text-fit": "none"
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-color": "#000",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "s-osm-IC-copy",
+      "type": "symbol",
+      "source": "osm",
+      "source-layer": "poi",
+      "minzoom": 0,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "Point"
+        ]
+      ],
+      "layout": {
+        "icon-allow-overlap": false,
+        "icon-ignore-placement": false,
+        "icon-optional": false,
+        "text-allow-overlap": false,
+        "text-anchor": "left",
+        "text-field": "{name}",
+        "text-font": [
+          "Noto Sans Regular"
+        ],
+        "text-ignore-placement": false,
+        "text-optional": true,
+        "text-padding": 2,
+        "text-size": 12,
+        "visibility": "none",
+        "text-justify": "auto",
+        "icon-size": 0.4,
+        "text-offset": [
+          1.1,
+          0
+        ]
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-color": "#000",
+        "text-halo-width": 1,
+        "text-opacity": [
+          "step",
+          [
+            "zoom"
+          ],
+          0,
+          13,
+          1
+        ]
+      }
+    },
+    {
+      "id": "s-osm-IC",
+      "type": "symbol",
+      "source": "osm",
+      "source-layer": "poi",
+      "minzoom": 0,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "Point"
+        ],
+        [
+          "==",
+          "class",
+          "toll_booth"
+        ],
+        [
+          "==",
+          "subclass",
+          "toll_booth"
+        ]
+      ],
+      "layout": {
+        "icon-allow-overlap": false,
+        "icon-ignore-placement": false,
+        "icon-optional": false,
+        "text-allow-overlap": false,
+        "text-anchor": "left",
+        "text-field": "{name}",
+        "text-font": [
+          "Noto Sans Regular"
+        ],
+        "text-ignore-placement": false,
+        "text-optional": true,
+        "text-padding": 2,
+        "text-size": 12,
+        "visibility": "none",
+        "icon-image": "IC",
+        "text-justify": "auto",
+        "icon-size": 0.4,
+        "text-offset": [
+          1.1,
+          0
+        ]
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-color": "#000",
+        "text-halo-width": 1,
+        "text-opacity": [
+          "step",
+          [
+            "zoom"
+          ],
+          0,
+          13,
+          1
+        ]
+      }
+    },
+    {
+      "id": "s-gsi-山-8",
+      "type": "symbol",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "label",
+      "minzoom": 8,
+      "maxzoom": 9,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          100
+        ],
+        [
+          "in",
+          "annoCtg",
+          314
+        ]
+      ],
+      "layout": {
+        "text-allow-overlap": false,
+        "icon-allow-overlap": false,
+        "text-offset": [
+          0,
+          0
+        ],
+        "text-anchor": "left",
+        "icon-pitch-alignment": "viewport",
+        "icon-rotation-alignment": "viewport",
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "viewport",
+        "text-field": [
+          "get",
+          "knj"
+        ],
+        "text-font": [
+          "Noto Sans Regular"
+        ],
+        "symbol-placement": "point",
+        "text-keep-upright": true,
+        "symbol-z-order": "auto",
+        "visibility": "visible",
+        "text-size": 11,
+        "icon-image": "mountain",
+        "icon-anchor": "right",
+        "text-justify": "auto",
+        "icon-size": 0.7,
+        "icon-text-fit": "none"
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-color": "#000",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "s-gsi-山",
+      "type": "symbol",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "label",
+      "minzoom": 10,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          100
+        ],
+        [
+          "in",
+          "annoCtg",
+          810
+        ]
+      ],
+      "layout": {
+        "text-allow-overlap": false,
+        "icon-allow-overlap": false,
+        "text-anchor": "left",
+        "icon-pitch-alignment": "viewport",
+        "icon-rotation-alignment": "viewport",
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "viewport",
+        "text-field": [
+          "get",
+          "knj"
+        ],
+        "text-font": [
+          "Noto Sans Regular"
+        ],
+        "symbol-placement": "point",
+        "text-keep-upright": true,
+        "symbol-z-order": "auto",
+        "visibility": "visible",
+        "text-size": 12,
+        "icon-anchor": "center",
+        "text-justify": "auto",
+        "icon-text-fit": "none",
+        "icon-size": 1,
+        "text-offset": [
+          1,
+          0
+        ],
+        "icon-image": "mountain"
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-color": "#000",
+        "text-halo-width": 2,
+        "text-opacity": [
+          "step",
+          [
+            "zoom"
+          ],
+          0,
+          16,
+          1
+        ]
+      }
+    },
+    {
+      "id": "s-gsi-公園",
+      "type": "symbol",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "label",
+      "minzoom": 10,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          100
+        ],
+        [
+          "in",
+          "annoCtg",
+          534
+        ]
+      ],
+      "layout": {
+        "text-allow-overlap": false,
+        "icon-allow-overlap": false,
+        "text-anchor": "left",
+        "icon-pitch-alignment": "viewport",
+        "icon-rotation-alignment": "viewport",
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "viewport",
+        "text-field": [
+          "get",
+          "knj"
+        ],
+        "text-font": [
+          "Noto Sans Regular"
+        ],
+        "symbol-placement": "point",
+        "text-keep-upright": true,
+        "symbol-z-order": "auto",
+        "visibility": "visible",
+        "text-size": 12,
+        "icon-anchor": "center",
+        "text-justify": "auto",
+        "icon-text-fit": "none",
+        "icon-size": 0.3,
+        "text-offset": [
+          1,
+          0
+        ],
+        "icon-image": "公園"
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-color": "#000",
+        "text-halo-width": 2,
+        "text-opacity": [
+          "step",
+          [
+            "zoom"
+          ],
+          0,
+          16,
+          1
+        ]
+      }
+    },
+    {
+      "id": "s-gsi-消防署",
+      "type": "symbol",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "label",
+      "minzoom": 10,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          100
+        ],
+        [
+          "in",
+          "annoCtg",
+          884
+        ]
+      ],
+      "layout": {
+        "text-allow-overlap": false,
+        "icon-allow-overlap": false,
+        "text-anchor": "left",
+        "icon-pitch-alignment": "viewport",
+        "icon-rotation-alignment": "viewport",
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "viewport",
+        "text-field": [
+          "get",
+          "knj"
+        ],
+        "text-font": [
+          "Noto Sans Regular"
+        ],
+        "symbol-placement": "point",
+        "text-keep-upright": true,
+        "symbol-z-order": "auto",
+        "visibility": "visible",
+        "text-size": 12,
+        "icon-anchor": "center",
+        "text-justify": "auto",
+        "icon-text-fit": "none",
+        "icon-size": 0.3,
+        "text-offset": [
+          1,
+          0
+        ],
+        "icon-image": "消防署"
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-color": "#000",
+        "text-halo-width": 2,
+        "text-opacity": [
+          "step",
+          [
+            "zoom"
+          ],
+          0,
+          16,
+          1
+        ]
+      }
+    },
+    {
+      "id": "s-gsi-病院",
+      "type": "symbol",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "label",
+      "minzoom": 10,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          100
+        ],
+        [
+          "in",
+          "annoCtg",
+          886
+        ]
+      ],
+      "layout": {
+        "text-allow-overlap": false,
+        "icon-allow-overlap": false,
+        "text-anchor": "left",
+        "icon-pitch-alignment": "viewport",
+        "icon-rotation-alignment": "viewport",
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "viewport",
+        "text-field": [
+          "get",
+          "knj"
+        ],
+        "text-font": [
+          "Noto Sans Regular"
+        ],
+        "symbol-placement": "point",
+        "text-keep-upright": true,
+        "symbol-z-order": "auto",
+        "visibility": "visible",
+        "text-size": 12,
+        "icon-anchor": "center",
+        "text-justify": "auto",
+        "icon-text-fit": "none",
+        "icon-size": 0.3,
+        "text-offset": [
+          1,
+          0
+        ],
+        "icon-image": "病院"
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-color": "#000",
+        "text-halo-width": 2,
+        "text-opacity": [
+          "step",
+          [
+            "zoom"
+          ],
+          0,
+          16,
+          1
+        ]
+      }
+    },
+    {
+      "id": "s-gsi-郵便",
+      "type": "symbol",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "label",
+      "minzoom": 10,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          100
+        ],
+        [
+          "in",
+          "annoCtg",
+          887
+        ]
+      ],
+      "layout": {
+        "text-allow-overlap": false,
+        "icon-allow-overlap": false,
+        "text-anchor": "left",
+        "icon-pitch-alignment": "viewport",
+        "icon-rotation-alignment": "viewport",
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "viewport",
+        "text-field": [
+          "get",
+          "knj"
+        ],
+        "text-font": [
+          "Noto Sans Regular"
+        ],
+        "symbol-placement": "point",
+        "text-keep-upright": true,
+        "symbol-z-order": "auto",
+        "visibility": "visible",
+        "text-size": 12,
+        "icon-anchor": "center",
+        "text-justify": "auto",
+        "icon-text-fit": "none",
+        "icon-size": 0.3,
+        "text-offset": [
+          1,
+          0
+        ],
+        "icon-image": "郵便"
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-color": "#000",
+        "text-halo-width": 2,
+        "text-opacity": [
+          "step",
+          [
+            "zoom"
+          ],
+          0,
+          16,
+          1
+        ]
+      }
+    },
+    {
+      "id": "s-gsi-老人ホーム",
+      "type": "symbol",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "label",
+      "minzoom": 10,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          100
+        ],
+        [
+          "in",
+          "annoCtg",
+          890
+        ]
+      ],
+      "layout": {
+        "text-allow-overlap": false,
+        "icon-allow-overlap": false,
+        "text-anchor": "left",
+        "icon-pitch-alignment": "viewport",
+        "icon-rotation-alignment": "viewport",
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "viewport",
+        "text-field": [
+          "get",
+          "knj"
+        ],
+        "text-font": [
+          "Noto Sans Regular"
+        ],
+        "symbol-placement": "point",
+        "text-keep-upright": true,
+        "symbol-z-order": "auto",
+        "visibility": "visible",
+        "text-size": 12,
+        "icon-anchor": "center",
+        "text-justify": "auto",
+        "icon-text-fit": "none",
+        "icon-size": 0.3,
+        "text-offset": [
+          1,
+          0
+        ],
+        "icon-image": "老人ホーム",
+        "text-max-width": 100
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-color": "#000",
+        "text-halo-width": 2,
+        "text-opacity": [
+          "step",
+          [
+            "zoom"
+          ],
+          0,
+          16,
+          1
+        ]
+      }
+    },
+    {
+      "id": "s-gsi-交番",
+      "type": "symbol",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "label",
+      "minzoom": 10,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          100
+        ],
+        [
+          "in",
+          "annoCtg",
+          883
+        ]
+      ],
+      "layout": {
+        "text-allow-overlap": false,
+        "icon-allow-overlap": false,
+        "text-anchor": "left",
+        "icon-pitch-alignment": "viewport",
+        "icon-rotation-alignment": "viewport",
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "viewport",
+        "text-field": [
+          "get",
+          "knj"
+        ],
+        "text-font": [
+          "Noto Sans Regular"
+        ],
+        "symbol-placement": "point",
+        "text-keep-upright": true,
+        "symbol-z-order": "auto",
+        "visibility": "visible",
+        "text-size": 12,
+        "icon-anchor": "center",
+        "text-justify": "auto",
+        "icon-text-fit": "none",
+        "icon-image": "交番",
+        "icon-size": 0.3,
+        "text-offset": [
+          1,
+          0
+        ]
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-color": "#000",
+        "text-halo-width": 2,
+        "text-opacity": [
+          "step",
+          [
+            "zoom"
+          ],
+          0,
+          16,
+          1
+        ]
+      }
+    },
+    {
+      "id": "s-gsi-小中学校",
+      "type": "symbol",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "symbol",
+      "minzoom": 0,
+      "maxzoom": 16,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          3213,
+          3214,
+          3212
+        ]
+      ],
+      "layout": {
+        "text-allow-overlap": false,
+        "icon-allow-overlap": false,
+        "text-offset": [
+          0.3,
+          0
+        ],
+        "text-anchor": "center",
+        "icon-pitch-alignment": "viewport",
+        "icon-rotation-alignment": "viewport",
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "viewport",
+        "text-field": [
+          "get",
+          "knj"
+        ],
+        "text-font": [
+          "Noto Sans Regular"
+        ],
+        "symbol-placement": "point",
+        "text-keep-upright": true,
+        "symbol-z-order": "auto",
+        "visibility": "visible",
+        "text-size": 14,
+        "icon-anchor": "right",
+        "text-justify": "auto",
+        "icon-size": 0.3,
+        "icon-text-fit": "none",
+        "icon-image": "学校"
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-color": "#000",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "s-gsi-大学",
+      "type": "symbol",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "label",
+      "minzoom": 8,
+      "maxzoom": 16,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          100
+        ],
+        [
+          "in",
+          "annoCtg",
+          631,
+          632,
+          633,
+          634,
+          673
+        ]
+      ],
+      "layout": {
+        "text-allow-overlap": false,
+        "icon-allow-overlap": false,
+        "text-offset": [
+          0.3,
+          0
+        ],
+        "text-anchor": "left",
+        "icon-pitch-alignment": "viewport",
+        "icon-rotation-alignment": "viewport",
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "viewport",
+        "text-field": [
+          "get",
+          "knj"
+        ],
+        "text-font": [
+          "Noto Sans Regular"
+        ],
+        "symbol-placement": "point",
+        "text-keep-upright": true,
+        "symbol-z-order": "auto",
+        "visibility": "visible",
+        "text-size": 14,
+        "icon-anchor": "right",
+        "text-justify": "auto",
+        "icon-size": 0.3,
+        "icon-text-fit": "none",
+        "icon-image": "学校"
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-color": "#000",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "s-gsi-国道",
+      "type": "symbol",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "transp",
+      "minzoom": 10,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          2901
+        ]
+      ],
+      "layout": {
+        "text-allow-overlap": false,
+        "icon-allow-overlap": false,
+        "text-anchor": "center",
+        "icon-pitch-alignment": "map",
+        "icon-rotation-alignment": "map",
+        "text-pitch-alignment": "map",
+        "text-rotation-alignment": "map",
+        "text-field": [
+          "get",
+          "nRNo"
+        ],
+        "text-font": [
+          "Noto Sans Bold"
+        ],
+        "symbol-placement": "point",
+        "text-keep-upright": true,
+        "symbol-z-order": "auto",
+        "visibility": "visible",
+        "icon-anchor": "center",
+        "text-justify": "auto",
+        "icon-size": 0.4,
+        "icon-text-fit": "none",
+        "text-size": 10,
+        "icon-image": "国道",
+        "text-offset": [
+          0,
+          -0.1
+        ]
+      },
+      "paint": {
+        "text-color": "#ccc"
+      }
+    },
+    {
+      "id": "s-gsi-国際空港など",
+      "type": "symbol",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "symbol",
+      "minzoom": 8,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          6375,
+          6376
+        ]
+      ],
+      "layout": {
+        "text-allow-overlap": false,
+        "icon-allow-overlap": false,
+        "icon-size": 0.25,
+        "text-offset": [
+          "case",
+          [
+            "==",
+            [
+              "get",
+              "1"
+            ],
+            2
+          ],
+          [
+            "case",
+            [
+              "any",
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "CB"
+              ],
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "RB"
+              ],
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "LB"
+              ]
+            ],
+            [
+              "literal",
+              [
+                0.5,
+                0
+              ]
+            ],
+            [
+              "any",
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "CT"
+              ],
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "RT"
+              ],
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "LT"
+              ]
+            ],
+            [
+              "literal",
+              [
+                -0.5,
+                0
+              ]
+            ],
+            [
+              "any",
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "LC"
+              ]
+            ],
+            [
+              "literal",
+              [
+                0,
+                0.5
+              ]
+            ],
+            [
+              "any",
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "RC"
+              ]
+            ],
+            [
+              "literal",
+              [
+                0,
+                -0.5
+              ]
+            ],
+            [
+              "literal",
+              [
+                0,
+                0
+              ]
+            ]
+          ],
+          [
+            "case",
+            [
+              "any",
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "LT"
+              ],
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "LC"
+              ],
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "LB"
+              ]
+            ],
+            [
+              "literal",
+              [
+                0.5,
+                0
+              ]
+            ],
+            [
+              "any",
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "RT"
+              ],
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "RC"
+              ],
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "RB"
+              ]
+            ],
+            [
+              "literal",
+              [
+                -0.5,
+                0
+              ]
+            ],
+            [
+              "any",
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "CT"
+              ]
+            ],
+            [
+              "literal",
+              [
+                0,
+                0.5
+              ]
+            ],
+            [
+              "any",
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "CB"
+              ]
+            ],
+            [
+              "literal",
+              [
+                0,
+                -0.5
+              ]
+            ],
+            [
+              "literal",
+              [
+                0,
+                0
+              ]
+            ]
+          ]
+        ],
+        "text-anchor": "center",
+        "icon-pitch-alignment": "viewport",
+        "icon-rotation-alignment": "viewport",
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "viewport",
+        "text-field": [
+          "get",
+          "knj"
+        ],
+        "text-font": [
+          "Noto Sans Regular"
+        ],
+        "symbol-placement": "point",
+        "text-keep-upright": true,
+        "symbol-z-order": "auto",
+        "text-max-width": 100,
+        "visibility": "visible",
+        "text-size": 20,
+        "icon-image": "airport2"
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-color": "#000",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "s-gsi-インターチェンジ",
+      "type": "symbol",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "transp",
+      "minzoom": 7,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          2941,
+          2945
+        ]
+      ],
+      "layout": {
+        "text-allow-overlap": false,
+        "icon-allow-overlap": false,
+        "text-anchor": "left",
+        "icon-pitch-alignment": "map",
+        "icon-rotation-alignment": "map",
+        "text-pitch-alignment": "map",
+        "text-rotation-alignment": "map",
+        "text-field": "",
+        "text-font": [],
+        "symbol-placement": "point",
+        "text-keep-upright": true,
+        "symbol-z-order": "auto",
+        "visibility": "visible",
+        "icon-anchor": "center",
+        "text-justify": "auto",
+        "icon-text-fit": "none",
+        "icon-size": 0.3,
+        "icon-image": "IC",
+        "text-offset": [
+          0.8,
+          0
+        ]
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-color": "#000",
+        "text-halo-width": 1,
+        "text-opacity": [
+          "step",
+          [
+            "zoom"
+          ],
+          0,
+          13,
+          1
+        ]
+      }
+    },
+    {
+      "id": "s-gsi-ジャンクション",
+      "type": "symbol",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "transp",
+      "minzoom": 11,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "ftCode",
+          2942
+        ]
+      ],
+      "layout": {
+        "text-allow-overlap": false,
+        "icon-allow-overlap": false,
+        "text-anchor": "center",
+        "icon-pitch-alignment": "map",
+        "icon-rotation-alignment": "map",
+        "text-pitch-alignment": "map",
+        "text-rotation-alignment": "map",
+        "text-field": "",
+        "text-font": [],
+        "symbol-placement": "point",
+        "text-keep-upright": true,
+        "symbol-z-order": "auto",
+        "visibility": "visible",
+        "icon-anchor": "center",
+        "text-justify": "auto",
+        "icon-text-fit": "none",
+        "icon-size": 0.4,
+        "icon-image": "JCT",
+        "text-offset": [
+          1,
+          0
+        ]
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-color": "#000",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "s-osm-地下鉄駅名",
+      "type": "symbol",
+      "source": "osm",
+      "source-layer": "poi",
+      "minzoom": 14,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "Point"
+        ],
+        [
+          "has",
+          "name"
+        ],
+        [
+          "==",
+          "subclass",
+          "subway"
+        ]
+      ],
+      "layout": {
+        "icon-allow-overlap": false,
+        "icon-ignore-placement": false,
+        "icon-optional": false,
+        "text-allow-overlap": false,
+        "text-anchor": "top",
+        "text-field": "{name:nonlatin}",
+        "text-font": [
+          "Noto Sans Regular"
+        ],
+        "text-ignore-placement": false,
+        "text-max-width": 9,
+        "text-optional": true,
+        "text-padding": 2,
+        "text-size": 10,
+        "visibility": "visible",
+        "icon-image": "地下鉄駅",
+        "icon-size": 0.3,
+        "text-offset": [
+          0,
+          1.2
+        ]
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-width": 2,
+        "text-halo-color": "#000"
+      }
+    },
+    {
+      "id": "s-osm-駅名",
+      "type": "symbol",
+      "source": "osm",
+      "source-layer": "poi",
+      "minzoom": 12,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "Point"
+        ],
+        [
+          "has",
+          "name"
+        ],
+        [
+          "==",
+          "class",
+          "railway"
+        ],
+        [
+          "==",
+          "subclass",
+          "station"
+        ]
+      ],
+      "layout": {
+        "icon-allow-overlap": false,
+        "icon-ignore-placement": false,
+        "icon-optional": false,
+        "text-allow-overlap": false,
+        "text-anchor": "center",
+        "text-field": "{name:nonlatin}",
+        "text-font": [
+          "Noto Sans Bold"
+        ],
+        "text-ignore-placement": false,
+        "text-optional": true,
+        "text-padding": 2,
+        "text-size": 14,
+        "visibility": "visible",
+        "icon-size": [
+          "step",
+          [
+            "zoom"
+          ],
+          0.25,
+          11,
+          0.3,
+          13,
+          0.3,
+          15,
+          0.3
+        ],
+        "icon-image": "駅",
+        "text-offset": [
+          0,
+          1.3
+        ],
+        "icon-anchor": "center"
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-color": "#000",
+        "text-halo-width": 2,
+        "text-opacity": [
+          "step",
+          [
+            "zoom"
+          ],
+          0,
+          12,
+          1
+        ]
+      }
+    },
+    {
+      "id": "s-gsi-高速道路番号-12",
+      "type": "symbol",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "transp",
+      "minzoom": 11,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          2904
+        ]
+      ],
+      "layout": {
+        "text-allow-overlap": false,
+        "icon-allow-overlap": false,
+        "text-anchor": "center",
+        "icon-pitch-alignment": "map",
+        "icon-rotation-alignment": "map",
+        "text-pitch-alignment": "map",
+        "text-rotation-alignment": "map",
+        "text-field": "{uRNo}",
+        "text-font": [
+          "Noto Sans Bold"
+        ],
+        "symbol-placement": "point",
+        "text-keep-upright": true,
+        "symbol-z-order": "auto",
+        "visibility": "visible",
+        "icon-anchor": "center",
+        "text-justify": "auto",
+        "icon-text-fit": "none",
+        "text-size": 12,
+        "text-offset": [
+          0,
+          0
+        ],
+        "icon-image": "高速道路枠",
+        "icon-size": 0.3
+      },
+      "paint": {
+        "text-color": "#ccc"
+      }
+    },
+    {
+      "id": "s-oms-ICなど",
+      "type": "symbol",
+      "source": "osm",
+      "source-layer": "transportation_name",
+      "minzoom": 0,
+      "filter": [
+        "all",
+        [
+          "==",
+          "subclass",
+          "junction"
+        ]
+      ],
+      "layout": {
+        "text-field": "{name}",
+        "text-font": [
+          "Noto Sans Bold"
+        ],
+        "visibility": "visible",
+        "text-size": 12
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-color": "#000",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "s-gsi-高速道路番号-7-11",
+      "type": "symbol",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "transp",
+      "minzoom": 0,
+      "maxzoom": 11,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          2904
+        ]
+      ],
+      "layout": {
+        "text-allow-overlap": false,
+        "icon-allow-overlap": false,
+        "text-anchor": "center",
+        "icon-pitch-alignment": "map",
+        "icon-rotation-alignment": "map",
+        "text-pitch-alignment": "map",
+        "text-rotation-alignment": "map",
+        "text-field": "{nRNo}",
+        "text-font": [
+          "Noto Sans Bold"
+        ],
+        "symbol-placement": "point",
+        "text-keep-upright": true,
+        "symbol-z-order": "auto",
+        "visibility": "visible",
+        "icon-anchor": "center",
+        "text-justify": "auto",
+        "icon-text-fit": "none",
+        "text-size": 12,
+        "text-offset": [
+          0,
+          0
+        ],
+        "icon-image": "高速道路枠",
+        "icon-size": 0.3
+      },
+      "paint": {
+        "text-color": "#ccc"
+      }
+    },
+    {
+      "id": "s-gsi-主要な空港",
+      "type": "symbol",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "symbol",
+      "minzoom": 9,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          56376
+        ]
+      ],
+      "layout": {
+        "text-allow-overlap": false,
+        "icon-allow-overlap": false,
+        "icon-size": 0.25,
+        "text-offset": [
+          "case",
+          [
+            "==",
+            [
+              "get",
+              "1"
+            ],
+            2
+          ],
+          [
+            "case",
+            [
+              "any",
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "CB"
+              ],
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "RB"
+              ],
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "LB"
+              ]
+            ],
+            [
+              "literal",
+              [
+                0.5,
+                0
+              ]
+            ],
+            [
+              "any",
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "CT"
+              ],
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "RT"
+              ],
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "LT"
+              ]
+            ],
+            [
+              "literal",
+              [
+                -0.5,
+                0
+              ]
+            ],
+            [
+              "any",
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "LC"
+              ]
+            ],
+            [
+              "literal",
+              [
+                0,
+                0.5
+              ]
+            ],
+            [
+              "any",
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "RC"
+              ]
+            ],
+            [
+              "literal",
+              [
+                0,
+                -0.5
+              ]
+            ],
+            [
+              "literal",
+              [
+                0,
+                0
+              ]
+            ]
+          ],
+          [
+            "case",
+            [
+              "any",
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "LT"
+              ],
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "LC"
+              ],
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "LB"
+              ]
+            ],
+            [
+              "literal",
+              [
+                0.5,
+                0
+              ]
+            ],
+            [
+              "any",
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "RT"
+              ],
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "RC"
+              ],
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "RB"
+              ]
+            ],
+            [
+              "literal",
+              [
+                -0.5,
+                0
+              ]
+            ],
+            [
+              "any",
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "CT"
+              ]
+            ],
+            [
+              "literal",
+              [
+                0,
+                0.5
+              ]
+            ],
+            [
+              "any",
+              [
+                "==",
+                [
+                  "get",
+                  "dspPos"
+                ],
+                "CB"
+              ]
+            ],
+            [
+              "literal",
+              [
+                0,
+                -0.5
+              ]
+            ],
+            [
+              "literal",
+              [
+                0,
+                0
+              ]
+            ]
+          ]
+        ],
+        "text-anchor": "center",
+        "icon-pitch-alignment": "viewport",
+        "icon-rotation-alignment": "viewport",
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "viewport",
+        "text-field": [
+          "get",
+          "knj"
+        ],
+        "text-font": [
+          "Noto Sans Regular"
+        ],
+        "symbol-placement": "point",
+        "text-keep-upright": true,
+        "symbol-z-order": "auto",
+        "text-max-width": 100,
+        "visibility": "visible",
+        "text-size": 20,
+        "icon-image": "airport2"
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-color": "#000",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "s-gsi-市区町村",
+      "type": "symbol",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "label",
+      "minzoom": 0,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          100
+        ],
+        [
+          "in",
+          "annoCtg",
+          110
+        ]
+      ],
+      "layout": {
+        "text-allow-overlap": false,
+        "icon-allow-overlap": false,
+        "text-offset": [
+          0,
+          0
+        ],
+        "text-anchor": "center",
+        "icon-pitch-alignment": "viewport",
+        "icon-rotation-alignment": "viewport",
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "viewport",
+        "text-field": [
+          "get",
+          "knj"
+        ],
+        "text-font": [
+          "Noto Sans Bold"
+        ],
+        "symbol-placement": "point",
+        "text-keep-upright": true,
+        "symbol-z-order": "auto",
+        "visibility": "visible",
+        "icon-anchor": "center",
+        "text-justify": "auto",
+        "icon-text-fit": "none",
+        "icon-size": 1,
+        "text-size": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          10,
+          16,
+          16,
+          36
+        ]
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-color": "#000",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "s-gsi-市役所・東京都の区役所",
+      "type": "symbol",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "symbol",
+      "minzoom": 0,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          1402,
+          1403
+        ]
+      ],
+      "layout": {
+        "text-allow-overlap": false,
+        "icon-allow-overlap": false,
+        "icon-size": 0.5,
+        "text-anchor": "left",
+        "icon-pitch-alignment": "viewport",
+        "icon-rotation-alignment": "viewport",
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "viewport",
+        "text-field": [
+          "get",
+          "name"
+        ],
+        "text-font": [
+          "Noto Sans CJK JP Bold"
+        ],
+        "symbol-placement": "point",
+        "text-keep-upright": true,
+        "symbol-z-order": "auto",
+        "visibility": "visible",
+        "icon-image": "circle-stroked",
+        "text-justify": "auto",
+        "icon-text-fit": "none",
+        "icon-anchor": "left",
+        "text-offset": [
+          0.8,
+          0
+        ],
+        "text-size": 12
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-color": "#000",
+        "text-halo-width": 1.5
+      }
+    },
+    {
+      "id": "s-gsi-都道府県所在地",
+      "type": "symbol",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "symbol",
+      "minzoom": 0,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          1401
+        ]
+      ],
+      "layout": {
+        "text-allow-overlap": false,
+        "icon-allow-overlap": false,
+        "text-anchor": "center",
+        "icon-pitch-alignment": "viewport",
+        "icon-rotation-alignment": "viewport",
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "viewport",
+        "text-field": [
+          "get",
+          "name"
+        ],
+        "text-font": [
+          "Noto Sans CJK JP Bold"
+        ],
+        "symbol-placement": "point",
+        "text-keep-upright": true,
+        "symbol-z-order": "auto",
+        "visibility": "visible",
+        "text-size": 20,
+        "text-justify": "auto",
+        "icon-text-fit": "none",
+        "icon-anchor": "left"
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-color": "#000",
+        "text-halo-width": 1.5
+      }
+    },
+    {
+      "id": "s-gsi-人口100万人以上-copy",
+      "type": "symbol",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "symbol",
+      "minzoom": 7,
+      "maxzoom": 8,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          51301
+        ]
+      ],
+      "layout": {
+        "text-allow-overlap": false,
+        "icon-allow-overlap": false,
+        "text-anchor": "left",
+        "icon-pitch-alignment": "viewport",
+        "icon-rotation-alignment": "viewport",
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "viewport",
+        "text-field": [
+          "get",
+          "knj"
+        ],
+        "text-font": [
+          "Noto Sans CJK JP Bold"
+        ],
+        "symbol-placement": "point",
+        "text-keep-upright": true,
+        "symbol-z-order": "auto",
+        "visibility": "visible",
+        "text-size": 18,
+        "text-justify": "auto",
+        "icon-text-fit": "none",
+        "icon-anchor": "left"
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-color": "#000",
+        "text-halo-width": 1.5
+      }
+    },
+    {
+      "id": "s-gsi-人口100万人以上",
+      "type": "symbol",
+      "source": "gsibv-vectortile-source-1-4-16",
+      "source-layer": "symbol",
+      "minzoom": 8,
+      "maxzoom": 8,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ftCode",
+          51302,
+          51303
+        ]
+      ],
+      "layout": {
+        "text-allow-overlap": false,
+        "icon-allow-overlap": false,
+        "icon-size": 0.4,
+        "text-anchor": "left",
+        "icon-pitch-alignment": "viewport",
+        "icon-rotation-alignment": "viewport",
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "viewport",
+        "text-field": [
+          "get",
+          "knj"
+        ],
+        "text-font": [
+          "Noto Sans Regular"
+        ],
+        "symbol-placement": "point",
+        "text-keep-upright": true,
+        "symbol-z-order": "auto",
+        "visibility": "visible",
+        "text-size": 12,
+        "icon-image": "circle-stroked",
+        "icon-anchor": "left",
+        "text-justify": "auto",
+        "text-offset": [
+          0.7,
+          0
+        ]
+      },
+      "paint": {
+        "text-color": "#ccc",
+        "text-halo-color": "#000",
+        "text-halo-width": 1.5
+      }
+    },
+    {
+      "id": "transportation_name",
+      "type": "line",
+      "source": "osm",
+      "source-layer": "transportation_name",
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {}
+    },
+    {
+      "id": "transportation_name_rabel",
+      "type": "symbol",
+      "source": "osm",
+      "source-layer": "transportation_name",
+      "layout": {
+        "text-field": "{name} {subclass}",
+        "text-font": [
+          "Noto Sans Bold"
+        ],
+        "visibility": "none"
+      },
+      "paint": {}
+    }
+  ],
+  "id": "openstayle"
+}

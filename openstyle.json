@@ -46,7 +46,7 @@
       "tileSize": 256
     }
   },
-  "sprite": "https://takahikouchida.github.io/custom-sprite/sprite",
+  "sprite": "https://takahikouchida.github.io/openmapstyle/sprite",
   "glyphs": "https://takahikouchida.github.io/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
