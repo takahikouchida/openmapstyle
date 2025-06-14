@@ -1,8 +1,6 @@
 {
   "version": 8,
-  "metadata": {
-    "maputnik:renderer": "mlgljs"
-  },
+  "metadata": {"maputnik:renderer": "mlgljs"},
   "sources": {
     "gsibv-vectortile-source-1-4-16": {
       "type": "vector",
@@ -24,9 +22,7 @@
     },
     "osm": {
       "type": "vector",
-      "tiles": [
-        "https://tile.openstreetmap.jp/data/planet/{z}/{x}/{y}.pbf"
-      ],
+      "tiles": ["https://tile.openstreetmap.jp/data/planet/{z}/{x}/{y}.pbf"],
       "attribution": "<a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\">OpenStreetMap</a>",
       "minzoom": 0,
       "maxzoom": 14
@@ -43,9 +39,7 @@
     },
     "GSI-taster": {
       "type": "raster",
-      "tiles": [
-        "https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png"
-      ],
+      "tiles": ["https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png"],
       "minzoom": 0,
       "maxzoom": 18,
       "scheme": "xyz",
@@ -58,21 +52,15 @@
     {
       "id": "back",
       "type": "background",
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "background-color": "#1a1a1a"
-      }
+      "layout": {"visibility": "visible"},
+      "paint": {"background-color": "#1a1a1a"}
     },
     {
       "id": "hillshade",
       "type": "hillshade",
       "source": "dem",
       "maxzoom": 14,
-      "layout": {
-        "visibility": "visible"
-      },
+      "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-shadow-color": "rgba(60, 70, 60, 0.6)",
         "hillshade-highlight-color": "rgba(245, 250, 240, 0.7)",
@@ -80,12 +68,8 @@
         "hillshade-illumination-anchor": "map",
         "hillshade-exaggeration": [
           "interpolate",
-          [
-            "linear"
-          ],
-          [
-            "zoom"
-          ],
+          ["linear"],
+          ["zoom"],
           4,
           0.5,
           6,
@@ -108,203 +92,94 @@
       "type": "line",
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "searoute",
-      "paint": {
-        "line-color": "#333333",
-        "line-width": 1,
-        "line-opacity": 0.5
-      }
+      "paint": {"line-color": "#333333", "line-width": 1, "line-opacity": 0.5}
     },
     {
       "id": "gsi-photo",
       "type": "raster",
       "source": "gsi-photo",
-      "layout": {
-        "visibility": "none"
-      },
-      "paint": {
-        "raster-opacity": 0.7
-      }
+      "layout": {"visibility": "none"},
+      "paint": {"raster-opacity": 0.7}
     },
     {
       "id": "osm-landcover-wetland",
       "type": "fill",
       "source": "osm",
       "source-layer": "landcover",
-      "filter": [
-        "all",
-        [
-          "==",
-          "subclass",
-          "wetland"
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "#444",
-        "fill-opacity": 0.5
-      }
+      "filter": ["all", ["==", "subclass", "wetland"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "#444", "fill-opacity": 0.5}
     },
     {
       "id": "osm-landcover-park",
       "type": "fill",
       "source": "osm",
       "source-layer": "landcover",
-      "filter": [
-        "all",
-        [
-          "==",
-          "subclass",
-          "park"
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "#444",
-        "fill-opacity": 0.5
-      }
+      "filter": ["all", ["==", "subclass", "park"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "#444", "fill-opacity": 0.5}
     },
     {
       "id": "osm-landcover-forest",
       "type": "fill",
       "source": "osm",
       "source-layer": "landcover",
-      "filter": [
-        "all",
-        [
-          "==",
-          "subclass",
-          "forest"
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "#444",
-        "fill-opacity": 0.5
-      }
+      "filter": ["all", ["==", "subclass", "forest"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "#444", "fill-opacity": 0.5}
     },
     {
       "id": "osm-landcover-farmland",
       "type": "fill",
       "source": "osm",
       "source-layer": "landcover",
-      "filter": [
-        "all",
-        [
-          "==",
-          "subclass",
-          "farmland"
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "#444",
-        "fill-opacity": 0.5
-      }
+      "filter": ["all", ["==", "subclass", "farmland"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "#444", "fill-opacity": 0.5}
     },
     {
       "id": "osm-landcover-wood",
       "type": "fill",
       "source": "osm",
       "source-layer": "landcover",
-      "filter": [
-        "all",
-        [
-          "==",
-          "subclass",
-          "wood"
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "#444",
-        "fill-opacity": 0.5
-      }
+      "filter": ["all", ["==", "subclass", "wood"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "#444", "fill-opacity": 0.5}
     },
     {
       "id": "osm-landcover-golf_course",
       "type": "fill",
       "source": "osm",
       "source-layer": "landcover",
-      "filter": [
-        "all",
-        [
-          "==",
-          "subclass",
-          "golf_course"
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "#444",
-        "fill-opacity": 0.5
-      }
+      "filter": ["all", ["==", "subclass", "golf_course"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "#444", "fill-opacity": 0.5}
     },
     {
       "id": "osm-water",
       "type": "fill",
       "source": "osm",
       "source-layer": "water",
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "#444",
-        "fill-opacity": 0.5
-      }
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "#444", "fill-opacity": 0.5}
     },
     {
       "id": "osm-landuse-grass",
       "type": "fill",
       "source": "osm",
       "source-layer": "landuse",
-      "filter": [
-        "any",
-        [
-          "==",
-          "class",
-          "grass"
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "#444",
-        "fill-opacity": 0.5
-      }
+      "filter": ["any", ["==", "class", "grass"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "#444", "fill-opacity": 0.5}
     },
     {
       "id": "osm-landuse-hospital",
       "type": "fill",
       "source": "osm",
       "source-layer": "landuse",
-      "filter": [
-        "any",
-        [
-          "==",
-          "class",
-          "hospital"
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "#444",
-        "fill-opacity": 0.5
-      }
+      "filter": ["any", ["==", "class", "hospital"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "#444", "fill-opacity": 0.5}
     },
     {
       "id": "osm-landuse-retail",
@@ -313,24 +188,11 @@
       "source-layer": "landuse",
       "filter": [
         "any",
-        [
-          "==",
-          "class",
-          "retail"
-        ],
-        [
-          "==",
-          "class",
-          "commercial"
-        ]
+        ["==", "class", "retail"],
+        ["==", "class", "commercial"]
       ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "#444",
-        "fill-opacity": 0.5
-      }
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "#444", "fill-opacity": 0.5}
     },
     {
       "id": "osm-landuse-university",
@@ -339,65 +201,24 @@
       "source-layer": "landuse",
       "filter": [
         "any",
-        [
-          "==",
-          "class",
-          "university"
-        ],
-        [
-          "==",
-          "class",
-          "school"
-        ],
-        [
-          "==",
-          "class",
-          "kindergarten"
-        ],
-        [
-          "==",
-          "class",
-          "college"
-        ],
-        [
-          "==",
-          "class",
-          "library"
-        ],
-        [
-          "==",
-          "class",
-          "education"
-        ]
+        ["==", "class", "university"],
+        ["==", "class", "school"],
+        ["==", "class", "kindergarten"],
+        ["==", "class", "college"],
+        ["==", "class", "library"],
+        ["==", "class", "education"]
       ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "#444",
-        "fill-opacity": 0.5
-      }
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "#444", "fill-opacity": 0.5}
     },
     {
       "id": "osm-landuse-stadium",
       "type": "fill",
       "source": "osm",
       "source-layer": "landuse",
-      "filter": [
-        "all",
-        [
-          "==",
-          "class",
-          "stadium"
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "#444",
-        "fill-opacity": 0.5
-      }
+      "filter": ["all", ["==", "class", "stadium"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "#444", "fill-opacity": 0.5}
     },
     {
       "id": "osm-landuse-garages",
@@ -406,81 +227,31 @@
       "source-layer": "landuse",
       "filter": [
         "all",
-        [
-          "==",
-          "class",
-          "garages"
-        ],
-        [
-          "==",
-          "class",
-          "railway"
-        ],
-        [
-          "==",
-          "class",
-          "bus_station"
-        ],
-        [
-          "==",
-          "class",
-          "dam"
-        ]
+        ["==", "class", "garages"],
+        ["==", "class", "railway"],
+        ["==", "class", "bus_station"],
+        ["==", "class", "dam"]
       ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "#444",
-        "fill-opacity": 0.5
-      }
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "#444", "fill-opacity": 0.5}
     },
     {
       "id": "osm-landuse-track",
       "type": "fill",
       "source": "osm",
       "source-layer": "landuse",
-      "filter": [
-        "all",
-        [
-          "==",
-          "class",
-          "track"
-        ],
-        [
-          "==",
-          "class",
-          "pitch"
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "#444",
-        "fill-opacity": 0.5
-      }
+      "filter": ["all", ["==", "class", "track"], ["==", "class", "pitch"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "#444", "fill-opacity": 0.5}
     },
     {
       "id": "osm-landuse-cemetery",
       "type": "fill",
       "source": "osm",
       "source-layer": "landuse",
-      "filter": [
-        "all",
-        [
-          "==",
-          "class",
-          "cemetery"
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "#444",
-        "fill-opacity": 0.4
-      }
+      "filter": ["all", ["==", "class", "cemetery"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "#444", "fill-opacity": 0.4}
     },
     {
       "id": "osm-landuse-military",
@@ -488,115 +259,45 @@
       "source": "osm",
       "source-layer": "landuse",
       "minzoom": 9,
-      "filter": [
-        "all",
-        [
-          "==",
-          "class",
-          "military"
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "#444",
-        "fill-opacity": 0.5
-      }
+      "filter": ["all", ["==", "class", "military"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "#444", "fill-opacity": 0.5}
     },
     {
       "id": "osm-landuse-quarry",
       "type": "fill",
       "source": "osm",
       "source-layer": "landuse",
-      "filter": [
-        "all",
-        [
-          "==",
-          "class",
-          "quarry"
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "#444",
-        "fill-opacity": 0.5
-      }
+      "filter": ["all", ["==", "class", "quarry"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "#444", "fill-opacity": 0.5}
     },
     {
       "id": "osm-landuse-official_residence",
       "type": "fill",
       "source": "osm",
       "source-layer": "landuse",
-      "filter": [
-        "all",
-        [
-          "==",
-          "class",
-          "official_residence"
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "#444",
-        "fill-opacity": 0.2
-      }
+      "filter": ["all", ["==", "class", "official_residence"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "#444", "fill-opacity": 0.2}
     },
     {
       "id": "osm-landuse-theme_park",
       "type": "fill",
       "source": "osm",
       "source-layer": "landuse",
-      "filter": [
-        "all",
-        [
-          "==",
-          "class",
-          "theme_park"
-        ],
-        [
-          "==",
-          "class",
-          "zoo"
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "#444",
-        "fill-opacity": 0.5
-      }
+      "filter": ["all", ["==", "class", "theme_park"], ["==", "class", "zoo"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "#444", "fill-opacity": 0.5}
     },
     {
       "id": "osm-landuse-park",
       "type": "fill",
       "source": "osm",
       "source-layer": "landuse",
-      "filter": [
-        "all",
-        [
-          "==",
-          "class",
-          "park"
-        ],
-        [
-          "==",
-          "class",
-          "playground"
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "#444",
-        "fill-opacity": 0.5
-      }
+      "filter": ["all", ["==", "class", "park"], ["==", "class", "playground"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "#444", "fill-opacity": 0.5}
     },
     {
       "id": "osm-landuse-industrial",
@@ -605,24 +306,11 @@
       "source-layer": "landuse",
       "filter": [
         "all",
-        [
-          "==",
-          "class",
-          "industrial"
-        ],
-        [
-          "==",
-          "class",
-          "construction"
-        ]
+        ["==", "class", "industrial"],
+        ["==", "class", "construction"]
       ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "#444",
-        "fill-opacity": 0.5
-      }
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "#444", "fill-opacity": 0.5}
     },
     {
       "id": "osm-landuse",
@@ -631,169 +319,40 @@
       "source-layer": "landuse",
       "filter": [
         "none",
-        [
-          "==",
-          "class",
-          "industrial"
-        ],
-        [
-          "==",
-          "class",
-          "university"
-        ],
-        [
-          "==",
-          "class",
-          "school"
-        ],
-        [
-          "==",
-          "class",
-          "commercial"
-        ],
-        [
-          "==",
-          "class",
-          "track"
-        ],
-        [
-          "==",
-          "class",
-          "stadium"
-        ],
-        [
-          "==",
-          "class",
-          "residential"
-        ],
-        [
-          "==",
-          "class",
-          "pitch"
-        ],
-        [
-          "==",
-          "class",
-          "kindergarten"
-        ],
-        [
-          "==",
-          "class",
-          "garages"
-        ],
-        [
-          "==",
-          "class",
-          "military"
-        ],
-        [
-          "==",
-          "class",
-          "cemetery"
-        ],
-        [
-          "==",
-          "class",
-          "suburb"
-        ],
-        [
-          "==",
-          "class",
-          "quarry"
-        ],
-        [
-          "==",
-          "class",
-          "theme_park"
-        ],
-        [
-          "==",
-          "class",
-          "zoo"
-        ],
-        [
-          "==",
-          "class",
-          "neighbourhood"
-        ],
-        [
-          "==",
-          "class",
-          "quarter"
-        ],
-        [
-          "==",
-          "class",
-          "official_residence"
-        ],
-        [
-          "==",
-          "class",
-          "park"
-        ],
-        [
-          "==",
-          "class",
-          "college"
-        ],
-        [
-          "==",
-          "class",
-          "railway"
-        ],
-        [
-          "==",
-          "class",
-          "retail"
-        ],
-        [
-          "==",
-          "class",
-          "hospital"
-        ],
-        [
-          "==",
-          "class",
-          "playground"
-        ],
-        [
-          "==",
-          "class",
-          "library"
-        ],
-        [
-          "==",
-          "class",
-          "construction"
-        ],
-        [
-          "==",
-          "class",
-          "bus_station"
-        ],
-        [
-          "==",
-          "class",
-          "grass"
-        ],
-        [
-          "==",
-          "class",
-          "dam"
-        ],
-        [
-          "==",
-          "class",
-          "education"
-        ]
+        ["==", "class", "industrial"],
+        ["==", "class", "university"],
+        ["==", "class", "school"],
+        ["==", "class", "commercial"],
+        ["==", "class", "track"],
+        ["==", "class", "stadium"],
+        ["==", "class", "residential"],
+        ["==", "class", "pitch"],
+        ["==", "class", "kindergarten"],
+        ["==", "class", "garages"],
+        ["==", "class", "military"],
+        ["==", "class", "cemetery"],
+        ["==", "class", "suburb"],
+        ["==", "class", "quarry"],
+        ["==", "class", "theme_park"],
+        ["==", "class", "zoo"],
+        ["==", "class", "neighbourhood"],
+        ["==", "class", "quarter"],
+        ["==", "class", "official_residence"],
+        ["==", "class", "park"],
+        ["==", "class", "college"],
+        ["==", "class", "railway"],
+        ["==", "class", "retail"],
+        ["==", "class", "hospital"],
+        ["==", "class", "playground"],
+        ["==", "class", "library"],
+        ["==", "class", "construction"],
+        ["==", "class", "bus_station"],
+        ["==", "class", "grass"],
+        ["==", "class", "dam"],
+        ["==", "class", "education"]
       ],
-      "layout": {
-        "visibility": "none"
-      },
-      "paint": {
-        "fill-color": "#444",
-        "fill-opacity": 0.5
-      }
+      "layout": {"visibility": "none"},
+      "paint": {"fill-color": "#444", "fill-opacity": 0.5}
     },
     {
       "id": "osm-river",
@@ -801,13 +360,8 @@
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "river",
       "minzoom": 10,
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "#888",
-        "line-width": 1.5
-      }
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "#888", "line-width": 1.5}
     },
     {
       "id": "contour",
@@ -815,13 +369,8 @@
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "contour",
       "minzoom": 14,
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "#888",
-        "line-opacity": 0.5
-      }
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "#888", "line-opacity": 0.5}
     },
     {
       "id": "gsi-building-17",
@@ -829,25 +378,9 @@
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "building",
       "minzoom": 16,
-      "filter": [
-        "all",
-        [
-          "==",
-          "$type",
-          "Polygon"
-        ],
-        [
-          "==",
-          "ftCode",
-          3101
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "#444"
-      }
+      "filter": ["all", ["==", "$type", "Polygon"], ["==", "ftCode", 3101]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(51, 51, 51, 1)"}
     },
     {
       "id": "gsi-building-17-line",
@@ -855,21 +388,9 @@
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "building",
       "minzoom": 16,
-      "filter": [
-        "all",
-        [
-          "==",
-          "ftCode",
-          3101
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "#888",
-        "line-width": 0.5
-      }
+      "filter": ["all", ["==", "ftCode", 3101]],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "rgba(102, 102, 102, 1)", "line-width": 0.5}
     },
     {
       "id": "gsi-building-14",
@@ -879,28 +400,12 @@
       "minzoom": 15,
       "filter": [
         "all",
-        [
-          "==",
-          "$type",
-          "Polygon"
-        ],
-        [
-          "!=",
-          "ftCode",
-          3103
-        ],
-        [
-          "!=",
-          "ftCode",
-          3101
-        ]
+        ["==", "$type", "Polygon"],
+        ["!=", "ftCode", 3103],
+        ["!=", "ftCode", 3101]
       ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "#444"
-      }
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(52, 52, 52, 1)"}
     },
     {
       "id": "gsi-building-14-line",
@@ -908,26 +413,9 @@
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "building",
       "minzoom": 15,
-      "filter": [
-        "all",
-        [
-          "!=",
-          "ftCode",
-          3103
-        ],
-        [
-          "!=",
-          "ftCode",
-          3101
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "#888",
-        "line-width": 0.5
-      }
+      "filter": ["all", ["!=", "ftCode", 3103], ["!=", "ftCode", 3101]],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "rgba(102, 102, 102, 1)", "line-width": 0.5}
     },
     {
       "id": "gsi-building-13",
@@ -935,25 +423,9 @@
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "building",
       "minzoom": 13,
-      "filter": [
-        "all",
-        [
-          "==",
-          "ftCode",
-          3103
-        ],
-        [
-          "==",
-          "$type",
-          "Polygon"
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "#444"
-      }
+      "filter": ["all", ["==", "ftCode", 3103], ["==", "$type", "Polygon"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "#444"}
     },
     {
       "id": "gsi-building-13-line",
@@ -961,17 +433,8 @@
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "building",
       "minzoom": 13,
-      "filter": [
-        "any",
-        [
-          "==",
-          "ftCode",
-          3103
-        ]
-      ],
-      "paint": {
-        "line-color": "#888"
-      }
+      "filter": ["any", ["==", "ftCode", 3103]],
+      "paint": {"line-color": "#888"}
     },
     {
       "id": "gsi-road-その他道",
@@ -981,34 +444,12 @@
       "maxzoom": 16,
       "filter": [
         "all",
-        [
-          "in",
-          "ftCode",
-          2701,
-          2704,
-          2703,
-          2704
-        ],
-        [
-          "in",
-          "motorway",
-          0,
-          9
-        ],
-        [
-          "in",
-          "rdCtg",
-          5,
-          6
-        ]
+        ["in", "ftCode", 2701, 2704, 2703, 2704],
+        ["in", "motorway", 0, 9],
+        ["in", "rdCtg", 5, 6]
       ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "#333333",
-        "line-width": 1
-      }
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "#333333", "line-width": 1}
     },
     {
       "id": "gsi-road-区市町村道",
@@ -1018,33 +459,12 @@
       "maxzoom": 16,
       "filter": [
         "all",
-        [
-          "in",
-          "ftCode",
-          2701,
-          2704,
-          2703,
-          2704
-        ],
-        [
-          "in",
-          "motorway",
-          0,
-          9
-        ],
-        [
-          "in",
-          "rdCtg",
-          2
-        ]
+        ["in", "ftCode", 2701, 2704, 2703, 2704],
+        ["in", "motorway", 0, 9],
+        ["in", "rdCtg", 2]
       ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "#333333",
-        "line-width": 1
-      }
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "#333333", "line-width": 1}
     },
     {
       "id": "gsi-road-都道府県道",
@@ -1055,42 +475,14 @@
       "maxzoom": 16,
       "filter": [
         "all",
-        [
-          "in",
-          "ftCode",
-          2701,
-          2704,
-          2703,
-          2704
-        ],
-        [
-          "in",
-          "motorway",
-          0,
-          9
-        ],
-        [
-          "in",
-          "rdCtg",
-          1
-        ]
+        ["in", "ftCode", 2701, 2704, 2703, 2704],
+        ["in", "motorway", 0, 9],
+        ["in", "rdCtg", 1]
       ],
-      "layout": {
-        "visibility": "visible"
-      },
+      "layout": {"visibility": "visible"},
       "paint": {
         "line-color": "#888",
-        "line-width": [
-          "step",
-          [
-            "zoom"
-          ],
-          0.5,
-          11,
-          1.5,
-          13,
-          2.5
-        ]
+        "line-width": ["step", ["zoom"], 0.5, 11, 1.5, 13, 2.5]
       }
     },
     {
@@ -1101,53 +493,18 @@
       "maxzoom": 24,
       "filter": [
         "all",
-        [
-          "in",
-          "ftCode",
-          2701,
-          2702,
-          2704,
-          2703,
-          2704
-        ],
-        [
-          "in",
-          "motorway",
-          0,
-          9
-        ],
-        [
-          "in",
-          "rdCtg",
-          0
-        ]
+        ["in", "ftCode", 2701, 2702, 2704, 2703, 2704],
+        ["in", "motorway", 0, 9],
+        ["in", "rdCtg", 0]
       ],
-      "layout": {
-        "visibility": "visible"
-      },
+      "layout": {"visibility": "visible"},
       "paint": {
         "line-color": "#333333",
-        "line-opacity": [
-          "interpolate",
-          [
-            "linear"
-          ],
-          [
-            "zoom"
-          ],
-          15,
-          1,
-          16,
-          0.7
-        ],
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 15, 1, 16, 0.7],
         "line-width": [
           "interpolate",
-          [
-            "linear"
-          ],
-          [
-            "zoom"
-          ],
+          ["linear"],
+          ["zoom"],
           0,
           1,
           8,
@@ -1172,46 +529,17 @@
       "source-layer": "road",
       "filter": [
         "all",
-        [
-          "in",
-          "ftCode",
-          2701,
-          2702,
-          2703,
-          2704
-        ],
-        [
-          "in",
-          "motorway",
-          1
-        ]
+        ["in", "ftCode", 2701, 2702, 2703, 2704],
+        ["in", "motorway", 1]
       ],
-      "layout": {
-        "visibility": "visible"
-      },
+      "layout": {"visibility": "visible"},
       "paint": {
         "line-color": "#333333",
-        "line-opacity": [
-          "interpolate",
-          [
-            "linear"
-          ],
-          [
-            "zoom"
-          ],
-          15,
-          1,
-          16,
-          0.7
-        ],
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 15, 1, 16, 0.7],
         "line-width": [
           "interpolate",
-          [
-            "linear"
-          ],
-          [
-            "zoom"
-          ],
+          ["linear"],
+          ["zoom"],
           10,
           3,
           11,
@@ -1231,21 +559,9 @@
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "road",
       "maxzoom": 8,
-      "filter": [
-        "all",
-        [
-          "==",
-          "ftCode",
-          52701
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "#333333",
-        "line-width": 1
-      }
+      "filter": ["all", ["==", "ftCode", 52701]],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "#333333", "line-width": 1}
     },
     {
       "id": "gsi-road-高速-4-7",
@@ -1253,31 +569,11 @@
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "road",
       "minzoom": 0,
-      "filter": [
-        "all",
-        [
-          "in",
-          "ftCode",
-          52703,
-          52704
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
+      "filter": ["all", ["in", "ftCode", 52703, 52704]],
+      "layout": {"visibility": "visible"},
       "paint": {
         "line-color": "#333333",
-        "line-width": [
-          "step",
-          [
-            "zoom"
-          ],
-          1,
-          4,
-          1.5,
-          5,
-          3
-        ]
+        "line-width": ["step", ["zoom"], 1, 4, 1.5, 5, 3]
       }
     },
     {
@@ -1289,33 +585,12 @@
       "maxzoom": 24,
       "filter": [
         "all",
-        [
-          "in",
-          "ftCode",
-          8201
-        ],
-        [
-          ">=",
-          "rtCode",
-          "40204000000"
-        ],
-        [
-          "<",
-          "rtCode",
-          "40205000000"
-        ]
+        ["in", "ftCode", 8201],
+        [">=", "rtCode", "40204000000"],
+        ["<", "rtCode", "40205000000"]
       ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "#888",
-        "line-width": 2,
-        "line-dasharray": [
-          2,
-          2
-        ]
-      }
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "#888", "line-width": 2, "line-dasharray": [2, 2]}
     },
     {
       "id": "gsi-railway-索道",
@@ -1326,33 +601,12 @@
       "maxzoom": 24,
       "filter": [
         "all",
-        [
-          "in",
-          "ftCode",
-          8201
-        ],
-        [
-          ">=",
-          "rtCode",
-          "40206000000"
-        ],
-        [
-          "<",
-          "rtCode",
-          "40207000000"
-        ]
+        ["in", "ftCode", 8201],
+        [">=", "rtCode", "40206000000"],
+        ["<", "rtCode", "40207000000"]
       ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "#888",
-        "line-width": 2,
-        "line-dasharray": [
-          2,
-          2
-        ]
-      }
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "#888", "line-width": 2, "line-dasharray": [2, 2]}
     },
     {
       "id": "gsi-railway-JR-14-17",
@@ -1363,60 +617,24 @@
       "maxzoom": 24,
       "filter": [
         "all",
-        [
-          "in",
-          "ftCode",
-          8201
-        ],
-        [
-          "any",
-          [
-            "==",
-            "staCode",
-            "0"
-          ],
-          [
-            "!has",
-            "staCode"
-          ]
-        ],
+        ["in", "ftCode", 8201],
+        ["any", ["==", "staCode", "0"], ["!has", "staCode"]],
         [
           "any",
           [
             "all",
-            [
-              ">=",
-              "rtCode",
-              "40201000000"
-            ],
-            [
-              "<",
-              "rtCode",
-              "40202000000"
-            ]
+            [">=", "rtCode", "40201000000"],
+            ["<", "rtCode", "40202000000"]
           ],
           [
             "all",
-            [
-              ">=",
-              "rtCode",
-              "40216000000"
-            ],
-            [
-              "<",
-              "rtCode",
-              "40217000000"
-            ]
+            [">=", "rtCode", "40216000000"],
+            ["<", "rtCode", "40217000000"]
           ]
         ]
       ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "#888",
-        "line-width": 6
-      }
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "#888", "line-width": 6}
     },
     {
       "id": "gsi-railway-JR-14-17-w",
@@ -1427,67 +645,27 @@
       "maxzoom": 24,
       "filter": [
         "all",
-        [
-          "in",
-          "ftCode",
-          8201
-        ],
-        [
-          "any",
-          [
-            "==",
-            "staCode",
-            "0"
-          ],
-          [
-            "!has",
-            "staCode"
-          ]
-        ],
+        ["in", "ftCode", 8201],
+        ["any", ["==", "staCode", "0"], ["!has", "staCode"]],
         [
           "any",
           [
             "all",
-            [
-              ">=",
-              "rtCode",
-              "40201000000"
-            ],
-            [
-              "<",
-              "rtCode",
-              "40202000000"
-            ]
+            [">=", "rtCode", "40201000000"],
+            ["<", "rtCode", "40202000000"]
           ],
           [
             "all",
-            [
-              ">=",
-              "rtCode",
-              "40216000000"
-            ],
-            [
-              "<",
-              "rtCode",
-              "40217000000"
-            ]
+            [">=", "rtCode", "40216000000"],
+            ["<", "rtCode", "40217000000"]
           ]
         ]
       ],
-      "layout": {
-        "visibility": "visible"
-      },
+      "layout": {"visibility": "visible"},
       "paint": {
         "line-color": "#888",
         "line-width": 4,
-        "line-dasharray": [
-          2,
-          3,
-          2,
-          3,
-          2,
-          3
-        ]
+        "line-dasharray": [2, 3, 2, 3, 2, 3]
       }
     },
     {
@@ -1496,21 +674,9 @@
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "railway",
       "minzoom": 7,
-      "filter": [
-        "any",
-        [
-          "==",
-          "ftCode",
-          58201
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "#888",
-        "line-width": 1.5
-      }
+      "filter": ["any", ["==", "ftCode", 58201]],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "#888", "line-width": 1.5}
     },
     {
       "id": "gsi-railway-鉄道-JR以外-14-19",
@@ -1521,61 +687,24 @@
       "maxzoom": 24,
       "filter": [
         "all",
-        [
-          "in",
-          "ftCode",
-          8201
-        ],
-        [
-          "any",
-          [
-            "==",
-            "staCode",
-            "0"
-          ],
-          [
-            "!has",
-            "staCode"
-          ]
-        ],
+        ["in", "ftCode", 8201],
+        ["any", ["==", "staCode", "0"], ["!has", "staCode"]],
         [
           "any",
           [
             "all",
-            [
-              ">=",
-              "rtCode",
-              "40202000000"
-            ],
-            [
-              "<",
-              "rtCode",
-              "40203000000"
-            ]
+            [">=", "rtCode", "40202000000"],
+            ["<", "rtCode", "40203000000"]
           ],
           [
             "all",
-            [
-              ">=",
-              "rtCode",
-              "40205000000"
-            ],
-            [
-              "<",
-              "rtCode",
-              "40206000000"
-            ]
+            [">=", "rtCode", "40205000000"],
+            ["<", "rtCode", "40206000000"]
           ]
         ]
       ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "#888",
-        "line-width": 4,
-        "line-opacity": 0.7
-      }
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "#888", "line-width": 4, "line-opacity": 0.7}
     },
     {
       "id": "gsi-railway-地下鉄-8-19",
@@ -1586,50 +715,19 @@
       "maxzoom": 24,
       "filter": [
         "all",
-        [
-          "in",
-          "ftCode",
-          8201
-        ],
-        [
-          "any",
-          [
-            "==",
-            "staCode",
-            "0"
-          ],
-          [
-            "!has",
-            "staCode"
-          ]
-        ],
+        ["in", "ftCode", 8201],
+        ["any", ["==", "staCode", "0"], ["!has", "staCode"]],
         [
           "any",
           [
             "all",
-            [
-              ">=",
-              "rtCode1",
-              "40203000000"
-            ],
-            [
-              "<",
-              "rtCode1",
-              "40204000000"
-            ]
+            [">=", "rtCode1", "40203000000"],
+            ["<", "rtCode1", "40204000000"]
           ],
           [
             "all",
-            [
-              ">=",
-              "rtCode",
-              "40203000000"
-            ],
-            [
-              "<",
-              "rtCode",
-              "40204000000"
-            ]
+            [">=", "rtCode", "40203000000"],
+            ["<", "rtCode", "40204000000"]
           ]
         ]
       ],
@@ -1640,15 +738,7 @@
       },
       "paint": {
         "line-color": "#888",
-        "line-width": [
-          "step",
-          [
-            "zoom"
-          ],
-          1,
-          14,
-          2
-        ],
+        "line-width": ["step", ["zoom"], 1, 14, 2],
         "line-opacity": 0.7
       }
     },
@@ -1660,60 +750,26 @@
       "maxzoom": 24,
       "filter": [
         "all",
-        [
-          "in",
-          "ftCode",
-          8201
-        ],
-        [
-          "==",
-          "opeState",
-          0
-        ],
+        ["in", "ftCode", 8201],
+        ["==", "opeState", 0],
         [
           "any",
           [
             "all",
-            [
-              ">=",
-              "rtCode1",
-              "40202000000"
-            ],
-            [
-              "<",
-              "rtCode1",
-              "40203000000"
-            ]
+            [">=", "rtCode1", "40202000000"],
+            ["<", "rtCode1", "40203000000"]
           ],
           [
             "all",
-            [
-              ">=",
-              "rtCode1",
-              "40205000000"
-            ],
-            [
-              "<",
-              "rtCode1",
-              "40206000000"
-            ]
+            [">=", "rtCode1", "40205000000"],
+            ["<", "rtCode1", "40206000000"]
           ]
         ]
       ],
-      "layout": {
-        "visibility": "visible"
-      },
+      "layout": {"visibility": "visible"},
       "paint": {
         "line-color": "#333333",
-        "line-width": [
-          "step",
-          [
-            "zoom"
-          ],
-          1,
-          13,
-          2.5
-        ]
+        "line-width": ["step", ["zoom"], 1, 13, 2.5]
       }
     },
     {
@@ -1724,53 +780,24 @@
       "minzoom": 10,
       "filter": [
         "all",
-        [
-          "in",
-          "ftCode",
-          8201
-        ],
-        [
-          "==",
-          "opeState",
-          0
-        ],
+        ["in", "ftCode", 8201],
+        ["==", "opeState", 0],
         [
           "any",
           [
             "all",
-            [
-              ">=",
-              "rtCode1",
-              "40201000000"
-            ],
-            [
-              "<",
-              "rtCode1",
-              "40202000000"
-            ]
+            [">=", "rtCode1", "40201000000"],
+            ["<", "rtCode1", "40202000000"]
           ],
           [
             "all",
-            [
-              ">=",
-              "rtCode1",
-              "40216000000"
-            ],
-            [
-              "<",
-              "rtCode1",
-              "40217000000"
-            ]
+            [">=", "rtCode1", "40216000000"],
+            ["<", "rtCode1", "40217000000"]
           ]
         ]
       ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "#888",
-        "line-width": 4
-      }
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "#888", "line-width": 4}
     },
     {
       "id": "gsi-railway-鉄道JR-10-w",
@@ -1780,53 +807,26 @@
       "minzoom": 10,
       "filter": [
         "all",
-        [
-          "in",
-          "ftCode",
-          8201
-        ],
+        ["in", "ftCode", 8201],
         [
           "any",
           [
             "all",
-            [
-              ">=",
-              "rtCode1",
-              "40201000000"
-            ],
-            [
-              "<",
-              "rtCode1",
-              "40202000000"
-            ]
+            [">=", "rtCode1", "40201000000"],
+            ["<", "rtCode1", "40202000000"]
           ],
           [
             "all",
-            [
-              ">=",
-              "rtCode1",
-              "40216000000"
-            ],
-            [
-              "<",
-              "rtCode1",
-              "40217000000"
-            ]
+            [">=", "rtCode1", "40216000000"],
+            ["<", "rtCode1", "40217000000"]
           ]
         ]
       ],
-      "layout": {
-        "visibility": "visible"
-      },
+      "layout": {"visibility": "visible"},
       "paint": {
         "line-color": "#888",
         "line-width": 2,
-        "line-dasharray": [
-          2,
-          3,
-          2,
-          3
-        ]
+        "line-dasharray": [2, 3, 2, 3]
       }
     },
     {
@@ -1838,51 +838,26 @@
       "maxzoom": 10,
       "filter": [
         "all",
-        [
-          "in",
-          "ftCode",
-          8201
-        ],
+        ["in", "ftCode", 8201],
         [
           "any",
           [
             "all",
-            [
-              ">=",
-              "rtCode1",
-              "40201000000"
-            ],
-            [
-              "<",
-              "rtCode1",
-              "40202000000"
-            ]
+            [">=", "rtCode1", "40201000000"],
+            ["<", "rtCode1", "40202000000"]
           ],
           [
             "all",
-            [
-              ">=",
-              "rtCode1",
-              "40216000000"
-            ],
-            [
-              "<",
-              "rtCode1",
-              "40217000000"
-            ]
+            [">=", "rtCode1", "40216000000"],
+            ["<", "rtCode1", "40217000000"]
           ]
         ]
       ],
-      "layout": {
-        "visibility": "visible"
-      },
+      "layout": {"visibility": "visible"},
       "paint": {
         "line-color": "#333333",
         "line-width": 1.5,
-        "line-dasharray": [
-          2,
-          2
-        ]
+        "line-dasharray": [2, 2]
       }
     },
     {
@@ -1893,67 +868,27 @@
       "minzoom": 0,
       "filter": [
         "all",
-        [
-          "in",
-          "ftCode",
-          8201
-        ],
-        [
-          "has",
-          "rtCode10"
-        ],
-        [
-          "==",
-          "rtCode10",
-          "1"
-        ],
-        [
-          "==",
-          "snglDbl",
-          2
-        ],
-        [
-          "==",
-          "opeState",
-          0
-        ],
+        ["in", "ftCode", 8201],
+        ["has", "rtCode10"],
+        ["==", "rtCode10", "1"],
+        ["==", "snglDbl", 2],
+        ["==", "opeState", 0],
         [
           "any",
           [
             "all",
-            [
-              ">=",
-              "rtCode1",
-              "40201000000"
-            ],
-            [
-              "<",
-              "rtCode1",
-              "40202000000"
-            ]
+            [">=", "rtCode1", "40201000000"],
+            ["<", "rtCode1", "40202000000"]
           ],
           [
             "all",
-            [
-              ">=",
-              "rtCode1",
-              "40216000000"
-            ],
-            [
-              "<",
-              "rtCode1",
-              "40217000000"
-            ]
+            [">=", "rtCode1", "40216000000"],
+            ["<", "rtCode1", "40217000000"]
           ]
         ]
       ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "#333333",
-        "line-width": 4
-      }
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "#333333", "line-width": 4}
     },
     {
       "id": "gsi-railway-新幹線-8-10-w",
@@ -1962,72 +897,30 @@
       "source-layer": "railway",
       "filter": [
         "all",
-        [
-          "in",
-          "ftCode",
-          8201
-        ],
-        [
-          "has",
-          "rtCode10"
-        ],
-        [
-          "==",
-          "rtCode10",
-          "1"
-        ],
-        [
-          "==",
-          "snglDbl",
-          2
-        ],
-        [
-          "==",
-          "opeState",
-          0
-        ],
+        ["in", "ftCode", 8201],
+        ["has", "rtCode10"],
+        ["==", "rtCode10", "1"],
+        ["==", "snglDbl", 2],
+        ["==", "opeState", 0],
         [
           "any",
           [
             "all",
-            [
-              ">=",
-              "rtCode1",
-              "40201000000"
-            ],
-            [
-              "<",
-              "rtCode1",
-              "40202000000"
-            ]
+            [">=", "rtCode1", "40201000000"],
+            ["<", "rtCode1", "40202000000"]
           ],
           [
             "all",
-            [
-              ">=",
-              "rtCode1",
-              "40216000000"
-            ],
-            [
-              "<",
-              "rtCode1",
-              "40217000000"
-            ]
+            [">=", "rtCode1", "40216000000"],
+            ["<", "rtCode1", "40217000000"]
           ]
         ]
       ],
-      "layout": {
-        "visibility": "visible"
-      },
+      "layout": {"visibility": "visible"},
       "paint": {
         "line-color": "#333333",
         "line-width": 2,
-        "line-dasharray": [
-          2,
-          3,
-          2,
-          3
-        ]
+        "line-dasharray": [2, 3, 2, 3]
       }
     },
     {
@@ -2036,26 +929,9 @@
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "railway",
       "minzoom": 7,
-      "filter": [
-        "any",
-        [
-          "==",
-          "ftCode",
-          58203
-        ],
-        [
-          "==",
-          "ftCode",
-          58204
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "#888",
-        "line-width": 4
-      }
+      "filter": ["any", ["==", "ftCode", 58203], ["==", "ftCode", 58204]],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "#888", "line-width": 4}
     },
     {
       "id": "gsi-railway-新幹線-6-7-w-copy",
@@ -2063,30 +939,11 @@
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "railway",
       "minzoom": 7,
-      "filter": [
-        "any",
-        [
-          "==",
-          "ftCode",
-          58203
-        ],
-        [
-          "==",
-          "ftCode",
-          58204
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
+      "filter": ["any", ["==", "ftCode", 58203], ["==", "ftCode", 58204]],
+      "layout": {"visibility": "visible"},
       "paint": {
         "line-color": "#888",
-        "line-dasharray": [
-          2,
-          3,
-          2,
-          3
-        ],
+        "line-dasharray": [2, 3, 2, 3],
         "line-width": 2
       }
     },
@@ -2097,33 +954,11 @@
       "source-layer": "railway",
       "minzoom": 0,
       "maxzoom": 7,
-      "filter": [
-        "any",
-        [
-          "==",
-          "ftCode",
-          58203
-        ],
-        [
-          "==",
-          "ftCode",
-          58204
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
+      "filter": ["any", ["==", "ftCode", 58203], ["==", "ftCode", 58204]],
+      "layout": {"visibility": "visible"},
       "paint": {
         "line-color": "#333333",
-        "line-width": [
-          "step",
-          [
-            "zoom"
-          ],
-          1,
-          5,
-          2
-        ]
+        "line-width": ["step", ["zoom"], 1, 5, 2]
       }
     },
     {
@@ -2132,25 +967,9 @@
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "road",
       "minzoom": 16,
-      "filter": [
-        "all",
-        [
-          "!in",
-          "ftCode",
-          2701,
-          2703,
-          2711,
-          2721,
-          2731
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "#888",
-        "line-width": 1
-      }
+      "filter": ["all", ["!in", "ftCode", 2701, 2703, 2711, 2721, 2731]],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "#888", "line-width": 1}
     },
     {
       "id": "gsi-地下鉄駅-14-",
@@ -2161,36 +980,14 @@
       "maxzoom": 24,
       "filter": [
         "all",
-        [
-          "in",
-          "ftCode",
-          8201
-        ],
-        [
-          "has",
-          "staCode"
-        ],
-        [
-          "!=",
-          "staCode",
-          "0"
-        ]
+        ["in", "ftCode", 8201],
+        ["has", "staCode"],
+        ["!=", "staCode", "0"]
       ],
-      "layout": {
-        "line-cap": "square",
-        "visibility": "visible"
-      },
+      "layout": {"line-cap": "square", "visibility": "visible"},
       "paint": {
         "line-color": "#888",
-        "line-width": [
-          "step",
-          [
-            "zoom"
-          ],
-          8,
-          16,
-          12
-        ],
+        "line-width": ["step", ["zoom"], 8, 16, 12],
         "line-opacity": 0.7
       }
     },
@@ -2203,41 +1000,15 @@
       "maxzoom": 24,
       "filter": [
         "all",
-        [
-          "in",
-          "ftCode",
-          8201
-        ],
-        [
-          "has",
-          "staCode"
-        ],
-        [
-          "!=",
-          "staCode",
-          "0"
-        ],
-        [
-          "==",
-          "rtCode10",
-          "2"
-        ]
+        ["in", "ftCode", 8201],
+        ["has", "staCode"],
+        ["!=", "staCode", "0"],
+        ["==", "rtCode10", "2"]
       ],
-      "layout": {
-        "line-cap": "square",
-        "visibility": "visible"
-      },
+      "layout": {"line-cap": "square", "visibility": "visible"},
       "paint": {
         "line-color": "#333333",
-        "line-width": [
-          "step",
-          [
-            "zoom"
-          ],
-          2,
-          12,
-          4
-        ]
+        "line-width": ["step", ["zoom"], 2, 12, 4]
       }
     },
     {
@@ -2249,78 +1020,32 @@
       "maxzoom": 17,
       "filter": [
         "all",
-        [
-          "in",
-          "ftCode",
-          8201
-        ],
-        [
-          "has",
-          "staCode"
-        ],
-        [
-          "!=",
-          "staCode",
-          "0"
-        ],
+        ["in", "ftCode", 8201],
+        ["has", "staCode"],
+        ["!=", "staCode", "0"],
         [
           "any",
           [
             "all",
-            [
-              ">=",
-              "rtCode1",
-              "40202000000"
-            ],
-            [
-              "<",
-              "rtCode1",
-              "40203000000"
-            ]
+            [">=", "rtCode1", "40202000000"],
+            ["<", "rtCode1", "40203000000"]
           ],
           [
             "all",
-            [
-              ">=",
-              "rtCode1",
-              "40205000000"
-            ],
-            [
-              "<",
-              "rtCode1",
-              "40206000000"
-            ]
+            [">=", "rtCode1", "40205000000"],
+            ["<", "rtCode1", "40206000000"]
           ],
           [
             "all",
-            [
-              ">=",
-              "rtCode1",
-              "40216000000"
-            ],
-            [
-              "<",
-              "rtCode1",
-              "40217000000"
-            ]
+            [">=", "rtCode1", "40216000000"],
+            ["<", "rtCode1", "40217000000"]
           ]
         ]
       ],
-      "layout": {
-        "line-cap": "square",
-        "visibility": "visible"
-      },
+      "layout": {"line-cap": "square", "visibility": "visible"},
       "paint": {
         "line-color": "#888",
-        "line-width": [
-          "step",
-          [
-            "zoom"
-          ],
-          4,
-          13,
-          8
-        ],
+        "line-width": ["step", ["zoom"], 4, 13, 8],
         "line-opacity": 0.8
       }
     },
@@ -2329,59 +1054,22 @@
       "type": "line",
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "boundary",
-      "filter": [
-        "all",
-        [
-          "==",
-          "ftCode",
-          6101
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "#333333",
-        "line-dasharray": [
-          2,
-          2
-        ]
-      }
+      "filter": ["all", ["==", "ftCode", 6101]],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "#333333", "line-dasharray": [2, 2]}
     },
     {
       "id": "gsi-gsi-boundary",
       "type": "line",
       "source": "gsibv-vectortile-source-1-4-16",
       "source-layer": "boundary",
-      "filter": [
-        "all",
-        [
-          "!=",
-          "ftCode",
-          6101
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
+      "filter": ["all", ["!=", "ftCode", 6101]],
+      "layout": {"visibility": "visible"},
       "paint": {
         "line-color": "#333333",
-        "line-width": [
-          "step",
-          [
-            "zoom"
-          ],
-          1.5,
-          13,
-          2,
-          15,
-          2.5
-        ],
+        "line-width": ["step", ["zoom"], 1.5, 13, 2, 15, 2.5],
         "line-opacity": 1,
-        "line-dasharray": [
-          2,
-          1
-        ]
+        "line-dasharray": [2, 1]
       }
     },
     {
@@ -2393,43 +1081,15 @@
       "maxzoom": 24,
       "filter": [
         "all",
-        [
-          "in",
-          "ftCode",
-          8201
-        ],
-        [
-          "has",
-          "staCode"
-        ],
-        [
-          "!=",
-          "staCode",
-          "0"
-        ],
-        [
-          "in",
-          "railState",
-          0,
-          1,
-          5
-        ]
+        ["in", "ftCode", 8201],
+        ["has", "staCode"],
+        ["!=", "staCode", "0"],
+        ["in", "railState", 0, 1, 5]
       ],
-      "layout": {
-        "line-cap": "square",
-        "visibility": "visible"
-      },
+      "layout": {"line-cap": "square", "visibility": "visible"},
       "paint": {
         "line-color": "#888",
-        "line-width": [
-          "step",
-          [
-            "zoom"
-          ],
-          12,
-          16,
-          20
-        ],
+        "line-width": ["step", ["zoom"], 12, 16, 20],
         "line-opacity": 0.8
       }
     },
@@ -2442,89 +1102,33 @@
       "maxzoom": 17,
       "filter": [
         "all",
-        [
-          "in",
-          "ftCode",
-          8201
-        ],
-        [
-          "has",
-          "staCode"
-        ],
-        [
-          "!=",
-          "staCode",
-          "0"
-        ],
-        [
-          "in",
-          "railState",
-          0,
-          1,
-          5
-        ],
+        ["in", "ftCode", 8201],
+        ["has", "staCode"],
+        ["!=", "staCode", "0"],
+        ["in", "railState", 0, 1, 5],
         [
           "any",
           [
             "all",
-            [
-              "!=",
-              "rtCode1",
-              "40201000000"
-            ],
-            [
-              "<",
-              "rtCode1",
-              "40202000000"
-            ]
+            ["!=", "rtCode1", "40201000000"],
+            ["<", "rtCode1", "40202000000"]
           ],
           [
             "all",
-            [
-              ">=",
-              "rtCode1",
-              "40205000000"
-            ],
-            [
-              "<",
-              "rtCode1",
-              "40206000000"
-            ]
+            [">=", "rtCode1", "40205000000"],
+            ["<", "rtCode1", "40206000000"]
           ],
           [
             "all",
-            [
-              ">=",
-              "rtCode1",
-              "40216000000"
-            ],
-            [
-              "<",
-              "rtCode1",
-              "40217000000"
-            ]
+            [">=", "rtCode1", "40216000000"],
+            ["<", "rtCode1", "40217000000"]
           ]
         ]
       ],
-      "layout": {
-        "line-cap": "square",
-        "visibility": "visible"
-      },
+      "layout": {"line-cap": "square", "visibility": "visible"},
       "paint": {
         "line-color": "#888",
-        "line-width": [
-          "step",
-          [
-            "zoom"
-          ],
-          5,
-          12,
-          6,
-          13,
-          10,
-          15,
-          14
-        ],
+        "line-width": ["step", ["zoom"], 5, 12, 6, 13, 10, 15, 14],
         "line-opacity": 0.8
       }
     },
@@ -2532,9 +1136,7 @@
       "id": "gsi-gsi-rastar",
       "type": "raster",
       "source": "GSI-taster",
-      "layout": {
-        "visibility": "none"
-      },
+      "layout": {"visibility": "none"},
       "paint": {}
     },
     {
@@ -2542,51 +1144,27 @@
       "type": "symbol",
       "source": "osm",
       "source-layer": "poi",
-      "filter": [
-        "all",
-        [
-          "in",
-          "class",
-          "bus"
-        ]
-      ],
+      "filter": ["all", ["in", "class", "bus"]],
       "layout": {
         "text-field": "{name:nonlatin}",
-        "text-font": [
-          "Noto Sans CJK JP Light"
-        ],
+        "text-font": ["Noto Sans CJK JP Light"],
         "text-size": 10,
         "visibility": "visible",
         "text-justify": "auto",
         "icon-image": "bus",
-        "text-offset": [
-          0,
-          1.5
-        ]
+        "text-offset": [0, 1.5]
       },
-      "paint": {
-        "text-color": "#ccc",
-        "text-halo-width": 2
-      }
+      "paint": {"text-color": "#ccc", "text-halo-width": 2}
     },
     {
       "id": "s-oms-poi",
       "type": "symbol",
       "source": "osm",
       "source-layer": "poi",
-      "filter": [
-        "all",
-        [
-          "!=",
-          "class",
-          "bus"
-        ]
-      ],
+      "filter": ["all", ["!=", "class", "bus"]],
       "layout": {
         "text-field": "{name:nonlatin}",
-        "text-font": [
-          "Noto Sans CJK JP Regular"
-        ],
+        "text-font": ["Noto Sans CJK JP Regular"],
         "text-size": 11,
         "visibility": "visible",
         "text-justify": "auto"
@@ -2604,15 +1182,11 @@
       "source-layer": "water_name",
       "layout": {
         "text-field": "{name:ja}",
-        "text-font": [
-          "Noto Sans Bold"
-        ],
+        "text-font": ["Noto Sans Bold"],
         "text-size": 12,
         "visibility": "none"
       },
-      "paint": {
-        "text-color": "#ccc"
-      }
+      "paint": {"text-color": "#ccc"}
     },
     {
       "id": "s-gsi-label",
@@ -2623,11 +1197,7 @@
       "maxzoom": 24,
       "filter": [
         "all",
-        [
-          "in",
-          "ftCode",
-          100
-        ],
+        ["in", "ftCode", 100],
         [
           "!in",
           "annoCtg",
@@ -2654,22 +1224,14 @@
       "layout": {
         "text-allow-overlap": false,
         "icon-allow-overlap": false,
-        "text-offset": [
-          0,
-          0
-        ],
+        "text-offset": [0, 0],
         "text-anchor": "center",
         "icon-pitch-alignment": "viewport",
         "icon-rotation-alignment": "viewport",
         "text-pitch-alignment": "viewport",
         "text-rotation-alignment": "viewport",
-        "text-field": [
-          "get",
-          "knj"
-        ],
-        "text-font": [
-          "Noto Sans Regular"
-        ],
+        "text-field": ["get", "knj"],
+        "text-font": ["Noto Sans Regular"],
         "symbol-placement": "point",
         "text-keep-upright": true,
         "symbol-z-order": "auto",
@@ -2693,255 +1255,57 @@
       "source-layer": "symbol",
       "minzoom": 7,
       "maxzoom": 24,
-      "filter": [
-        "all",
-        [
-          "in",
-          "ftCode",
-          56368
-        ]
-      ],
+      "filter": ["all", ["in", "ftCode", 56368]],
       "layout": {
         "text-allow-overlap": false,
         "icon-allow-overlap": false,
         "icon-size": 0.75,
         "text-offset": [
           "case",
+          ["==", ["get", "1"], 2],
           [
-            "==",
+            "case",
             [
-              "get",
-              "1"
+              "any",
+              ["==", ["get", "dspPos"], "CB"],
+              ["==", ["get", "dspPos"], "RB"],
+              ["==", ["get", "dspPos"], "LB"]
             ],
-            2
+            ["literal", [0.5, 0]],
+            [
+              "any",
+              ["==", ["get", "dspPos"], "CT"],
+              ["==", ["get", "dspPos"], "RT"],
+              ["==", ["get", "dspPos"], "LT"]
+            ],
+            ["literal", [-0.5, 0]],
+            ["any", ["==", ["get", "dspPos"], "LC"]],
+            ["literal", [0, 0.5]],
+            ["any", ["==", ["get", "dspPos"], "RC"]],
+            ["literal", [0, -0.5]],
+            ["literal", [0, 0]]
           ],
           [
             "case",
             [
               "any",
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "CB"
-              ],
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "RB"
-              ],
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "LB"
-              ]
+              ["==", ["get", "dspPos"], "LT"],
+              ["==", ["get", "dspPos"], "LC"],
+              ["==", ["get", "dspPos"], "LB"]
             ],
-            [
-              "literal",
-              [
-                0.5,
-                0
-              ]
-            ],
+            ["literal", [0.5, 0]],
             [
               "any",
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "CT"
-              ],
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "RT"
-              ],
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "LT"
-              ]
+              ["==", ["get", "dspPos"], "RT"],
+              ["==", ["get", "dspPos"], "RC"],
+              ["==", ["get", "dspPos"], "RB"]
             ],
-            [
-              "literal",
-              [
-                -0.5,
-                0
-              ]
-            ],
-            [
-              "any",
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "LC"
-              ]
-            ],
-            [
-              "literal",
-              [
-                0,
-                0.5
-              ]
-            ],
-            [
-              "any",
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "RC"
-              ]
-            ],
-            [
-              "literal",
-              [
-                0,
-                -0.5
-              ]
-            ],
-            [
-              "literal",
-              [
-                0,
-                0
-              ]
-            ]
-          ],
-          [
-            "case",
-            [
-              "any",
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "LT"
-              ],
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "LC"
-              ],
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "LB"
-              ]
-            ],
-            [
-              "literal",
-              [
-                0.5,
-                0
-              ]
-            ],
-            [
-              "any",
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "RT"
-              ],
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "RC"
-              ],
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "RB"
-              ]
-            ],
-            [
-              "literal",
-              [
-                -0.5,
-                0
-              ]
-            ],
-            [
-              "any",
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "CT"
-              ]
-            ],
-            [
-              "literal",
-              [
-                0,
-                0.5
-              ]
-            ],
-            [
-              "any",
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "CB"
-              ]
-            ],
-            [
-              "literal",
-              [
-                0,
-                -0.5
-              ]
-            ],
-            [
-              "literal",
-              [
-                0,
-                0
-              ]
-            ]
+            ["literal", [-0.5, 0]],
+            ["any", ["==", ["get", "dspPos"], "CT"]],
+            ["literal", [0, 0.5]],
+            ["any", ["==", ["get", "dspPos"], "CB"]],
+            ["literal", [0, -0.5]],
+            ["literal", [0, 0]]
           ]
         ],
         "text-anchor": "center",
@@ -2949,13 +1313,8 @@
         "icon-rotation-alignment": "viewport",
         "text-pitch-alignment": "viewport",
         "text-rotation-alignment": "viewport",
-        "text-field": [
-          "get",
-          "knj"
-        ],
-        "text-font": [
-          "Noto Sans Regular"
-        ],
+        "text-field": ["get", "knj"],
+        "text-font": ["Noto Sans Regular"],
         "symbol-placement": "point",
         "text-keep-upright": true,
         "symbol-z-order": "auto",
@@ -2977,35 +1336,18 @@
       "source-layer": "label",
       "minzoom": 7,
       "maxzoom": 24,
-      "filter": [
-        "all",
-        [
-          "in",
-          "ftCode",
-          50100
-        ],
-        [
-          "in",
-          "annoCtg",
-          311
-        ]
-      ],
+      "filter": ["all", ["in", "ftCode", 50100], ["in", "annoCtg", 311]],
       "layout": {
         "text-allow-overlap": false,
         "icon-allow-overlap": false,
-        "text-offset": [
-          0,
-          0
-        ],
+        "text-offset": [0, 0],
         "text-anchor": "center",
         "icon-pitch-alignment": "viewport",
         "icon-rotation-alignment": "viewport",
         "text-pitch-alignment": "viewport",
         "text-rotation-alignment": "viewport",
         "text-field": "",
-        "text-font": [
-          "Noto Sans Regular"
-        ],
+        "text-font": ["Noto Sans Regular"],
         "symbol-placement": "point",
         "text-keep-upright": true,
         "symbol-z-order": "auto",
@@ -3032,39 +1374,20 @@
       "maxzoom": 24,
       "filter": [
         "all",
-        [
-          "in",
-          "ftCode",
-          100
-        ],
-        [
-          "in",
-          "annoCtg",
-          311,
-          314,
-          315,
-          316
-        ]
+        ["in", "ftCode", 100],
+        ["in", "annoCtg", 311, 314, 315, 316]
       ],
       "layout": {
         "text-allow-overlap": false,
         "icon-allow-overlap": false,
-        "text-offset": [
-          0,
-          0
-        ],
+        "text-offset": [0, 0],
         "text-anchor": "left",
         "icon-pitch-alignment": "viewport",
         "icon-rotation-alignment": "viewport",
         "text-pitch-alignment": "viewport",
         "text-rotation-alignment": "viewport",
-        "text-field": [
-          "get",
-          "knj"
-        ],
-        "text-font": [
-          "Noto Sans Regular"
-        ],
+        "text-field": ["get", "knj"],
+        "text-font": ["Noto Sans Regular"],
         "symbol-placement": "point",
         "text-keep-upright": true,
         "symbol-z-order": "auto",
@@ -3089,38 +1412,18 @@
       "source-layer": "label",
       "minzoom": 8,
       "maxzoom": 24,
-      "filter": [
-        "all",
-        [
-          "in",
-          "ftCode",
-          100
-        ],
-        [
-          "in",
-          "annoCtg",
-          352
-        ]
-      ],
+      "filter": ["all", ["in", "ftCode", 100], ["in", "annoCtg", 352]],
       "layout": {
         "text-allow-overlap": false,
         "icon-allow-overlap": false,
-        "text-offset": [
-          0,
-          0
-        ],
+        "text-offset": [0, 0],
         "text-anchor": "left",
         "icon-pitch-alignment": "viewport",
         "icon-rotation-alignment": "viewport",
         "text-pitch-alignment": "viewport",
         "text-rotation-alignment": "viewport",
-        "text-field": [
-          "get",
-          "knj"
-        ],
-        "text-font": [
-          "Noto Sans Regular"
-        ],
+        "text-field": ["get", "knj"],
+        "text-font": ["Noto Sans Regular"],
         "symbol-placement": "point",
         "text-keep-upright": true,
         "symbol-z-order": "auto",
@@ -3144,38 +1447,18 @@
       "source-layer": "label",
       "minzoom": 8,
       "maxzoom": 24,
-      "filter": [
-        "all",
-        [
-          "in",
-          "ftCode",
-          100
-        ],
-        [
-          "in",
-          "annoCtg",
-          352
-        ]
-      ],
+      "filter": ["all", ["in", "ftCode", 100], ["in", "annoCtg", 352]],
       "layout": {
         "text-allow-overlap": false,
         "icon-allow-overlap": false,
-        "text-offset": [
-          0,
-          0
-        ],
+        "text-offset": [0, 0],
         "text-anchor": "left",
         "icon-pitch-alignment": "viewport",
         "icon-rotation-alignment": "viewport",
         "text-pitch-alignment": "viewport",
         "text-rotation-alignment": "viewport",
-        "text-field": [
-          "get",
-          "knj"
-        ],
-        "text-font": [
-          "Noto Sans Regular"
-        ],
+        "text-field": ["get", "knj"],
+        "text-font": ["Noto Sans Regular"],
         "symbol-placement": "point",
         "text-keep-upright": true,
         "symbol-z-order": "auto",
@@ -3199,14 +1482,7 @@
       "source-layer": "poi",
       "minzoom": 0,
       "maxzoom": 24,
-      "filter": [
-        "all",
-        [
-          "==",
-          "$type",
-          "Point"
-        ]
-      ],
+      "filter": ["all", ["==", "$type", "Point"]],
       "layout": {
         "icon-allow-overlap": false,
         "icon-ignore-placement": false,
@@ -3214,9 +1490,7 @@
         "text-allow-overlap": false,
         "text-anchor": "left",
         "text-field": "{name}",
-        "text-font": [
-          "Noto Sans Regular"
-        ],
+        "text-font": ["Noto Sans Regular"],
         "text-ignore-placement": false,
         "text-optional": true,
         "text-padding": 2,
@@ -3224,24 +1498,13 @@
         "visibility": "none",
         "text-justify": "auto",
         "icon-size": 0.4,
-        "text-offset": [
-          1.1,
-          0
-        ]
+        "text-offset": [1.1, 0]
       },
       "paint": {
         "text-color": "#ccc",
         "text-halo-color": "#000",
         "text-halo-width": 1,
-        "text-opacity": [
-          "step",
-          [
-            "zoom"
-          ],
-          0,
-          13,
-          1
-        ]
+        "text-opacity": ["step", ["zoom"], 0, 13, 1]
       }
     },
     {
@@ -3253,21 +1516,9 @@
       "maxzoom": 24,
       "filter": [
         "all",
-        [
-          "==",
-          "$type",
-          "Point"
-        ],
-        [
-          "==",
-          "class",
-          "toll_booth"
-        ],
-        [
-          "==",
-          "subclass",
-          "toll_booth"
-        ]
+        ["==", "$type", "Point"],
+        ["==", "class", "toll_booth"],
+        ["==", "subclass", "toll_booth"]
       ],
       "layout": {
         "icon-allow-overlap": false,
@@ -3276,9 +1527,7 @@
         "text-allow-overlap": false,
         "text-anchor": "left",
         "text-field": "{name}",
-        "text-font": [
-          "Noto Sans Regular"
-        ],
+        "text-font": ["Noto Sans Regular"],
         "text-ignore-placement": false,
         "text-optional": true,
         "text-padding": 2,
@@ -3287,24 +1536,13 @@
         "icon-image": "IC",
         "text-justify": "auto",
         "icon-size": 0.4,
-        "text-offset": [
-          1.1,
-          0
-        ]
+        "text-offset": [1.1, 0]
       },
       "paint": {
         "text-color": "#ccc",
         "text-halo-color": "#000",
         "text-halo-width": 1,
-        "text-opacity": [
-          "step",
-          [
-            "zoom"
-          ],
-          0,
-          13,
-          1
-        ]
+        "text-opacity": ["step", ["zoom"], 0, 13, 1]
       }
     },
     {
@@ -3314,38 +1552,18 @@
       "source-layer": "label",
       "minzoom": 8,
       "maxzoom": 9,
-      "filter": [
-        "all",
-        [
-          "in",
-          "ftCode",
-          100
-        ],
-        [
-          "in",
-          "annoCtg",
-          314
-        ]
-      ],
+      "filter": ["all", ["in", "ftCode", 100], ["in", "annoCtg", 314]],
       "layout": {
         "text-allow-overlap": false,
         "icon-allow-overlap": false,
-        "text-offset": [
-          0,
-          0
-        ],
+        "text-offset": [0, 0],
         "text-anchor": "left",
         "icon-pitch-alignment": "viewport",
         "icon-rotation-alignment": "viewport",
         "text-pitch-alignment": "viewport",
         "text-rotation-alignment": "viewport",
-        "text-field": [
-          "get",
-          "knj"
-        ],
-        "text-font": [
-          "Noto Sans Regular"
-        ],
+        "text-field": ["get", "knj"],
+        "text-font": ["Noto Sans Regular"],
         "symbol-placement": "point",
         "text-keep-upright": true,
         "symbol-z-order": "auto",
@@ -3370,19 +1588,7 @@
       "source-layer": "label",
       "minzoom": 10,
       "maxzoom": 24,
-      "filter": [
-        "all",
-        [
-          "in",
-          "ftCode",
-          100
-        ],
-        [
-          "in",
-          "annoCtg",
-          810
-        ]
-      ],
+      "filter": ["all", ["in", "ftCode", 100], ["in", "annoCtg", 810]],
       "layout": {
         "text-allow-overlap": false,
         "icon-allow-overlap": false,
@@ -3391,13 +1597,8 @@
         "icon-rotation-alignment": "viewport",
         "text-pitch-alignment": "viewport",
         "text-rotation-alignment": "viewport",
-        "text-field": [
-          "get",
-          "knj"
-        ],
-        "text-font": [
-          "Noto Sans Regular"
-        ],
+        "text-field": ["get", "knj"],
+        "text-font": ["Noto Sans Regular"],
         "symbol-placement": "point",
         "text-keep-upright": true,
         "symbol-z-order": "auto",
@@ -3407,25 +1608,14 @@
         "text-justify": "auto",
         "icon-text-fit": "none",
         "icon-size": 1,
-        "text-offset": [
-          1,
-          0
-        ],
+        "text-offset": [1, 0],
         "icon-image": "mountain"
       },
       "paint": {
         "text-color": "#ccc",
         "text-halo-color": "#000",
         "text-halo-width": 2,
-        "text-opacity": [
-          "step",
-          [
-            "zoom"
-          ],
-          0,
-          16,
-          1
-        ]
+        "text-opacity": ["step", ["zoom"], 0, 16, 1]
       }
     },
     {
@@ -3435,19 +1625,7 @@
       "source-layer": "label",
       "minzoom": 10,
       "maxzoom": 24,
-      "filter": [
-        "all",
-        [
-          "in",
-          "ftCode",
-          100
-        ],
-        [
-          "in",
-          "annoCtg",
-          534
-        ]
-      ],
+      "filter": ["all", ["in", "ftCode", 100], ["in", "annoCtg", 534]],
       "layout": {
         "text-allow-overlap": false,
         "icon-allow-overlap": false,
@@ -3456,13 +1634,8 @@
         "icon-rotation-alignment": "viewport",
         "text-pitch-alignment": "viewport",
         "text-rotation-alignment": "viewport",
-        "text-field": [
-          "get",
-          "knj"
-        ],
-        "text-font": [
-          "Noto Sans Regular"
-        ],
+        "text-field": ["get", "knj"],
+        "text-font": ["Noto Sans Regular"],
         "symbol-placement": "point",
         "text-keep-upright": true,
         "symbol-z-order": "auto",
@@ -3472,25 +1645,14 @@
         "text-justify": "auto",
         "icon-text-fit": "none",
         "icon-size": 0.3,
-        "text-offset": [
-          1,
-          0
-        ],
+        "text-offset": [1, 0],
         "icon-image": "公園"
       },
       "paint": {
         "text-color": "#ccc",
         "text-halo-color": "#000",
         "text-halo-width": 2,
-        "text-opacity": [
-          "step",
-          [
-            "zoom"
-          ],
-          0,
-          16,
-          1
-        ]
+        "text-opacity": ["step", ["zoom"], 0, 16, 1]
       }
     },
     {
@@ -3500,19 +1662,7 @@
       "source-layer": "label",
       "minzoom": 10,
       "maxzoom": 24,
-      "filter": [
-        "all",
-        [
-          "in",
-          "ftCode",
-          100
-        ],
-        [
-          "in",
-          "annoCtg",
-          884
-        ]
-      ],
+      "filter": ["all", ["in", "ftCode", 100], ["in", "annoCtg", 884]],
       "layout": {
         "text-allow-overlap": false,
         "icon-allow-overlap": false,
@@ -3521,13 +1671,8 @@
         "icon-rotation-alignment": "viewport",
         "text-pitch-alignment": "viewport",
         "text-rotation-alignment": "viewport",
-        "text-field": [
-          "get",
-          "knj"
-        ],
-        "text-font": [
-          "Noto Sans Regular"
-        ],
+        "text-field": ["get", "knj"],
+        "text-font": ["Noto Sans Regular"],
         "symbol-placement": "point",
         "text-keep-upright": true,
         "symbol-z-order": "auto",
@@ -3537,25 +1682,14 @@
         "text-justify": "auto",
         "icon-text-fit": "none",
         "icon-size": 0.3,
-        "text-offset": [
-          1,
-          0
-        ],
+        "text-offset": [1, 0],
         "icon-image": "消防署"
       },
       "paint": {
         "text-color": "#ccc",
         "text-halo-color": "#000",
         "text-halo-width": 2,
-        "text-opacity": [
-          "step",
-          [
-            "zoom"
-          ],
-          0,
-          16,
-          1
-        ]
+        "text-opacity": ["step", ["zoom"], 0, 16, 1]
       }
     },
     {
@@ -3565,19 +1699,7 @@
       "source-layer": "label",
       "minzoom": 10,
       "maxzoom": 24,
-      "filter": [
-        "all",
-        [
-          "in",
-          "ftCode",
-          100
-        ],
-        [
-          "in",
-          "annoCtg",
-          886
-        ]
-      ],
+      "filter": ["all", ["in", "ftCode", 100], ["in", "annoCtg", 886]],
       "layout": {
         "text-allow-overlap": false,
         "icon-allow-overlap": false,
@@ -3586,13 +1708,8 @@
         "icon-rotation-alignment": "viewport",
         "text-pitch-alignment": "viewport",
         "text-rotation-alignment": "viewport",
-        "text-field": [
-          "get",
-          "knj"
-        ],
-        "text-font": [
-          "Noto Sans Regular"
-        ],
+        "text-field": ["get", "knj"],
+        "text-font": ["Noto Sans Regular"],
         "symbol-placement": "point",
         "text-keep-upright": true,
         "symbol-z-order": "auto",
@@ -3602,25 +1719,14 @@
         "text-justify": "auto",
         "icon-text-fit": "none",
         "icon-size": 0.3,
-        "text-offset": [
-          1,
-          0
-        ],
+        "text-offset": [1, 0],
         "icon-image": "病院"
       },
       "paint": {
         "text-color": "#ccc",
         "text-halo-color": "#000",
         "text-halo-width": 2,
-        "text-opacity": [
-          "step",
-          [
-            "zoom"
-          ],
-          0,
-          16,
-          1
-        ]
+        "text-opacity": ["step", ["zoom"], 0, 16, 1]
       }
     },
     {
@@ -3630,19 +1736,7 @@
       "source-layer": "label",
       "minzoom": 10,
       "maxzoom": 24,
-      "filter": [
-        "all",
-        [
-          "in",
-          "ftCode",
-          100
-        ],
-        [
-          "in",
-          "annoCtg",
-          887
-        ]
-      ],
+      "filter": ["all", ["in", "ftCode", 100], ["in", "annoCtg", 887]],
       "layout": {
         "text-allow-overlap": false,
         "icon-allow-overlap": false,
@@ -3651,13 +1745,8 @@
         "icon-rotation-alignment": "viewport",
         "text-pitch-alignment": "viewport",
         "text-rotation-alignment": "viewport",
-        "text-field": [
-          "get",
-          "knj"
-        ],
-        "text-font": [
-          "Noto Sans Regular"
-        ],
+        "text-field": ["get", "knj"],
+        "text-font": ["Noto Sans Regular"],
         "symbol-placement": "point",
         "text-keep-upright": true,
         "symbol-z-order": "auto",
@@ -3667,25 +1756,14 @@
         "text-justify": "auto",
         "icon-text-fit": "none",
         "icon-size": 0.3,
-        "text-offset": [
-          1,
-          0
-        ],
+        "text-offset": [1, 0],
         "icon-image": "郵便"
       },
       "paint": {
         "text-color": "#ccc",
         "text-halo-color": "#000",
         "text-halo-width": 2,
-        "text-opacity": [
-          "step",
-          [
-            "zoom"
-          ],
-          0,
-          16,
-          1
-        ]
+        "text-opacity": ["step", ["zoom"], 0, 16, 1]
       }
     },
     {
@@ -3695,19 +1773,7 @@
       "source-layer": "label",
       "minzoom": 10,
       "maxzoom": 24,
-      "filter": [
-        "all",
-        [
-          "in",
-          "ftCode",
-          100
-        ],
-        [
-          "in",
-          "annoCtg",
-          890
-        ]
-      ],
+      "filter": ["all", ["in", "ftCode", 100], ["in", "annoCtg", 890]],
       "layout": {
         "text-allow-overlap": false,
         "icon-allow-overlap": false,
@@ -3716,13 +1782,8 @@
         "icon-rotation-alignment": "viewport",
         "text-pitch-alignment": "viewport",
         "text-rotation-alignment": "viewport",
-        "text-field": [
-          "get",
-          "knj"
-        ],
-        "text-font": [
-          "Noto Sans Regular"
-        ],
+        "text-field": ["get", "knj"],
+        "text-font": ["Noto Sans Regular"],
         "symbol-placement": "point",
         "text-keep-upright": true,
         "symbol-z-order": "auto",
@@ -3732,10 +1793,7 @@
         "text-justify": "auto",
         "icon-text-fit": "none",
         "icon-size": 0.3,
-        "text-offset": [
-          1,
-          0
-        ],
+        "text-offset": [1, 0],
         "icon-image": "老人ホーム",
         "text-max-width": 100
       },
@@ -3743,15 +1801,7 @@
         "text-color": "#ccc",
         "text-halo-color": "#000",
         "text-halo-width": 2,
-        "text-opacity": [
-          "step",
-          [
-            "zoom"
-          ],
-          0,
-          16,
-          1
-        ]
+        "text-opacity": ["step", ["zoom"], 0, 16, 1]
       }
     },
     {
@@ -3761,19 +1811,7 @@
       "source-layer": "label",
       "minzoom": 10,
       "maxzoom": 24,
-      "filter": [
-        "all",
-        [
-          "in",
-          "ftCode",
-          100
-        ],
-        [
-          "in",
-          "annoCtg",
-          883
-        ]
-      ],
+      "filter": ["all", ["in", "ftCode", 100], ["in", "annoCtg", 883]],
       "layout": {
         "text-allow-overlap": false,
         "icon-allow-overlap": false,
@@ -3782,13 +1820,8 @@
         "icon-rotation-alignment": "viewport",
         "text-pitch-alignment": "viewport",
         "text-rotation-alignment": "viewport",
-        "text-field": [
-          "get",
-          "knj"
-        ],
-        "text-font": [
-          "Noto Sans Regular"
-        ],
+        "text-field": ["get", "knj"],
+        "text-font": ["Noto Sans Regular"],
         "symbol-placement": "point",
         "text-keep-upright": true,
         "symbol-z-order": "auto",
@@ -3799,24 +1832,13 @@
         "icon-text-fit": "none",
         "icon-image": "交番",
         "icon-size": 0.3,
-        "text-offset": [
-          1,
-          0
-        ]
+        "text-offset": [1, 0]
       },
       "paint": {
         "text-color": "#ccc",
         "text-halo-color": "#000",
         "text-halo-width": 2,
-        "text-opacity": [
-          "step",
-          [
-            "zoom"
-          ],
-          0,
-          16,
-          1
-        ]
+        "text-opacity": ["step", ["zoom"], 0, 16, 1]
       }
     },
     {
@@ -3826,35 +1848,18 @@
       "source-layer": "symbol",
       "minzoom": 0,
       "maxzoom": 16,
-      "filter": [
-        "all",
-        [
-          "in",
-          "ftCode",
-          3213,
-          3214,
-          3212
-        ]
-      ],
+      "filter": ["all", ["in", "ftCode", 3213, 3214, 3212]],
       "layout": {
         "text-allow-overlap": false,
         "icon-allow-overlap": false,
-        "text-offset": [
-          0.3,
-          0
-        ],
+        "text-offset": [0.3, 0],
         "text-anchor": "center",
         "icon-pitch-alignment": "viewport",
         "icon-rotation-alignment": "viewport",
         "text-pitch-alignment": "viewport",
         "text-rotation-alignment": "viewport",
-        "text-field": [
-          "get",
-          "knj"
-        ],
-        "text-font": [
-          "Noto Sans Regular"
-        ],
+        "text-field": ["get", "knj"],
+        "text-font": ["Noto Sans Regular"],
         "symbol-placement": "point",
         "text-keep-upright": true,
         "symbol-z-order": "auto",
@@ -3881,40 +1886,20 @@
       "maxzoom": 16,
       "filter": [
         "all",
-        [
-          "in",
-          "ftCode",
-          100
-        ],
-        [
-          "in",
-          "annoCtg",
-          631,
-          632,
-          633,
-          634,
-          673
-        ]
+        ["in", "ftCode", 100],
+        ["in", "annoCtg", 631, 632, 633, 634, 673]
       ],
       "layout": {
         "text-allow-overlap": false,
         "icon-allow-overlap": false,
-        "text-offset": [
-          0.3,
-          0
-        ],
+        "text-offset": [0.3, 0],
         "text-anchor": "left",
         "icon-pitch-alignment": "viewport",
         "icon-rotation-alignment": "viewport",
         "text-pitch-alignment": "viewport",
         "text-rotation-alignment": "viewport",
-        "text-field": [
-          "get",
-          "knj"
-        ],
-        "text-font": [
-          "Noto Sans Regular"
-        ],
+        "text-field": ["get", "knj"],
+        "text-font": ["Noto Sans Regular"],
         "symbol-placement": "point",
         "text-keep-upright": true,
         "symbol-z-order": "auto",
@@ -3939,14 +1924,7 @@
       "source-layer": "transp",
       "minzoom": 10,
       "maxzoom": 24,
-      "filter": [
-        "all",
-        [
-          "in",
-          "ftCode",
-          2901
-        ]
-      ],
+      "filter": ["all", ["in", "ftCode", 2901]],
       "layout": {
         "text-allow-overlap": false,
         "icon-allow-overlap": false,
@@ -3955,13 +1933,8 @@
         "icon-rotation-alignment": "map",
         "text-pitch-alignment": "map",
         "text-rotation-alignment": "map",
-        "text-field": [
-          "get",
-          "nRNo"
-        ],
-        "text-font": [
-          "Noto Sans Bold"
-        ],
+        "text-field": ["get", "nRNo"],
+        "text-font": ["Noto Sans Bold"],
         "symbol-placement": "point",
         "text-keep-upright": true,
         "symbol-z-order": "auto",
@@ -3972,14 +1945,9 @@
         "icon-text-fit": "none",
         "text-size": 10,
         "icon-image": "国道",
-        "text-offset": [
-          0,
-          -0.1
-        ]
+        "text-offset": [0, -0.1]
       },
-      "paint": {
-        "text-color": "#ccc"
-      }
+      "paint": {"text-color": "#ccc"}
     },
     {
       "id": "s-gsi-国際空港など",
@@ -3988,256 +1956,57 @@
       "source-layer": "symbol",
       "minzoom": 8,
       "maxzoom": 24,
-      "filter": [
-        "all",
-        [
-          "in",
-          "ftCode",
-          6375,
-          6376
-        ]
-      ],
+      "filter": ["all", ["in", "ftCode", 6375, 6376]],
       "layout": {
         "text-allow-overlap": false,
         "icon-allow-overlap": false,
         "icon-size": 0.25,
         "text-offset": [
           "case",
+          ["==", ["get", "1"], 2],
           [
-            "==",
+            "case",
             [
-              "get",
-              "1"
+              "any",
+              ["==", ["get", "dspPos"], "CB"],
+              ["==", ["get", "dspPos"], "RB"],
+              ["==", ["get", "dspPos"], "LB"]
             ],
-            2
+            ["literal", [0.5, 0]],
+            [
+              "any",
+              ["==", ["get", "dspPos"], "CT"],
+              ["==", ["get", "dspPos"], "RT"],
+              ["==", ["get", "dspPos"], "LT"]
+            ],
+            ["literal", [-0.5, 0]],
+            ["any", ["==", ["get", "dspPos"], "LC"]],
+            ["literal", [0, 0.5]],
+            ["any", ["==", ["get", "dspPos"], "RC"]],
+            ["literal", [0, -0.5]],
+            ["literal", [0, 0]]
           ],
           [
             "case",
             [
               "any",
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "CB"
-              ],
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "RB"
-              ],
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "LB"
-              ]
+              ["==", ["get", "dspPos"], "LT"],
+              ["==", ["get", "dspPos"], "LC"],
+              ["==", ["get", "dspPos"], "LB"]
             ],
-            [
-              "literal",
-              [
-                0.5,
-                0
-              ]
-            ],
+            ["literal", [0.5, 0]],
             [
               "any",
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "CT"
-              ],
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "RT"
-              ],
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "LT"
-              ]
+              ["==", ["get", "dspPos"], "RT"],
+              ["==", ["get", "dspPos"], "RC"],
+              ["==", ["get", "dspPos"], "RB"]
             ],
-            [
-              "literal",
-              [
-                -0.5,
-                0
-              ]
-            ],
-            [
-              "any",
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "LC"
-              ]
-            ],
-            [
-              "literal",
-              [
-                0,
-                0.5
-              ]
-            ],
-            [
-              "any",
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "RC"
-              ]
-            ],
-            [
-              "literal",
-              [
-                0,
-                -0.5
-              ]
-            ],
-            [
-              "literal",
-              [
-                0,
-                0
-              ]
-            ]
-          ],
-          [
-            "case",
-            [
-              "any",
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "LT"
-              ],
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "LC"
-              ],
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "LB"
-              ]
-            ],
-            [
-              "literal",
-              [
-                0.5,
-                0
-              ]
-            ],
-            [
-              "any",
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "RT"
-              ],
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "RC"
-              ],
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "RB"
-              ]
-            ],
-            [
-              "literal",
-              [
-                -0.5,
-                0
-              ]
-            ],
-            [
-              "any",
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "CT"
-              ]
-            ],
-            [
-              "literal",
-              [
-                0,
-                0.5
-              ]
-            ],
-            [
-              "any",
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "CB"
-              ]
-            ],
-            [
-              "literal",
-              [
-                0,
-                -0.5
-              ]
-            ],
-            [
-              "literal",
-              [
-                0,
-                0
-              ]
-            ]
+            ["literal", [-0.5, 0]],
+            ["any", ["==", ["get", "dspPos"], "CT"]],
+            ["literal", [0, 0.5]],
+            ["any", ["==", ["get", "dspPos"], "CB"]],
+            ["literal", [0, -0.5]],
+            ["literal", [0, 0]]
           ]
         ],
         "text-anchor": "center",
@@ -4245,13 +2014,8 @@
         "icon-rotation-alignment": "viewport",
         "text-pitch-alignment": "viewport",
         "text-rotation-alignment": "viewport",
-        "text-field": [
-          "get",
-          "knj"
-        ],
-        "text-font": [
-          "Noto Sans Regular"
-        ],
+        "text-field": ["get", "knj"],
+        "text-font": ["Noto Sans Regular"],
         "symbol-placement": "point",
         "text-keep-upright": true,
         "symbol-z-order": "auto",
@@ -4273,15 +2037,7 @@
       "source-layer": "transp",
       "minzoom": 7,
       "maxzoom": 24,
-      "filter": [
-        "all",
-        [
-          "in",
-          "ftCode",
-          2941,
-          2945
-        ]
-      ],
+      "filter": ["all", ["in", "ftCode", 2941, 2945]],
       "layout": {
         "text-allow-overlap": false,
         "icon-allow-overlap": false,
@@ -4301,24 +2057,13 @@
         "icon-text-fit": "none",
         "icon-size": 0.3,
         "icon-image": "IC",
-        "text-offset": [
-          0.8,
-          0
-        ]
+        "text-offset": [0.8, 0]
       },
       "paint": {
         "text-color": "#ccc",
         "text-halo-color": "#000",
         "text-halo-width": 1,
-        "text-opacity": [
-          "step",
-          [
-            "zoom"
-          ],
-          0,
-          13,
-          1
-        ]
+        "text-opacity": ["step", ["zoom"], 0, 13, 1]
       }
     },
     {
@@ -4328,14 +2073,7 @@
       "source-layer": "transp",
       "minzoom": 11,
       "maxzoom": 24,
-      "filter": [
-        "all",
-        [
-          "==",
-          "ftCode",
-          2942
-        ]
-      ],
+      "filter": ["all", ["==", "ftCode", 2942]],
       "layout": {
         "text-allow-overlap": false,
         "icon-allow-overlap": false,
@@ -4355,10 +2093,7 @@
         "icon-text-fit": "none",
         "icon-size": 0.4,
         "icon-image": "JCT",
-        "text-offset": [
-          1,
-          0
-        ]
+        "text-offset": [1, 0]
       },
       "paint": {
         "text-color": "#ccc",
@@ -4375,20 +2110,9 @@
       "maxzoom": 24,
       "filter": [
         "all",
-        [
-          "==",
-          "$type",
-          "Point"
-        ],
-        [
-          "has",
-          "name"
-        ],
-        [
-          "==",
-          "subclass",
-          "subway"
-        ]
+        ["==", "$type", "Point"],
+        ["has", "name"],
+        ["==", "subclass", "subway"]
       ],
       "layout": {
         "icon-allow-overlap": false,
@@ -4397,9 +2121,7 @@
         "text-allow-overlap": false,
         "text-anchor": "top",
         "text-field": "{name:nonlatin}",
-        "text-font": [
-          "Noto Sans Regular"
-        ],
+        "text-font": ["Noto Sans Regular"],
         "text-ignore-placement": false,
         "text-max-width": 9,
         "text-optional": true,
@@ -4408,10 +2130,7 @@
         "visibility": "visible",
         "icon-image": "地下鉄駅",
         "icon-size": 0.3,
-        "text-offset": [
-          0,
-          1.2
-        ]
+        "text-offset": [0, 1.2]
       },
       "paint": {
         "text-color": "#ccc",
@@ -4428,25 +2147,10 @@
       "maxzoom": 24,
       "filter": [
         "all",
-        [
-          "==",
-          "$type",
-          "Point"
-        ],
-        [
-          "has",
-          "name"
-        ],
-        [
-          "==",
-          "class",
-          "railway"
-        ],
-        [
-          "==",
-          "subclass",
-          "station"
-        ]
+        ["==", "$type", "Point"],
+        ["has", "name"],
+        ["==", "class", "railway"],
+        ["==", "subclass", "station"]
       ],
       "layout": {
         "icon-allow-overlap": false,
@@ -4455,47 +2159,22 @@
         "text-allow-overlap": false,
         "text-anchor": "center",
         "text-field": "{name:nonlatin}",
-        "text-font": [
-          "Noto Sans Bold"
-        ],
+        "text-font": ["Noto Sans Bold"],
         "text-ignore-placement": false,
         "text-optional": true,
         "text-padding": 2,
         "text-size": 14,
         "visibility": "visible",
-        "icon-size": [
-          "step",
-          [
-            "zoom"
-          ],
-          0.25,
-          11,
-          0.3,
-          13,
-          0.3,
-          15,
-          0.3
-        ],
+        "icon-size": ["step", ["zoom"], 0.25, 11, 0.3, 13, 0.3, 15, 0.3],
         "icon-image": "駅",
-        "text-offset": [
-          0,
-          1.3
-        ],
+        "text-offset": [0, 1.3],
         "icon-anchor": "center"
       },
       "paint": {
         "text-color": "#ccc",
         "text-halo-color": "#000",
         "text-halo-width": 2,
-        "text-opacity": [
-          "step",
-          [
-            "zoom"
-          ],
-          0,
-          12,
-          1
-        ]
+        "text-opacity": ["step", ["zoom"], 0, 12, 1]
       }
     },
     {
@@ -4505,14 +2184,7 @@
       "source-layer": "transp",
       "minzoom": 11,
       "maxzoom": 24,
-      "filter": [
-        "all",
-        [
-          "in",
-          "ftCode",
-          2904
-        ]
-      ],
+      "filter": ["all", ["in", "ftCode", 2904]],
       "layout": {
         "text-allow-overlap": false,
         "icon-allow-overlap": false,
@@ -4522,9 +2194,7 @@
         "text-pitch-alignment": "map",
         "text-rotation-alignment": "map",
         "text-field": "{uRNo}",
-        "text-font": [
-          "Noto Sans Bold"
-        ],
+        "text-font": ["Noto Sans Bold"],
         "symbol-placement": "point",
         "text-keep-upright": true,
         "symbol-z-order": "auto",
@@ -4533,16 +2203,11 @@
         "text-justify": "auto",
         "icon-text-fit": "none",
         "text-size": 12,
-        "text-offset": [
-          0,
-          0
-        ],
+        "text-offset": [0, 0],
         "icon-image": "高速道路枠",
         "icon-size": 0.3
       },
-      "paint": {
-        "text-color": "#ccc"
-      }
+      "paint": {"text-color": "#ccc"}
     },
     {
       "id": "s-oms-ICなど",
@@ -4550,19 +2215,10 @@
       "source": "osm",
       "source-layer": "transportation_name",
       "minzoom": 0,
-      "filter": [
-        "all",
-        [
-          "==",
-          "subclass",
-          "junction"
-        ]
-      ],
+      "filter": ["all", ["==", "subclass", "junction"]],
       "layout": {
         "text-field": "{name}",
-        "text-font": [
-          "Noto Sans Bold"
-        ],
+        "text-font": ["Noto Sans Bold"],
         "visibility": "visible",
         "text-size": 12
       },
@@ -4579,14 +2235,7 @@
       "source-layer": "transp",
       "minzoom": 0,
       "maxzoom": 11,
-      "filter": [
-        "all",
-        [
-          "in",
-          "ftCode",
-          2904
-        ]
-      ],
+      "filter": ["all", ["in", "ftCode", 2904]],
       "layout": {
         "text-allow-overlap": false,
         "icon-allow-overlap": false,
@@ -4596,9 +2245,7 @@
         "text-pitch-alignment": "map",
         "text-rotation-alignment": "map",
         "text-field": "{nRNo}",
-        "text-font": [
-          "Noto Sans Bold"
-        ],
+        "text-font": ["Noto Sans Bold"],
         "symbol-placement": "point",
         "text-keep-upright": true,
         "symbol-z-order": "auto",
@@ -4607,16 +2254,11 @@
         "text-justify": "auto",
         "icon-text-fit": "none",
         "text-size": 12,
-        "text-offset": [
-          0,
-          0
-        ],
+        "text-offset": [0, 0],
         "icon-image": "高速道路枠",
         "icon-size": 0.3
       },
-      "paint": {
-        "text-color": "#ccc"
-      }
+      "paint": {"text-color": "#ccc"}
     },
     {
       "id": "s-gsi-主要な空港",
@@ -4625,255 +2267,57 @@
       "source-layer": "symbol",
       "minzoom": 9,
       "maxzoom": 24,
-      "filter": [
-        "all",
-        [
-          "in",
-          "ftCode",
-          56376
-        ]
-      ],
+      "filter": ["all", ["in", "ftCode", 56376]],
       "layout": {
         "text-allow-overlap": false,
         "icon-allow-overlap": false,
         "icon-size": 0.25,
         "text-offset": [
           "case",
+          ["==", ["get", "1"], 2],
           [
-            "==",
+            "case",
             [
-              "get",
-              "1"
+              "any",
+              ["==", ["get", "dspPos"], "CB"],
+              ["==", ["get", "dspPos"], "RB"],
+              ["==", ["get", "dspPos"], "LB"]
             ],
-            2
+            ["literal", [0.5, 0]],
+            [
+              "any",
+              ["==", ["get", "dspPos"], "CT"],
+              ["==", ["get", "dspPos"], "RT"],
+              ["==", ["get", "dspPos"], "LT"]
+            ],
+            ["literal", [-0.5, 0]],
+            ["any", ["==", ["get", "dspPos"], "LC"]],
+            ["literal", [0, 0.5]],
+            ["any", ["==", ["get", "dspPos"], "RC"]],
+            ["literal", [0, -0.5]],
+            ["literal", [0, 0]]
           ],
           [
             "case",
             [
               "any",
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "CB"
-              ],
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "RB"
-              ],
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "LB"
-              ]
+              ["==", ["get", "dspPos"], "LT"],
+              ["==", ["get", "dspPos"], "LC"],
+              ["==", ["get", "dspPos"], "LB"]
             ],
-            [
-              "literal",
-              [
-                0.5,
-                0
-              ]
-            ],
+            ["literal", [0.5, 0]],
             [
               "any",
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "CT"
-              ],
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "RT"
-              ],
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "LT"
-              ]
+              ["==", ["get", "dspPos"], "RT"],
+              ["==", ["get", "dspPos"], "RC"],
+              ["==", ["get", "dspPos"], "RB"]
             ],
-            [
-              "literal",
-              [
-                -0.5,
-                0
-              ]
-            ],
-            [
-              "any",
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "LC"
-              ]
-            ],
-            [
-              "literal",
-              [
-                0,
-                0.5
-              ]
-            ],
-            [
-              "any",
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "RC"
-              ]
-            ],
-            [
-              "literal",
-              [
-                0,
-                -0.5
-              ]
-            ],
-            [
-              "literal",
-              [
-                0,
-                0
-              ]
-            ]
-          ],
-          [
-            "case",
-            [
-              "any",
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "LT"
-              ],
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "LC"
-              ],
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "LB"
-              ]
-            ],
-            [
-              "literal",
-              [
-                0.5,
-                0
-              ]
-            ],
-            [
-              "any",
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "RT"
-              ],
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "RC"
-              ],
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "RB"
-              ]
-            ],
-            [
-              "literal",
-              [
-                -0.5,
-                0
-              ]
-            ],
-            [
-              "any",
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "CT"
-              ]
-            ],
-            [
-              "literal",
-              [
-                0,
-                0.5
-              ]
-            ],
-            [
-              "any",
-              [
-                "==",
-                [
-                  "get",
-                  "dspPos"
-                ],
-                "CB"
-              ]
-            ],
-            [
-              "literal",
-              [
-                0,
-                -0.5
-              ]
-            ],
-            [
-              "literal",
-              [
-                0,
-                0
-              ]
-            ]
+            ["literal", [-0.5, 0]],
+            ["any", ["==", ["get", "dspPos"], "CT"]],
+            ["literal", [0, 0.5]],
+            ["any", ["==", ["get", "dspPos"], "CB"]],
+            ["literal", [0, -0.5]],
+            ["literal", [0, 0]]
           ]
         ],
         "text-anchor": "center",
@@ -4881,13 +2325,8 @@
         "icon-rotation-alignment": "viewport",
         "text-pitch-alignment": "viewport",
         "text-rotation-alignment": "viewport",
-        "text-field": [
-          "get",
-          "knj"
-        ],
-        "text-font": [
-          "Noto Sans Regular"
-        ],
+        "text-field": ["get", "knj"],
+        "text-font": ["Noto Sans Regular"],
         "symbol-placement": "point",
         "text-keep-upright": true,
         "symbol-z-order": "auto",
@@ -4909,38 +2348,18 @@
       "source-layer": "label",
       "minzoom": 0,
       "maxzoom": 24,
-      "filter": [
-        "all",
-        [
-          "in",
-          "ftCode",
-          100
-        ],
-        [
-          "in",
-          "annoCtg",
-          110
-        ]
-      ],
+      "filter": ["all", ["in", "ftCode", 100], ["in", "annoCtg", 110]],
       "layout": {
         "text-allow-overlap": false,
         "icon-allow-overlap": false,
-        "text-offset": [
-          0,
-          0
-        ],
+        "text-offset": [0, 0],
         "text-anchor": "center",
         "icon-pitch-alignment": "viewport",
         "icon-rotation-alignment": "viewport",
         "text-pitch-alignment": "viewport",
         "text-rotation-alignment": "viewport",
-        "text-field": [
-          "get",
-          "knj"
-        ],
-        "text-font": [
-          "Noto Sans Bold"
-        ],
+        "text-field": ["get", "knj"],
+        "text-font": ["Noto Sans Bold"],
         "symbol-placement": "point",
         "text-keep-upright": true,
         "symbol-z-order": "auto",
@@ -4949,19 +2368,7 @@
         "text-justify": "auto",
         "icon-text-fit": "none",
         "icon-size": 1,
-        "text-size": [
-          "interpolate",
-          [
-            "linear"
-          ],
-          [
-            "zoom"
-          ],
-          10,
-          16,
-          16,
-          36
-        ]
+        "text-size": ["interpolate", ["linear"], ["zoom"], 10, 16, 16, 36]
       },
       "paint": {
         "text-color": "#ccc",
@@ -4976,15 +2383,7 @@
       "source-layer": "symbol",
       "minzoom": 0,
       "maxzoom": 24,
-      "filter": [
-        "all",
-        [
-          "in",
-          "ftCode",
-          1402,
-          1403
-        ]
-      ],
+      "filter": ["all", ["in", "ftCode", 1402, 1403]],
       "layout": {
         "text-allow-overlap": false,
         "icon-allow-overlap": false,
@@ -4994,13 +2393,8 @@
         "icon-rotation-alignment": "viewport",
         "text-pitch-alignment": "viewport",
         "text-rotation-alignment": "viewport",
-        "text-field": [
-          "get",
-          "name"
-        ],
-        "text-font": [
-          "Noto Sans CJK JP Bold"
-        ],
+        "text-field": ["get", "name"],
+        "text-font": ["Noto Sans CJK JP Bold"],
         "symbol-placement": "point",
         "text-keep-upright": true,
         "symbol-z-order": "auto",
@@ -5009,10 +2403,7 @@
         "text-justify": "auto",
         "icon-text-fit": "none",
         "icon-anchor": "left",
-        "text-offset": [
-          0.8,
-          0
-        ],
+        "text-offset": [0.8, 0],
         "text-size": 12
       },
       "paint": {
@@ -5028,14 +2419,7 @@
       "source-layer": "symbol",
       "minzoom": 0,
       "maxzoom": 24,
-      "filter": [
-        "all",
-        [
-          "in",
-          "ftCode",
-          1401
-        ]
-      ],
+      "filter": ["all", ["in", "ftCode", 1401]],
       "layout": {
         "text-allow-overlap": false,
         "icon-allow-overlap": false,
@@ -5044,13 +2428,8 @@
         "icon-rotation-alignment": "viewport",
         "text-pitch-alignment": "viewport",
         "text-rotation-alignment": "viewport",
-        "text-field": [
-          "get",
-          "name"
-        ],
-        "text-font": [
-          "Noto Sans CJK JP Bold"
-        ],
+        "text-field": ["get", "name"],
+        "text-font": ["Noto Sans CJK JP Bold"],
         "symbol-placement": "point",
         "text-keep-upright": true,
         "symbol-z-order": "auto",
@@ -5073,14 +2452,7 @@
       "source-layer": "symbol",
       "minzoom": 7,
       "maxzoom": 8,
-      "filter": [
-        "all",
-        [
-          "in",
-          "ftCode",
-          51301
-        ]
-      ],
+      "filter": ["all", ["in", "ftCode", 51301]],
       "layout": {
         "text-allow-overlap": false,
         "icon-allow-overlap": false,
@@ -5089,13 +2461,8 @@
         "icon-rotation-alignment": "viewport",
         "text-pitch-alignment": "viewport",
         "text-rotation-alignment": "viewport",
-        "text-field": [
-          "get",
-          "knj"
-        ],
-        "text-font": [
-          "Noto Sans CJK JP Bold"
-        ],
+        "text-field": ["get", "knj"],
+        "text-font": ["Noto Sans CJK JP Bold"],
         "symbol-placement": "point",
         "text-keep-upright": true,
         "symbol-z-order": "auto",
@@ -5118,15 +2485,7 @@
       "source-layer": "symbol",
       "minzoom": 8,
       "maxzoom": 8,
-      "filter": [
-        "all",
-        [
-          "in",
-          "ftCode",
-          51302,
-          51303
-        ]
-      ],
+      "filter": ["all", ["in", "ftCode", 51302, 51303]],
       "layout": {
         "text-allow-overlap": false,
         "icon-allow-overlap": false,
@@ -5136,13 +2495,8 @@
         "icon-rotation-alignment": "viewport",
         "text-pitch-alignment": "viewport",
         "text-rotation-alignment": "viewport",
-        "text-field": [
-          "get",
-          "knj"
-        ],
-        "text-font": [
-          "Noto Sans Regular"
-        ],
+        "text-field": ["get", "knj"],
+        "text-font": ["Noto Sans Regular"],
         "symbol-placement": "point",
         "text-keep-upright": true,
         "symbol-z-order": "auto",
@@ -5151,10 +2505,7 @@
         "icon-image": "circle-stroked",
         "icon-anchor": "left",
         "text-justify": "auto",
-        "text-offset": [
-          0.7,
-          0
-        ]
+        "text-offset": [0.7, 0]
       },
       "paint": {
         "text-color": "#ccc",
@@ -5167,9 +2518,7 @@
       "type": "line",
       "source": "osm",
       "source-layer": "transportation_name",
-      "layout": {
-        "visibility": "none"
-      },
+      "layout": {"visibility": "none"},
       "paint": {}
     },
     {
@@ -5179,13 +2528,11 @@
       "source-layer": "transportation_name",
       "layout": {
         "text-field": "{name} {subclass}",
-        "text-font": [
-          "Noto Sans Bold"
-        ],
+        "text-font": ["Noto Sans Bold"],
         "visibility": "none"
       },
       "paint": {}
     }
   ],
-  "id": "openstayle"
+  "id": "openstyle_dark"
 }
