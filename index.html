@@ -72,8 +72,7 @@
         style: 'openstyle.json', // デフォルトのスタイル
         center: [140.084556, 36.104611],
         zoom: 5,
-        touchZoomRotate: true,
-        hash: true
+        touchZoomRotate: true
     });
 
     const navControl = new maplibregl.NavigationControl({
@@ -88,14 +87,14 @@
     });
     map.addControl(geolocateControl, 'top-right');
 
-    // トグル用の状態を保持する変数
-    let isDarkStyle = false;
+    // 切り替え用のスタイルリスト
+    const styles = ['openstyle.json', 'openstyle_dark.json', 'openstyle_sepia.json'];
+    let currentStyleIndex = 0; // 現在のスタイルのインデックス
 
     // ボタンのクリックイベントでスタイルを切り替える
     document.getElementById('toggle-style-btn').addEventListener('click', () => {
-        const newStyle = isDarkStyle ? 'openstyle.json' : 'openstyle_dark.json';
-        map.setStyle(newStyle); // スタイル切り替え
-        isDarkStyle = !isDarkStyle; // 状態の更新
+        currentStyleIndex = (currentStyleIndex + 1) % styles.length; // 次のスタイルインデックス
+        map.setStyle(styles[currentStyleIndex]); // 新しいスタイルを適用
     });
 
     map.on('load', () => {
