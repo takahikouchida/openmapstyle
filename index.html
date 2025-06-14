@@ -2,19 +2,18 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- モバイル対応用 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OpenMap Style</title>
     <link
-        href="https://unpkg.com/maplibre-gl/dist/maplibre-gl.css"
-        rel="stylesheet"
+            href="https://unpkg.com/maplibre-gl/dist/maplibre-gl.css"
+            rel="stylesheet"
     />
     <style>
-        /* ページ全体に地図をフィットさせる */
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
-            overflow: hidden; /* モバイルでスクロールを防止 */
+            overflow: hidden;
         }
 
         #map {
@@ -22,6 +21,27 @@
             top: 0;
             bottom: 0;
             width: 100%;
+        }
+
+        #btn-container {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 14px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
         }
     </style>
     <script>
@@ -35,36 +55,47 @@
 </head>
 <body>
 <div id="map"></div>
+<div id="btn-container">
+    <button id="toggle-style-btn">スタイルを切り替える</button>
+</div>
 
 <script src="https://unpkg.com/pmtiles/dist/pmtiles.js"></script>
-<!-- MapLibre GL JS のスクリプト -->
 <script src="https://unpkg.com/maplibre-gl/dist/maplibre-gl.js"></script>
 
 <script>
     let protocol = new pmtiles.Protocol();
     maplibregl.addProtocol("pmtiles", protocol.tile);
 
+    // 初期マップの作成
     const map = new maplibregl.Map({
         container: 'map',
-        style: 'openstyle.json',
+        style: 'openstyle.json', // デフォルトのスタイル
         center: [140.084556, 36.104611],
         zoom: 5,
         touchZoomRotate: true
     });
 
     const navControl = new maplibregl.NavigationControl({
-        visualizePitch: true // ピッチ（傾き）のコントロールを有効化
+        visualizePitch: true
     });
-    map.addControl(navControl, 'top-right'); // 右上に表示
+    map.addControl(navControl, 'top-right');
 
     const geolocateControl = new maplibregl.GeolocateControl({
-        positionOptions: {
-            enableHighAccuracy: true
-        },
+        positionOptions: { enableHighAccuracy: true },
         trackUserLocation: true,
         showUserHeading: true
     });
-    map.addControl(geolocateControl, 'top-right'); // 右上に表示（ナビゲーションコントロールの近く）
+    map.addControl(geolocateControl, 'top-right');
+
+    // トグル用の状態を保持する変数
+    let isDarkStyle = false;
+
+    // ボタンのクリックイベントでスタイルを切り替える
+    document.getElementById('toggle-style-btn').addEventListener('click', () => {
+        const newStyle = isDarkStyle ? 'openstyle.json' : 'openstyle_dark.json';
+        map.setStyle(newStyle); // スタイル切り替え
+        isDarkStyle = !isDarkStyle; // 状態の更新
+    });
 
     map.on('load', () => {
         console.log('Map has loaded');
