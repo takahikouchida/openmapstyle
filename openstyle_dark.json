@@ -9,13 +9,14 @@
       ],
       "minzoom": 4,
       "maxzoom": 16,
-      "attribution": "<a href=\"https://www.openstreetmap.org/\" target=\"_blank\">地理院地図Vector</a>"
+      "attribution": "<a href=\"https://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html\" target=\"_blank\">地理院地図Vector</a>"
     },
     "dem": {
       "type": "raster-dem",
       "tiles": [
         "https://gbank.gsj.jp/seamless/elev/terrainRGB/land/{z}/{y}/{x}.png"
       ],
+      "attribution": "<a href=\"https://gbank.gsj.jp/seamless/\" target=\"_blank\">産業技術総合研究所 地質調査総合センター「Seamless標高タイル」</a>",
       "minzoom": 0,
       "maxzoom": 14,
       "tileSize": 256
