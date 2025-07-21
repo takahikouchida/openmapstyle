@@ -2267,7 +2267,7 @@
         "icon-image": "高速道路枠",
         "icon-size": 0.3
       },
-      "paint": {"text-color": "#5c4425"}
+      "paint": {"text-color": "rgba(255, 255, 255, 1)"}
     },
     {
       "id": "s-gsi-主要な空港",
